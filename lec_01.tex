@@ -121,13 +121,12 @@ Es gilt noch mehr:
         \item \label{operation:beispiele:konjugation}\begin{align*}
             k\maps \begin{aligned}[t] 
                 G &\to \Bij(G)\\
-                g &\mapsto kg
+                g &\mapsto k_g
             \end{aligned}
         \end{align*}
         mit \( k_g(x)=gx\inv{g} \quad\forall x\in G \) ist eine Gruppenoperation.
     \end{eigenschaftenenumerate}
 \end{beispiel}
-\thref{operation:beispiele}~\ref{operation:beispiele:konjugation}
 \begin{frage*}
     Sei \( \tau\maps G\to \Bij(x) \) eine Gruppenoperation, \( x,y\in X \). 
     Wann gibt es ein \( g\in G \) mit \( \tau_g(x)=y \)?
@@ -177,7 +176,7 @@ mit \( \tau_w\maps X\to X \), \( p\mapsto p+w \).
 \end{figure}
 
 \begin{definition*}
-    Sei \( K \) ein Körpr. 
+    Sei \( K \) ein Körper. 
     Ein affiner Raum über \( K \) ist ein Tripel \( (X, T(X), \tau ) \) mit
     \begin{itemize}
         \item \( X\neq \emptyset \) eine Menge 
@@ -246,8 +245,6 @@ In der AGLA \Romannum{1}: lineare Abbildungen
     Was sind natürliche Abbildungen zwischen affinen Räumen?
 \end{frage*}
 Seien \( X, Y \) affine Räume über einem Körper \( K \).
-
-Seien \( X, Y \) affine Räume über einem Körper \( K \)
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{figures/affine_Abbildungen}
@@ -341,9 +338,9 @@ Seien \( X, Y \) affine Räume über einem Körper \( K \)
     Untervektorraum von \( T(X) \).
     Dann gilt für \( p \in Y \)
     \begin{align*}
-        \Set{\vv{pq}|q\in Y}=\vv{pp_0}+\Set{\vv{p_0 q}| q\in Y}=\vertrelate{\vertni}{T(Y)}{\vv{p p_0}}+ T(Y)=T(Y),
+        \Set{\vv{pq}|q\in Y}=\vv{pp_0}+\Set{\vv{p_0 q}| q\in Y}=\vertrelate{\textcolor{LimeGreen}{\vertni}}{\textcolor{LimeGreen}{T(Y)}}{\vv{p p_0}}+ T(Y)\textcolor{LimeGreen}{=T(Y)},
     \end{align*}
-    da \( \vv{p p_0}=-\vv{p_0 p}\in T(Y) \).
+    \textcolor{LimeGreen}{da \( \vv{p p_0}=-\vv{p_0 p}\in T(Y) \)}.
     
 \end{proof}
 \begin{definition*}
@@ -352,5 +349,3 @@ Seien \( X, Y \) affine Räume über einem Körper \( K \)
         \dim Y=\dim_K T(Y).
     \end{align*}
 \end{definition*}
-
-

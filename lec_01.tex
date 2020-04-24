@@ -1,13 +1,13 @@
 % !TEX root = ./Vorlesungsmitschrift AGLA 2.tex 
 \chapter{Affine Geometrie}
-\lecture{1}{Di 21.04. 10:15}{}
+\lecture{Di 21.04. 10:15}{}
 \section{Was ist ein affiner Raum?}
 \begin{beispiel}[aus der AGLA \Romannum{1}]
     \( \reals^2, \reals^3 \). 
     In diesen Räumen gibt es einen ausgezeichneten \enquote{Usprung}.
 \end{beispiel}
 \begin{frage*}
-    Wie könne wir eine affine Ebene / affine Röume modellieren, wobei alle Punkte gleichberechtigt sind?
+    Wie könne wir eine affine Ebene / affine Räume modellieren, wobei alle Punkte gleichberechtigt sind?
 \end{frage*}
 \begin{idee*}
     Verwende affine Unterräume.
@@ -90,7 +90,7 @@ Es gilt noch mehr:
     Diese formen eine Gruppe (welche?) und \enquote{operieren} auf \( D \).
 \end{beispiel}
 \begin{definition}
-    Sei \( X \) eine Mege und \( G \) eine Gruppe. 
+    Sei \( X \) eine Menge und \( G \) eine Gruppe. 
     Eine Operation von \( G \) auf \( X \) ist ein Homomorphismus von Gruppen
     \begin{align*}
         \tau\maps \begin{aligned}[t] 
@@ -251,10 +251,10 @@ Seien \( X, Y \) affine Räume über einem Körper \( K \).
     \label{fig:affine_Abbildungen}
 \end{figure}
 \begin{align*}
-    \textcolor{Turquoise}{\vertrelate{\vertni}{T(X)}{\vv{pq}}\rightsquigarrow\vertrelate{\vertni}{T(Y)}{\vv{f(p)f(q)}}}.
+    \textcolor{Turquoise}{\underrelate{\vertni}{T(X)}{\vv{pq}}\rightsquigarrow\underrelate{\vertni}{T(Y)}{\vv{f(p)f(q)}}}.
 \end{align*}
 \begin{definition*}
-    Wir nennen eine Abbildung \( f\maps X \to Y \) affin, wenn s eine \( K \)-lineare Abbildung \( F\maps T(X)\to T(Y) \) gibt, sodass \tforall \( p,q\in X \) gilt
+    Wir nennen eine Abbildung \( f\maps X \to Y \) affin, wenn es eine \( K \)-lineare Abbildung \( F\maps T(X)\to T(Y) \) gibt, sodass \tforall \( p,q\in X \) gilt
     \begin{align*}
         \vv{f(p)f(q)}=F(\vv{pq}).
     \end{align*}
@@ -271,7 +271,7 @@ Seien \( X, Y \) affine Räume über einem Körper \( K \).
             &=\tau_{F(\vv{p_0 q})}(f(p0)).
             \end{aligned}
         \end{align*}
-        Also bestimmen \( f(p_0) \) und \( F \) zusammenen die Abbildung \( f\maps X\to Y \).
+        Also bestimmen \( f(p_0) \) und \( F \) zusammen die Abbildung \( f\maps X\to Y \).
     \end{eigenschaftenenumerate}
 
 
@@ -292,7 +292,7 @@ Seien \( X, Y \) affine Räume über einem Körper \( K \).
     \label{fig:affine_abbildungen_vektorraeume}
 \end{figure}
 \begin{bemuebung*}
-    Eine affine Abbildung \( f\maps X \to Y \) ist genau dann injektiv \bzw surjektiv \bzw bijektiv, wenn die zugehörige Abbildung \( F\maps T(X)\to T(Y) \).
+    Eine affine Abbildung \( f\maps X \to Y \) ist genau dann injektiv \bzw surjektiv \bzw bijektiv, wenn die zugehörige Abbildung \( F\maps T(X)\to T(Y) \) es ist.
 \end{bemuebung*}
 \begin{definition*}
     Wir nennen eine bijektive affine Abbildung \( f\maps X \to Y \) eine Affinität.
@@ -319,7 +319,7 @@ Seien \( X, Y \) affine Räume über einem Körper \( K \).
 \begin{definition*}
     Sei \( (X,T(X), \tau) \) in affiner Raum und \( Y\subseteq X \). Wenn es einen Punkt \( p_0 \in Y \) gibt, sodass
     \begin{align*}
-        T(Y)\definedas \Set{\vv{p\circ q}\in T(X), q\in Y}
+        T(Y)\definedas \Set{\vv{p_0 q}\in T(X), q\in Y}
     \end{align*}
     ein Untervektorraum von \( T(X) \) ist, dann nennen wir \( Y \) einen affinen Unterraum von \( X \).
 \end{definition*}
@@ -328,7 +328,7 @@ Seien \( X, Y \) affine Räume über einem Körper \( K \).
     \begin{align*}
         T(Y)=\Set{\vv{pq}\in T(X), q\in Y}
     \end{align*}
-    für jedes beiliebigen Punkt \( p\in Y \).
+    für jeden beliebigen Punkt \( p\in Y \).
 \end{lemma}
 \begin{proof}
     Sei \( p_0\in Y \) ein fester Punkt mit
@@ -338,7 +338,7 @@ Seien \( X, Y \) affine Räume über einem Körper \( K \).
     Untervektorraum von \( T(X) \).
     Dann gilt für \( p \in Y \)
     \begin{align*}
-        \Set{\vv{pq}|q\in Y}=\vv{pp_0}+\Set{\vv{p_0 q}| q\in Y}=\vertrelate{\textcolor{LimeGreen}{\vertni}}{\textcolor{LimeGreen}{T(Y)}}{\vv{p p_0}}+ T(Y)\textcolor{LimeGreen}{=T(Y)},
+        \Set{\vv{pq}|q\in Y}=\vv{pp_0}+\Set{\vv{p_0 q}| q\in Y}=\underrelate{\textcolor{LimeGreen}{\vertni}}{\textcolor{LimeGreen}{T(Y)}}{\vv{p p_0}}+ T(Y)\textcolor{LimeGreen}{=T(Y)},
     \end{align*}
     \textcolor{LimeGreen}{da \( \vv{p p_0}=-\vv{p_0 p}\in T(Y) \)}.
     

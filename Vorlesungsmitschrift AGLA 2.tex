@@ -1,5 +1,4 @@
-\documentclass[numberindividually]{hrflecture}
-
+\documentclass[numberindividually,nomasternumbers, numberwithin=lecture]{hrflecture}
 \renewcommand*{\sectionformat}{\textsection\thesection\autodot\enskip}
 \addtokomafont{section}{\mdseries}
 
@@ -16,14 +15,21 @@
 \textbf{Disclaimer}
 \vspace{1cm}
 
-Nicht von Schindler durchgesehene Mitschrift, keine Garantie auf Richtigkeit.
+Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richtigkeit ihrerseits.
 
 \newpage
 \tableofcontents
 \newpage
 
+% some more adjustments
+\makeatletter
+\renewtheorem{satz}[lemma]{Satz}
+\def\thm@fmt@hyplabel@ii#1.#2.#3{#3} % I don't quite understand this
+\makeatother
+
 % Begin of lectures
 \input{lec_01.tex}
+\input{lec_02.tex}
 % End of lectures
 
 \end{document}

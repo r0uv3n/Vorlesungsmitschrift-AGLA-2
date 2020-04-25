@@ -3,6 +3,10 @@
 *.mp4
 !Vorlesungsmitschrift\ Agla\ 2.pdf
 
+# vscode
+*.vscode
+*.code-workspace
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -279,4 +283,4 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
-AGLA 2 Vorlesungen.code-workspace
+

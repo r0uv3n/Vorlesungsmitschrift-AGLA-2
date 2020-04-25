@@ -30,7 +30,7 @@
         T(Y)\begin{aligned}[t] 
             &=\Set{\underrelate{\textcolor{Goldenrod}\vertni}{\textcolor{Goldenrod}{T(X)}}{\vv{p_0 q}},q\in \bigcap_{i\in I}Y_i}\\
             &=\bigcap_{i\in I}\textcolor{LimeGreen}{\underbrace{\Set{\vv{p_0 q}, q\in Y_i}}_{=T(Y_i)}}\\
-            &=\bigcup_{i_I}T(\explain{\text{Untervektorräume von \( T(X) \)}}{Y_i}).
+            &=\bigcap_{i\in I}T(\explain[big]{\text{Untervektorräume von \( T(X) \)}}{Y_i}).
         \end{aligned}
     \end{align*}
     Also ist \( T(Y) \) ein Untervektorraum von \( T(X) \) und \( T(Y)=\bigcap_{i\in I}T(Y_i) \).
@@ -44,7 +44,8 @@
 \begin{definition*}
     Sei \( X \) ein affiner Raum, \( Y_i \), \( i\in I \) affine Unterräume von \( X \). Wir nennen
     \begin{align*}
-        \bigcap_{\substack{Y\subseteq X \text{ aff.\ Unterraum}\\\bigcup_{i\in I}Y_i\subseteq Y}}Y
+        \bigcap_{\mathclap{\substack{Y\subseteq X \text{ aff.\ Unterraum}\\
+         \bigcup_{i\in I}Y_i\subseteq Y}}}Y
     \end{align*}
     den \emph{Verbindungsraum} der affinen Unterräume \( Y_i \), \( i\in I \). Schreibe \( \bigvee_{i\in I}Y_i \).
 \end{definition*}
@@ -70,7 +71,7 @@
             T(Y_1\vee Y_2)=T(Y_1)+T(Y_2).
         \end{align*}
         
-        \item \label{verbindungsraum:translationen:schnitt_leer}Sei \( Y_1\cap Y_2=\zeroset \), \( p_1\in Y_1, p_2\in Y_2\) und \( Y=p_1\vee p_2 \).
+        \item \label{verbindungsraum:translationen:schnitt_leer}Sei \( Y_1\cap Y_2=\emptyset \), \( p_1\in Y_1, p_2\in Y_2\) und \( Y=p_1\vee p_2 \).
         
         Dann gilt:
         \begin{align*}
@@ -168,7 +169,7 @@ Als nächstes: \( \dim(Y_1\vee Y_2) \) ist durch \( \dim_K T(Y_1\vee Y_2) \) geg
         
         \item[\ref{verbindungsraum:dimension:schnitt_nicht_leer}] Aus \thref{verbindungsraum:translationen} folgt
         \begin{align*}
-            T(Y_1\vee Y_2)=T(Y_1)+(Y_2),
+            T(Y_1\vee Y_2)=T(Y_1)+T(Y_2),
         \end{align*}
         aus der Dimensionsformel für Untervektorräume folgt
         \begin{align*}
@@ -281,7 +282,7 @@ Sei \( W\subseteq T(X) \) ein Untervektorraum mit \( T(X)=T(Y_1)\oplus W \).
 \begin{ziel*}
     Definiere eine Projektionsabbildung
     \begin{align*}
-        \Pi_W\maps X\to Y_1
+        \pi_W\maps X\to Y_1
     \end{align*}
     \enquote{längs \( W \)}.
 \end{ziel*}
@@ -328,14 +329,14 @@ Für \( p\in X \) definiere
 \end{proof}
 Wir definieren die Projektion längs \( W \)
 \begin{align*}
-    \Pi_W\maps \underrelate{\subseteq}{Y_0}{X}\to Y_1,\logicspace p\mapsto W(p)\cap Y_1.
+    \pi_W\maps \underrelate{\subseteq}{Y_0}{X}\to Y_1,\logicspace p\mapsto W(p)\cap Y_1.
 \end{align*}
 \begin{satz}
     Sei \( X \) ein affiner Raum, \( Y_1,Y_0\subseteq X \) affine Unterräume, \( W\subseteq T(X) \) ein Untervektorraum mit 
     \begin{align*}
         T(X)=W\oplus T(Y_0)=W\oplus T(Y_1).
     \end{align*}
-    Dann ist \( \Pi_W\maps X\to Y_1 \) eine surjektive affine Abbildung und \( \evaluateat{\Pi_w}{Y_0}\maps Y_0\to Y_1 \) eine Affinität.
+    Dann ist \( \pi_W\maps X\to Y_1 \) eine surjektive affine Abbildung und \( \evaluateat{\pi_w}{Y_0}\maps Y_0\to Y_1 \) eine Affinität.
 \end{satz}
 \begin{proof}
     Seien \( p,q\in X \).
@@ -347,13 +348,13 @@ Wir definieren die Projektion längs \( W \)
     Dann gilt
     \begin{align*}
         \vv{pq}\begin{aligned}[t] 
-            &=\vv{p\Pi_W(p)}+\vv{\Pi_W(p)\Pi_W(q)}+\vv{\Pi_W(q)q}+\vv{\Pi_W(q)q}\\
-            &=\underbrace{\vv{p\Pi_W(p)}+\vv{\Pi_W(q)q}}_{\textcolor{Cyan}{\in W}}+\underbrace{\vv{\Pi_W(p)\Pi_W(q)}}_{\textcolor{Cyan}{\in T(Y_1)}},
+            &=\vv{p\pi_W(p)}+\vv{\pi_W(p)\pi_W(q)}+\vv{\pi_W(q)q}+\vv{\pi_W(q)q}\\
+            &=\underbrace{\vv{p\pi_W(p)}+\vv{\pi_W(q)q}}_{\textcolor{Cyan}{\in W}}+\underbrace{\vv{\pi_W(p)\pi_W(q)}}_{\textcolor{Cyan}{\in T(Y_1)}},
         \end{aligned}
     \end{align*}
-    also \( \vv{\Pi_W(p)\Pi_W(q)}=P_W(\vv{pq}) \).
+    also \( \vv{\pi_W(p)\pi_W(q)}=P_W(\vv{pq}) \).
 
-    \( P_W \) ist surjektiv, also ist \( \Pi_W \) eine surjektive affine Abbildung.
+    \( P_W \) ist surjektiv, also ist \( \pi_W \) eine surjektive affine Abbildung.
 
     Der zweite Teil folgt aus \thref{projektion_isomorph}.
 \end{proof}

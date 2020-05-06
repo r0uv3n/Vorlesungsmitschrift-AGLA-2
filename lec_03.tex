@@ -51,7 +51,7 @@ Wir formalisieren diese Konzepte für allgemeine affine Räume.
     Sei \( X \) ein affiner Raum und \( p_0,\dotsc, p_n\in X \). Wir nennen \( (p_0,\dotsc,p_n) \) \emph{affin unabhängig} \bzw eine \emph{affine Basis}, wenn die Vektoren \( (\vv{p_0p_1},\dotsc, \vv{p_0p_n}) \) in \( T(x) \) \emph{linear unabhängig sind} \bzw \emph{eine Basis bilden}.
 \end{definition*}
 \begin{beispiele*}
-    \begin{eigenschaftenenumerate}
+    \begin{enumerate}
         \item In \( X=\reals^n \) ist \( (0,e_1,\dotsc, e_n) \) eine affine Basis.
         \item \( X=\reals^n \) als affiner Raum, \( v_1,\dotsc, v_k\in \reals^n \) linear unabhängig, \( v_0=0 \). Dann ist das Tupel \( (v_0,v_1,\dotsc,v_k) \) affin unabhängig.
         \begin{frage*}
@@ -63,7 +63,7 @@ Wir formalisieren diese Konzepte für allgemeine affine Räume.
             (p_0,\tau_{t_1}(p_0),\dotsc, \tau_{t_n}(p_0))
         \end{align*}
         eine affine Basis von \( X \).
-    \end{eigenschaftenenumerate}
+    \end{enumerate}
     
 \end{beispiele*}
 \begin{lemma}
@@ -112,7 +112,7 @@ Wir formalisieren diese Konzepte für allgemeine affine Räume.
             \explain{\lambda_0=0}+\underbrace{\lambda_1+\dotsb+\lambda_{i-1}+\lambda_{i+1}+\dotsb+\lambda_n}_{=0}=0
     \end{align*}
 \end{proof}
-\section*{Affine Basen und affine Abbildungen}
+\subsection*{Affine Basen und affine Abbildungen}
 Aus der AGLA \Romannum{1}:\\
 Seien \( V,W \) \( K \)-Vektorräume, \( v_1,\dotsc, v_n \in V \) eine Basis von \( V \) und \( w_1,\dotsc, w_n \in W\). Dann gibt es genau eine \( K \)-lineare Abbildung \( \phi\maps V\to W \) mit
 \begin{align*}
@@ -162,7 +162,7 @@ Seien \( V,W \) \( K \)-Vektorräume, \( v_1,\dotsc, v_n \in V \) eine Basis von
     \tto \( f \) ist eine Affinität \gdw \( F \) bijektiv ist. \( F \) ist bijektiv \gdw \( \vv{q_0 q_1}, \dotsc, \vv{q_0 q_n} \) eine Basis von \( T(Y) \) ist.
 
 \end{proof}
-\section*{Affine Koordinatensysteme}
+\subsection*{Affine Koordinatensysteme}
 Sei \( X \) ein affiner Raum über einem Körper \( K \), \( (p_0,p_1,\dotsc, p_n) \) eine affine Basis von \( X \).
 
 Nach \thref{bilder_der_basen_bestimmen_affine_abbildung} gibt es genau eine Affinität
@@ -216,7 +216,7 @@ oder \( p=\phi((\lambda_1,\dotsc,\lambda_n)) \).
     Sei \( X \) ein affiner Raum über \( K \), \( Y\subseteq X \) eine affine Gerade, \( p_0,p_1,p\in Y \) und \( p_0\neq p_1 \). Dann nennen wir das eindeutig bestimmte Element \( \lambda\in K \) mit \( \vv{p_0 p}=\lambda \vv{p_0 p_1} \) das Teilverhältnis von \( p_0,p_1,p \). Schreibe \( \lambda=\teilverhaeltnis(p_0,p_1,p) \). In \( \characteristic(K)\neq 2 \) nennen wir \( p \) Mittelpunkt von \( p_0,p_2 \) wenn \( \teilverhaeltnis(p_0,p_1,p)=\frac{1}{2} \).
 \end{definition*}
 \begin{bemerkungen*}
-    \begin{eigenschaftenenumerate}
+    \begin{enumerate}
         \item Es gilt \( T(Y)=K\vv{p_0p_1} \). Damit ist \( \lambda \) wohldefiniert und existiert.
         \item \( p_0,p_1 \) ist eine affine Basis von \( Y \). Damit existiert ein Koordinatensystem
         \begin{align*}
@@ -226,7 +226,7 @@ oder \( p=\phi((\lambda_1,\dotsc,\lambda_n)) \).
             \end{aligned}
         \end{align*}
         und es gilt \( \teilverhaeltnis(p_0,p_1,p)=\inv{\phi(p)} \).
-    \end{eigenschaftenenumerate}
+    \end{enumerate}
     
 \end{bemerkungen*}
 \begin{frage*}

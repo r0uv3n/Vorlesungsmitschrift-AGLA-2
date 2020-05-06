@@ -1,0 +1,382 @@
+% !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
+\lecture{Di 05.05. 10:15}{}
+\begin{beispiel*}
+    Seien \( p_0,p_1\in \reals^2 \), \( p_0\neq p_1 \). Ziel: Beschreibe den affinen Unterraum \( p_0\vee p_1 \) als Teilmenge des \( \reals^2 \). Sei \( p\in p_0\vee p_1 \). Dann \( \exists \lambda\in \reals \) mit \( \vv{p_0 p}=\lambda \vv{p_0 p_1} \) und als Vektoren im \( \reals^2 \) gilt \( p=p_0+\lambda(p_1-p_0) \). Es gilt
+    \begin{align*}
+        p_0 \vee p_1=\Set{(1-\lambda)p_0+\lambda p_1,\logicspace \lambda\in \reals}.
+    \end{align*}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{figures/affine_verbindungsgerade}
+        \label{fig:affine_verbindungsgerade}
+    \end{figure}
+    
+\end{beispiel*}
+\begin{frage*}
+    Verallgemeinerung zu höherdimensionalen Räumen?
+\end{frage*}
+\begin{definition*}
+    Seien \( p_0,\dotsc,p_k\in  K^n \). Wir nennen eine Linearkombination
+    \begin{align*}
+        \lambda_0 p_0+\lambda_1 p_1+\dotsb+\lambda_m p_m
+    \end{align*}
+    mit \( \lambda_i\in K \), \( 0\leq i\leq m \) eine Affinkombination oder affin falls gilt \( \lambda_0+\lambda_1+\dotsb+\lambda_m=1 \).
+\end{definition*}
+\begin{satz}
+    Seien \( p_0,\dotsb,p_m\in K^n \). Dann gilt
+    \begin{align*}
+        p_0\vee \dotsb \vee p_m =\Set{\sum_{i=0}^{m}\lambda_i p_i\in K^n \logicspace \lambda_0,\dotsc,\lambda_m\in K, \sum_{i=0}^{m}\lambda_i=1}.
+    \end{align*}
+\end{satz}
+\begin{proof}
+    Sei \( Y=p_0 \vee\dotsb\vee p_m\in K^n \). Es gilt
+    \begin{align*}
+        T(Y)\begin{aligned}[t]
+            &=\underbrace{T(p_m)}_{=0}+T(p_0\vee \dotsb \vee p_{m-1})+\underbrace{K\vv{p_0 p_m}}_{\mathclap{=T(p_0\vee p_m)}}\\
+            &=K\vv{p_0 p_m}+T(p_0\vee \dotsb\vee p_{m-1})\\
+            &=K\vv{p_0 p_m}+\dotsb +K\vv{p_0 p_1}\\
+            &\vdots\\
+            &=K\vv{p_0 p_m}+\dotsb + K\vv{p_0 p_1}\\
+            &=\span(\vv{p_0 p_1}, \dotsc, \vv{p_0 p_m}).
+        \end{aligned}
+    \end{align*}
+    Sei \( p\in K^n \). Dann ist \( p\in Y \) genau dann, wenn \texists \( \lambda_1,\dotsc,\lambda_m\in K \) mit
+    \begin{align*}
+        \vv{p_0 p}=\lambda_1 \vv{p_0 p_1}+\dotsb+\lambda_m\vv{p_0 p_m}.
+    \end{align*}
+    Im \( K^n \) gilt dann also
+    \begin{align*}
+        p-p_0=\lambda_1(p_1-p_0)+\dotsb + \lambda_m(p_m-p_0)
+    \end{align*}
+    oder 
+    \begin{align*}
+        p=\lambda_0 p_0+\lambda_1 p_1+\dotsb+\lambda_m p_m
+    \end{align*}
+    mit \( \lambda_0=1-\lambda_1-\dotsb-\lambda_m \), \dh \( \sum\limits_{i=0}^{m}\lambda_i=1 \).
+\end{proof}
+\section{Affine Abbildungen und Matrizen, Fixpunkte}
+\begin{motivation*}
+    Seien \( V,W \) \( K \)-Vektorräume, \( F\maps V\to W \) eine lineare Abbildung. Wenn wir für \( V \) und \( W \) Basen wählen, dann können wir die Abbildung \( F \) eindeutig durch eine Matrix beschreiben.
+\end{motivation*}
+\begin{frage*}
+    Inwiefern können wir affin Abbildung zwischen affinen Räumen durch Matrizen beschreiben?
+\end{frage*}
+Wahl von Basen in Vektorräumen \( \leftrightarrow \) Wahl von Koordinaten in affinen Räumen. 
+
+Seien \( X,Y \) affine Räume über \( K \), \( f\maps X\to Y \) eine affine Abbildung. Wähle affine Koordinatensysteme \( \phi\maps K^n\to X  \) und \( \psi\maps K^m\to Y \).
+
+Wir haben das folgende kommutative Diagramm
+\begin{equation*}
+    \begin{tikzcd}
+        K^n\arrow{r}{\phi}\arrow{d}[name=g]{g} &X\arrow{d}[name=f]{f}\\
+        K^m\arrow{r}{\psi}&Y
+        \arrow[to path={(f) node[midway,scale=1] {\rotatebox{90}{\(\circlearrowright\)}} (g)}]{} 
+    \end{tikzcd}    
+\end{equation*}
+mit \( g=\inv{\psi}\circ f\circ \phi \) affin. \( g \) ist affin, also besteht eine affine Abbildung \( G\maps K^n\to K^m \) mit
+\begin{align*}
+    g(x)-g(0)=G(x)\quad \forall x\in K^n.
+\end{align*}
+\( G \) ist linear, also können wir \( G \) durch eine Matrix \( A \) ausdrücken.
+\begin{align*}
+    g(x)=Ax+b\quad \forall x\in K^n.
+\end{align*}
+mit \( b=g(0) \).
+\begin{frage*}
+    Wie können wir \( A \) berechnen gegeben eine affine Basis \( (p_0,\dotsc,p_n) \) von \( K^n \) und \( g(p_i) \), \( 0\leq i \leq n \)?
+\end{frage*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/affine_basen_abbildung_wunsch}
+    \label{fig:affine_basen_abbildung_wunsch}
+\end{figure}
+Wir betrachten die Matrizen \( B\in \Mat_{m\times n}(K) \) bestehend aus den Spaltenvektoren \( \vv{q_0 q_1},\dotsc, \vv{q_0 q_n} \) und \( S\in \Mat_{n\times n}(K) \) bestehend aus den Spaltenvektoren \( \vv{p_0 p_1}, \dotsc, \vv{p_0 p_n} \). Dann gilt \( A=B\cdot \inv{S}  \) und \( g(x)-g(p_0)=A(x-p_0) \), also \( g(x)=Ax+b \) mit \( b=g(p_0)-Ap_0 \).
+\begin{bemerkung*}
+    Wählen wir für \( p_0,\dotsc,pm \) die affine Basis \( 0,e_1,\dotsc, e_n \), dann \( S=\Id_{n\times n} \) und \( A=B \).
+\end{bemerkung*}
+\subsection*{Fixpunkte}
+\begin{beispiel}
+    Betrachte die affine Abbildung \( f\maps K\to K \), \( K \) ein Körper, in der Matrizendarstellung gegeben durch \( f(x)=2x+1\isittrue{=}x \).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{figures/affiner_fixpunkt_1_d}
+        \label{fig:affiner_fixpunkt_1_d}
+    \end{figure}
+    Dann gibt es genau ein \( x\in K \) mit \( f(x)=x \), nämlich \( x=-1 \).
+\end{beispiel}
+\begin{definition*}
+    Sei \( X \) ein affiner Raum \( f\maps X\to X \) eine affine Abbildung. Wir nennen
+    \begin{align*}
+        \Fix(f)\definedas \Set{x\in X|f(x)=x}
+    \end{align*}
+    die Menge der Fixpunkte von \( f \).
+\end{definition*}
+\begin{frage*}
+    Welche Struktur hat \( \Fix(f) \).
+\end{frage*}
+\begin{beispiel}
+    \( X \) affiner Raum.
+    \begin{align*}
+        \Id\maps \begin{aligned}[t]
+            X&\to X\\
+            x&\mapsto x
+        \end{aligned}
+    \end{align*}
+    dann \( \Fix(\Id)=X \).
+\end{beispiel}
+\begin{beispiel}
+    \( f\maps K^n\to K^n \), \( x\mapsto \underrelate{\isittrue{=}}{x}{\underbrace{x+p_0}} \) mit \( p_0\in K^n\setminus \zeroset \), dann \( \Fix(f)=\emptyset \).
+\end{beispiel}
+\begin{beispiel}
+    \begin{frage*}
+        Was sind die Fixpunkte einer Projektion?
+    \end{frage*}
+    
+\end{beispiel}
+\begin{lemma}\label{affine_fixpunkte_sind_affiner_unterraum}
+    \( \Fix(f)\subseteq X \) ist ein affiner Unterraum.
+\end{lemma}
+\begin{proof}
+    Falls \( \Fix(f)=\emptyset \) dann \checkmark. Sei also \( \Fix(f)\neq \emptyset \) und \( p\in \Fix(f) \), \( F \) die zu \( f \) gehörig lineare Abbildung.
+
+    Für \( x\in \Fix(f) \) gilt
+    \begin{align*}
+        \vv{px}=\vv{f(p) f(x)}=F(\vv{px}).
+    \end{align*}
+    Umgekehrt folgt aus
+    \begin{align*}
+        \vv{px}=F(\vv{px})=\vv{p f(x)},
+    \end{align*}
+    dass \( x=f(x) \), also \( x\in \Fix(f) \).
+
+    Damit gilt
+    \begin{align*}
+        \Set{\vv{px}\in T(X)|x\in \Fix(f)}=\Set{\vv{px}\in T(X)|\vv{px}=F(\vv{px})}
+    \end{align*}
+    und wir erkennen diese Menge als \( K \)-Untervektorraum von \( X \).
+\end{proof}
+\begin{frage*}
+    Bestimmung von \( \Fix(f) \) für eine beliebige affine Abbildung \( f\maps X\to X \)?
+\end{frage*}
+Nach Wahl eines Koordinatensystems können wir auf den Fall \( X=K^n \) reduzieren und annehmen, dass \( f \) in Matrizendarstellung gegeben ist.
+
+Sei also
+\begin{align*}
+    f\maps \begin{aligned}[t]
+        K^n&\to K^n\\
+        x\mapsto &\underbrace{Ax+b}_{=x=\Id_n x}.
+    \end{aligned}
+\end{align*}
+Dann gilt
+\begin{align*}
+    \Fix(f)=\set{x\in K^n|(A-\explain{\text{Einheitsmatrix der Dimension \( n \):}\ \begin{pNiceMatrix}
+        1 &  & 0 \\
+         & \ddots &  \\
+        0 &  & 1
+    \end{pNiceMatrix}
+    }{\Id_n})x=-b}
+\end{align*}
+Wir haben das Problem also reduziert auf das Lösen eines linearen Gleichungssystems.
+\begin{bemerkung*}
+    Daraus kann man auch \thref{affine_fixpunkte_sind_affiner_unterraum} ableiten.
+\end{bemerkung*}
+\begin{beispiel}\label{dilatation_beispiel}
+    \begin{align*}
+        f\maps \begin{aligned}[t]
+            K^n&\to K^n\\
+            x&\mapsto \lambda \Id_n x+b
+        \end{aligned}     
+    \end{align*}
+    mit \( \lambda\in K \).
+
+    Dann
+    \begin{align*}
+        \Fix(f)=\Set{x\in K^n|(\lambda-1)x=-b}.
+    \end{align*}
+    Falls \( \lambda-1 \) invertierbar ist \( (\lambda\neq 1) \), gibt es genau einen Fixpunkt.
+\end{beispiel}
+\begin{definition*}
+    Sei \( f\maps X\to X \) eine affine Abbildung mit zugehöriger linearer Abbildung \( F\maps T(X)\to T(X) \). Wir nennen \( f \) eine \emph{Dilatation} mit \emph{Faktor \( \lambda \)}, falls gilt
+    \begin{align*}
+        F=\lambda \cdot \Id_{T(X)}\quad \lambda\in K.
+    \end{align*}
+    Im Fall \( \lambda=1 \) nennen wir \( f \) eine Translation.
+\end{definition*}
+\begin{lemma}
+    Sei \( f\maps X\to X \) eine Dilatation mit Faktor \( \lambda\neq 1 \). Dann gilt
+    \begin{align*}
+        \anzahl \Fix(f)=1.
+    \end{align*}
+\end{lemma}
+\begin{proof}
+    Nach Wahl eines Koordinatensystems reduzieren wir das Problem auf \thref{dilatation_beispiel}.    
+\end{proof}
+
+\section{Kollineationen}
+Sei \( f\maps X\to X \) eine affine Abbildung eines affinen Raumes \( X \), \zb eine Affinität. Seien \( p_1,p_2,p_3\subset X \) in einer Geraden \( \ell\subseteq X \) enthalten.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/kollineationen_motivation}
+    \label{fig:kollineationen_motivation}
+\end{figure}
+Dann liegen auch \( f(p_1), f(p_2),f(p_3) \) auf einer Geraden.
+
+\begin{frage*}
+    Welche bijektiven Abbildungen \( f\maps X\to X \) haben diese Eigenschaft?
+\end{frage*}
+\begin{definition*}
+    Sei \( X \) ein affiner Raum und \( p_1,p_2,p_3\in X \). Wir nennen \( p_1,p_2,p_3 \) \emph{kollinear}, wenn \( p_1,p_2,p_3 \) auf einer Geraden \( \ell \subset X \) liegen. Wir nennen eine bijektive Abbildung \( f\maps X\to X \) eine Kollineation, falls jede Gerade \( \ell \subset X \) auf eine Gerade \( f(\ell)\subset X \) abgebildet wird.
+\end{definition*}
+\begin{beispiel}
+    Affinitäten
+\end{beispiel}
+\begin{beispiel}
+    Ist \( \dim X=1 \) und \( f\maps X\to X \) bijektiv, dann ist \( f \) eine Kollineation.
+\end{beispiel}
+\begin{beispiel}\label{kollinieationen:beispiele:komplexe_konjugation}
+    Sei \( X=\complexs^2 \) als affiner Raum über \( \complexs \).
+    \begin{align*}
+        f\maps \begin{aligned}[t]
+            \complexs^2\to \complexs^2\\
+            (x,y)&\mapsto &(\explain{\text{komplexe Konjugation}}{\conj{x},\conj{y          }}).
+        \end{aligned}
+    \end{align*}
+    Dann ist \( f \) eine Kollineation. Das Bild einer Geraden
+    \begin{align*}
+        (x_0,y_0)+\complexs(x_1,y_1)
+    \end{align*}
+    ist gegeben durch die Gerade
+    \begin{align*}
+        (\conj{x_0},\conj{y_0})+\complexs(\conj{x_1},\conj{y_1}),
+    \end{align*}
+    aber \( f \) ist \emph{keine Affinität}!
+\end{beispiel}
+\begin{bemerkung*}
+    Die komplexe Konjugation
+    \begin{align*}
+        \begin{aligned}[t]
+            \complexs&\to \complexs\\
+            x&\mapsto \conj{x}
+        \end{aligned}
+    \end{align*}
+    ist ein Automorphismus von dem Körper \( \complexs \).
+\end{bemerkung*}
+\begin{definition*}
+    Sei \( K \) ein Körper. Wir nennen eine Bijektion \( \alpha\maps K\to K \) einen Automorphismus von \( K \) falls gilt
+    \begin{align*}
+        \alpha(\lambda+\mu)&=\alpha(\lambda)+\alpha(\mu)\quad \forall \lambda,\mu\in K
+        \intertext{und}
+        \alpha(\lambda\cdot \mu)&=\alpha(\lambda)\cdot \alpha(\mu)\quad \forall  \lambda,\mu\in K
+    \end{align*}
+\end{definition*}
+\begin{beispiel}
+    \begin{align*}
+        K=\rationals(\sqrt{2})=\Set{x+y\sqrt{2}|x,y\in\rationals}
+    \end{align*}
+    ist ein Körper und 
+    \begin{align*}
+        \alpha\maps \begin{aligned}[t]
+            \rationals(\sqrt{2})&\to \rationals(\sqrt{2})\\
+            x+y\sqrt{2}&\mapsto x-y\sqrt{2}.
+        \end{aligned}
+    \end{align*}
+\end{beispiel}
+\begin{satz}
+    Sei \( \alpha\maps \reals\to \reals \) ein Automorphismus von \( \reals \). Dann gilt \( \alpha=\Id_{\reals} \).
+\end{satz}
+\begin{proof}
+    Sei \( \alpha\maps \reals\to \reals \) ein Automorphismus.
+    \begin{proofenumerate}
+        \item Dann gilt
+        \begin{align*}
+            \alpha(0)=\alpha(0+0)=\alpha(0)+\alpha(0),
+        \end{align*}
+        also \( \alpha(0)=0 \).
+        \item Dann gilt
+        \begin{align*}
+            0=\alpha(0)=\alpha(\lambda-\lambda)=\alpha(\lambda)+\alpha(-\lambda),
+        \end{align*}
+        also \( \alpha(-\lambda)=-\alpha(\lambda)\logicspace \forall \lambda\in \reals \).
+        \item Dann gilt
+        \begin{align*}
+            \alpha(1)=\alpha(1\cdot 1)=\alpha(1)\alpha(1),
+        \end{align*}
+        also \( \alpha(1)=1 \) und daher
+        \begin{align*}
+            \alpha(n)=n\logicspace \forall n\in \wholes,
+        \end{align*}
+        \zb
+        \begin{align*}
+            \alpha(2)=\alpha(1+1)=\alpha(1)+\alpha(1)=1+1=2.
+        \end{align*}
+        \item Sei \( p\in \wholes \), \( q\in \naturals \), dann gilt
+        \begin{align*}
+            q\alpha\left( \frac{p}{q} \right)\begin{aligned}[t]
+                &=\alpha(q)\alpha\left( \frac{p}{q} \right)=\alpha\left( q\frac{p}{q} \right)=\alpha(p)=p,
+            \end{aligned}
+        \end{align*}
+        also \( \alpha\left( \frac{p}{q}=\frac{p}{q} \right) \) oder \( \alpha(t)=t\quad \forall t\in \rationals \).
+        \item Sei \( \lambda\in \reals_{>0} \). Dann \texists  \( \mu\in\reals \) mit \( \lambda=\mu^2 \) und
+        \begin{align*}
+            \alpha(\lambda)=\alpha(\mu^2)=\alpha(\mu)\cdot \alpha(\mu)>0,
+        \end{align*}
+        also
+        \begin{align*}
+            \alpha(\lambda)>0\quad \forall \lambda\subset \reals>0.
+        \end{align*}
+    \end{proofenumerate}
+    Wir zeigen nun \( \alpha(\lambda)=\lambda\quad \forall \lambda\in \reals \).
+
+    \minisec{Gegenannahme}
+    Sei \( \lambda\in \reals \) mit \( \alpha(\lambda)\neq \lambda \). Wir diskutieren den Fall \( \alpha(\lambda)<\lambda \) (\( \alpha(\lambda)>\lambda \) geht genauso).
+
+    Wähle \( \frac{p}{q}\in \rationals \) mit
+    \begin{align*}
+        \alpha(\lambda)<\frac{p}{q}<\lambda.
+    \end{align*}
+    Dann gilt
+    \begin{align*}
+        \alpha(\lambda-\frac{p}{q})=\alpha(\lambda)-\frac{p}{q}<0
+    \end{align*}
+    \contra zu \( \lambda-\frac{p}{q}>0 \).
+\end{proof}
+
+\subsection*{Eine Familie von Kollineationen}
+\begin{idee*}
+    Wir verallgemeinern \thref{kollinieationen:beispiele:komplexe_konjugation}, um ine größere Klasse an Kollineationen zu erhalten als Affinitäten.
+\end{idee*}
+\begin{beispiel}
+    \begin{align*}
+        f\maps \begin{aligned}[t]
+            \complexs^2&\to \complexs^2\\
+            (x,y)&\mapsto (\conj{x},\conj{y})
+        \end{aligned}
+    \end{align*}
+    respektiert Addition, \dh
+    \begin{align*}
+        f(z+z')=f(z)+f(z')\quad \forall z,z'\in \complexs^2,
+    \end{align*}
+    und hat die Eigenschaft
+    \begin{align*}
+        f(\lambda z)=\conj{\lambda} f(z)\quad \forall \lambda\in \complexs\logicspace \forall z\in \complexs^2.
+    \end{align*}
+    \tto Wir nennen \( f \) semilinear.
+\end{beispiel}
+\begin{definition*}
+    Seien \( V,W \) Vektorräume über einem Körper \( K \). Wir nennen eine Abbildung \( F\maps V\to W \) \emph{semilinear}, wenn es einen Automorphismus \( \alpha \) von \( K \) gibt, sodass gilt
+    \begin{itemize}
+        \item \(F(v+v')=F(v)+F(v')\quad \forall v,v'\in V\)
+        \item \( F(\lambda v)=\alpha(\lambda) F(v)\quad \forall \lambda\in K \logicspace \forall v\in V\).
+    \end{itemize}
+\end{definition*}
+\begin{definition*}
+    Seien \( X,Y \) affine Räume über einem Körper \( K \). Wir nennen eine Abbildung
+    \begin{align*}
+        f\maps X\to Y
+    \end{align*}
+    \emph{semiaffin}, wenn es eine \emph{semilineare Abbildung} \( F\maps T(X)\to T(Y) \) gibt mit
+    \begin{align*}
+        \vv{f(p) f(q)}=F(\vv{pq})\logicspace \forall p,q\in X.
+    \end{align*}
+    Falls \( f \) außerdem bijektiv ist, dann nennen wir \( f \) eine Semiaffinität.
+\end{definition*}

@@ -172,14 +172,14 @@ Als nächstes: \( \dim(Y_1\vee Y_2) \) ist durch \( \dim_K T(Y_1\vee Y_2) \) geg
             T(Y_1\vee Y_2)=T(Y_1)+T(Y_2),
         \end{align*}
         aus der Dimensionsformel für Untervektorräume folgt
-        \begin{align*}
+        \begin{equation*}
             \dim (Y_1\vee Y_2)\begin{aligned}[t] 
                 &=\dim T(Y_1\vee Y_2)\\
                 &=\dim(Y_1)+\dim T(Y_2)-\dim(T(Y_1)\cap T(Y_2))\\
-                &\explain{\thref{schnittraum:translationen}}{=}\dim T(Y_1)+\dim T(Y_2)-\dim T(Y_1\cap Y_2)\\
+                &\explain{\text{\thref{schnittraum:translationen}}}{=}\dim T(Y_1)+\dim T(Y_2)-\dim T(Y_1\cap Y_2)\\
                 &=\dim Y_1+\dim Y_2-\dim Y_1\cap Y_2.
             \end{aligned}
-        \end{align*}
+        \end{equation*}
         
         \item[\ref{verbindungsraum:dimension:schnitt_leer}] \( Y_1\cap Y_2 \), \( p_1\in Y_1 \), \( p_2\in Y_2 \), \( Y=p_1\vee p_2 \).
         
@@ -191,14 +191,13 @@ Als nächstes: \( \dim(Y_1\vee Y_2) \) ist durch \( \dim_K T(Y_1\vee Y_2) \) geg
         \begin{align*}
             \dim (Y_1\vee Y_2)\begin{aligned}[t] 
                 &=\dim T(Y_1\vee Y_2)\\
-                &\explain{\thref{verbindungsraum:translationen}}{=}\dim((T(Y_1)+T(Y_2))\oplus T(Y))\\
+                &\explain{\text{\thref{verbindungsraum:translationen}}}{=}\dim((T(Y_1)+T(Y_2))\oplus T(Y))\\
                 &=\dim(T(Y_1)+T(Y_2))+\equalto{1}\dim T(Y)\\
                 &=\dim T(Y_1)+\dim T(Y_2)- \dim (T(Y_1)\cap T(Y_2))+1\\
                 &=\dim Y_1+\dim Y_2 -\dim(T(Y_1)\cap T(Y_2))+1
             \end{aligned}
         \end{align*}
     \end{proofdescription}
-    
 \end{proof}
 \begin{beispiel*}[\( X=\reals^3 \)]
     \begin{figure}[H]

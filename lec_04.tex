@@ -1,5 +1,76 @@
 % !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
 \lecture{Di 05.05. 10:15}{}
+\begin{lemma}\label{teilverhaeltnis_invariant_unter_affinen_abbildungen}
+    Seien \( X,Y \) affine Räume und \( f\maps X\to Y \) eine affine Abbildung, seien \( p_0,p1,p \) Punkte in \( X \), die auf einer Geraden liegen und \( f(p_0)\neq f(p_1) \). Dann gilt
+    \begin{align*}
+        \teilverhaeltnis(f(p_0),f(p_1),f(p))=\teilverhaeltnis(p_0,p_1,p).
+    \end{align*}
+\end{lemma}
+\begin{proof}
+    Sei \( \lambda=\teilverhaeltnis(p_0,p_1,p) \), also \( \vv{p_0 p}=\lambda\vv{p_0 p_1} \). Si \( F\maps T(X)\to T(Y) \) die zu \( f \) gehörige lineare Abbildung. Wir berechnen
+    \begin{align*}
+        \vv{f(p_0) f(p)}\begin{aligned}[t]
+            &=F(\vv{p_0 p})\\
+            &=F(\lambda{p_0 p_1})\\
+            &=\lambda F({p_0 p_1})\\
+            &=\lambda \vv{f(p_0) f(p_1)}
+        \end{aligned}
+    \end{align*}
+    
+\end{proof}
+\begin{anwendung*}[Strahlensatz]
+    Sei \( X \) ein affiner Raum über \( K \), \( p_0,p_1,p_2\in X \) affin unabhängig. Sei
+    \begin{align*}
+        q_1&\in p_0\vee p_1,\logicspace q_1\neq p_0\\
+        q_2&\in p_0\vee p_2,\logicspace q_2\neq p_0.
+    \end{align*}
+    Wir nehmen an, dass \( p_1\vee p_2 \) und \( q_1\vee q_2 \) parallel sind in dem Sinn, dass
+    \begin{align*}
+        T(p_1\vee p_2)=T(q_1\vee q_2)\text{ in }T(X).
+    \end{align*}
+    Dann gilt
+    \begin{align*}
+        \teilverhaeltnis(p_0,p_1,q_1)=\teilverhaeltnis(p_0,p_2,q_2).
+    \end{align*}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{figures/Strahlensatz}
+        \label{fig:Strahlensatz}
+    \end{figure}
+\end{anwendung*}
+\begin{proof}
+    Sei \( Y \) diedurch \( p_0,p_1,p_2 \) aufgespannte Ebene. Dann gibt es ein affines Koordinatensystem \( \phi\maps K^2 \to Y \) mit \( \phi(0)=p_0, \phi(e_1)=p_1, \phi(e_2)=p_2 \).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{figures/strahlensatz_koordinatensystem}
+        \label{fig:strahlensatz_koordinatensystem}
+    \end{figure}
+    Sei
+    \begin{align*}
+        (\lambda,0)&=\inv{\phi}(q_1)\\
+        (0,\mu)&=\inv{\phi}(q_2).
+    \end{align*}    
+    \begin{behauptung*}
+        \( l_1=\inv{\phi}(q_1)\vee \inv{\phi}(q_2) \) und \( l_2=\inv{\phi}(p_1)\vee \inv{\phi}(p_2) \) sind parallel.
+    \end{behauptung*}
+    \minisec{Denn:}
+    \begin{align*}
+        T(l_1)&=K\vv{\inv{\phi}(q_1) \inv{\phi}(q_2)}\\
+        T(l_2)&=K\vv{\inv{\phi}(p_1) \inv{\phi}(p_2)}.
+    \end{align*}
+    Es ist \( K\vv{p_1 p_2}=K\vv{q_1 q_2} \) und daher
+    \begin{align*}
+        \equalto{K\vv{\inv{\phi}(q_1) \inv{\phi}(q_2)}}{K \inv{\Phi}(\vv{p_1 p_2})}=\equalto{K\vv{\inv{\phi}(p_1) \inv{\phi}(p_2)}}{K\inv{\Phi}(\vv{q_1 q_2}}).
+    \end{align*}
+    Aus der Parallelität von \( l_1,l_2 \) folgt \( \lambda=\mu \).
+
+    Also
+    \begin{align*}
+        &\rphantom{=}\teilverhaeltnis(\inv{\phi}(p_0),\inv{\phi}(p_1),\inv{\phi}(q_1))=\lambda\\
+        &=\mu=\teilverhaeltnis(\inv{\phi}(p_0),\inv{\phi}(p_2),\inv{\phi}(q_2))
+    \end{align*}
+    und der Strahlensatz folgt aus \thref{teilverhaeltnis_invariant_unter_affinen_abbildungen}.
+\end{proof}
 \begin{beispiel*}
     Seien \( p_0,p_1\in \reals^2 \), \( p_0\neq p_1 \). Ziel: Beschreibe den affinen Unterraum \( p_0\vee p_1 \) als Teilmenge des \( \reals^2 \). Sei \( p\in p_0\vee p_1 \). Dann \( \exists \lambda\in \reals \) mit \( \vv{p_0 p}=\lambda \vv{p_0 p_1} \) und als Vektoren im \( \reals^2 \) gilt \( p=p_0+\lambda(p_1-p_0) \). Es gilt
     \begin{align*}
@@ -261,122 +332,3 @@ Dann liegen auch \( f(p_1), f(p_2),f(p_3) \) auf einer Geraden.
     \end{align*}
     ist ein Automorphismus von dem Körper \( \complexs \).
 \end{bemerkung*}
-\begin{definition*}
-    Sei \( K \) ein Körper. Wir nennen eine Bijektion \( \alpha\maps K\to K \) einen Automorphismus von \( K \) falls gilt
-    \begin{align*}
-        \alpha(\lambda+\mu)&=\alpha(\lambda)+\alpha(\mu)\quad \forall \lambda,\mu\in K
-        \intertext{und}
-        \alpha(\lambda\cdot \mu)&=\alpha(\lambda)\cdot \alpha(\mu)\quad \forall  \lambda,\mu\in K
-    \end{align*}
-\end{definition*}
-\begin{beispiel}
-    \begin{align*}
-        K=\rationals(\sqrt{2})=\Set{x+y\sqrt{2}|x,y\in\rationals}
-    \end{align*}
-    ist ein Körper und 
-    \begin{align*}
-        \alpha\maps \begin{aligned}[t]
-            \rationals(\sqrt{2})&\to \rationals(\sqrt{2})\\
-            x+y\sqrt{2}&\mapsto x-y\sqrt{2}.
-        \end{aligned}
-    \end{align*}
-\end{beispiel}
-\begin{satz}
-    Sei \( \alpha\maps \reals\to \reals \) ein Automorphismus von \( \reals \). Dann gilt \( \alpha=\Id_{\reals} \).
-\end{satz}
-\begin{proof}
-    Sei \( \alpha\maps \reals\to \reals \) ein Automorphismus.
-    \begin{proofenumerate}
-        \item Dann gilt
-        \begin{align*}
-            \alpha(0)=\alpha(0+0)=\alpha(0)+\alpha(0),
-        \end{align*}
-        also \( \alpha(0)=0 \).
-        \item Dann gilt
-        \begin{align*}
-            0=\alpha(0)=\alpha(\lambda-\lambda)=\alpha(\lambda)+\alpha(-\lambda),
-        \end{align*}
-        also \( \alpha(-\lambda)=-\alpha(\lambda)\logicspace \forall \lambda\in \reals \).
-        \item Dann gilt
-        \begin{align*}
-            \alpha(1)=\alpha(1\cdot 1)=\alpha(1)\alpha(1),
-        \end{align*}
-        also \( \alpha(1)=1 \) und daher
-        \begin{align*}
-            \alpha(n)=n\logicspace \forall n\in \wholes,
-        \end{align*}
-        \zb
-        \begin{align*}
-            \alpha(2)=\alpha(1+1)=\alpha(1)+\alpha(1)=1+1=2.
-        \end{align*}
-        \item Sei \( p\in \wholes \), \( q\in \naturals \), dann gilt
-        \begin{align*}
-            q\alpha\left( \frac{p}{q} \right)\begin{aligned}[t]
-                &=\alpha(q)\alpha\left( \frac{p}{q} \right)=\alpha\left( q\frac{p}{q} \right)=\alpha(p)=p,
-            \end{aligned}
-        \end{align*}
-        also \( \alpha\left( \frac{p}{q}=\frac{p}{q} \right) \) oder \( \alpha(t)=t\quad \forall t\in \rationals \).
-        \item Sei \( \lambda\in \reals_{>0} \). Dann \texists  \( \mu\in\reals \) mit \( \lambda=\mu^2 \) und
-        \begin{align*}
-            \alpha(\lambda)=\alpha(\mu^2)=\alpha(\mu)\cdot \alpha(\mu)>0,
-        \end{align*}
-        also
-        \begin{align*}
-            \alpha(\lambda)>0\quad \forall \lambda\subset \reals>0.
-        \end{align*}
-    \end{proofenumerate}
-    Wir zeigen nun \( \alpha(\lambda)=\lambda\quad \forall \lambda\in \reals \).
-
-    \minisec{Gegenannahme}
-    Sei \( \lambda\in \reals \) mit \( \alpha(\lambda)\neq \lambda \). Wir diskutieren den Fall \( \alpha(\lambda)<\lambda \) (\( \alpha(\lambda)>\lambda \) geht genauso).
-
-    Wähle \( \frac{p}{q}\in \rationals \) mit
-    \begin{align*}
-        \alpha(\lambda)<\frac{p}{q}<\lambda.
-    \end{align*}
-    Dann gilt
-    \begin{align*}
-        \alpha(\lambda-\frac{p}{q})=\alpha(\lambda)-\frac{p}{q}<0
-    \end{align*}
-    \contra zu \( \lambda-\frac{p}{q}>0 \).
-\end{proof}
-
-\subsection*{Eine Familie von Kollineationen}
-\begin{idee*}
-    Wir verallgemeinern \thref{kollinieationen:beispiele:komplexe_konjugation}, um ine größere Klasse an Kollineationen zu erhalten als Affinitäten.
-\end{idee*}
-\begin{beispiel}
-    \begin{align*}
-        f\maps \begin{aligned}[t]
-            \complexs^2&\to \complexs^2\\
-            (x,y)&\mapsto (\conj{x},\conj{y})
-        \end{aligned}
-    \end{align*}
-    respektiert Addition, \dh
-    \begin{align*}
-        f(z+z')=f(z)+f(z')\quad \forall z,z'\in \complexs^2,
-    \end{align*}
-    und hat die Eigenschaft
-    \begin{align*}
-        f(\lambda z)=\conj{\lambda} f(z)\quad \forall \lambda\in \complexs\logicspace \forall z\in \complexs^2.
-    \end{align*}
-    \tto Wir nennen \( f \) semilinear.
-\end{beispiel}
-\begin{definition*}
-    Seien \( V,W \) Vektorräume über einem Körper \( K \). Wir nennen eine Abbildung \( F\maps V\to W \) \emph{semilinear}, wenn es einen Automorphismus \( \alpha \) von \( K \) gibt, sodass gilt
-    \begin{itemize}
-        \item \(F(v+v')=F(v)+F(v')\quad \forall v,v'\in V\)
-        \item \( F(\lambda v)=\alpha(\lambda) F(v)\quad \forall \lambda\in K \logicspace \forall v\in V\).
-    \end{itemize}
-\end{definition*}
-\begin{definition*}
-    Seien \( X,Y \) affine Räume über einem Körper \( K \). Wir nennen eine Abbildung
-    \begin{align*}
-        f\maps X\to Y
-    \end{align*}
-    \emph{semiaffin}, wenn es eine \emph{semilineare Abbildung} \( F\maps T(X)\to T(Y) \) gibt mit
-    \begin{align*}
-        \vv{f(p) f(q)}=F(\vv{pq})\logicspace \forall p,q\in X.
-    \end{align*}
-    Falls \( f \) außerdem bijektiv ist, dann nennen wir \( f \) eine Semiaffinität.
-\end{definition*}

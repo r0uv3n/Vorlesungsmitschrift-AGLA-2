@@ -1,6 +1,12 @@
 \documentclass[numberindividually, numberwithin=section]{hrflecture}
 \renewcommand*{\sectionformat}{\textsection\thesection\autodot\enskip}
 \addtokomafont{section}{\mdseries}
+\let\Mat\relax
+\DeclareMathOperator{\Mat}{M}
+\let\angleold=\angle
+\renewcommand*{\angle}{\sphericalangle}
+
+
 
 \subject{Vorlesungsmitschrift}
 \title{AGLA \texorpdfstring{\Romannum{2}}{2}}
@@ -8,7 +14,7 @@
 \date{Auf dem Stand vom \today}
 \author{Henry Ruben Fischer}
 
-% \includeonly{lec_06}
+% \includeonly{lec_07}
 
 \begin{document}
 \maketitle
@@ -37,6 +43,7 @@ Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richt
 \include{lec_04}
 \include{lec_05}
 \include{lec_06}
+\include{lec_07}
 % End of lectures
 
 \end{document}

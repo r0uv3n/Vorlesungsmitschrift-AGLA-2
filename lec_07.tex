@@ -88,8 +88,8 @@ Für eine Matrix \( B\in \Mat_{n\times n}(\reals) \) sei \( \sign(B)=\anzahl \) 
 \begin{align*}
   \rang A_1&=\rang A_2,\\
   \rang A_1'&=\rang A_2',\\
-  \abs{\sign A_1}&=\abs{\sign A_2}\text{ und}\\
-  \abs{\sign A_1'}=\abs{\sign A_2'}.
+  \abs*{\sign A_1}&=\abs*{\sign A_2}\text{ und}\\
+  \abs*{\sign A_1'}=\abs*{\sign A_2'}.
 \end{align*}
 \end{satz}
 \begin{folgerung}
@@ -201,16 +201,16 @@ In einem allgemeinen affinen Raum \( X \) haben wir den Begriff von Gerade und p
 \begin{definition}
   Sei \( X \) ein euklidischer affiner Raum. Wir definieren eine Normabbildung
   \begin{equation*}
-    \norm{\cdot}\maps \begin{aligned}[t]
+    \norm*{\cdot}\maps \begin{aligned}[t]
       T(X)&\to \reals_{\geq 0}\\
-      t&\mapsto \norm{t}\definedas \sqrt{\scalarproduct{t}{t}}
+      t&\mapsto \norm*{t}\definedas \sqrt{\scalarproduct{t}{t}}
     \end{aligned}
   \end{equation*}
   und eine Metrik
   \begin{equation*}
     d\maps \begin{aligned}[t]
       X\times X&\to \reals_{\geq 0}\\
-      (p,q)\mapsto d(p,q)\definedas \norm{\vv{pq}}.
+      (p,q)\mapsto d(p,q)\definedas \norm*{\vv{pq}}.
     \end{aligned}
   \end{equation*}
   \begin{figure}[H]
@@ -220,9 +220,9 @@ In einem allgemeinen affinen Raum \( X \) haben wir den Begriff von Gerade und p
   \end{figure}
 \end{definition}
 \begin{bemerkung*}
-  \( \norm{\cdot} \) ist eine Norm, da \( \scalarproduct{\cdot}{\cdot} \) ein Skalarprodukt ist. Man kann nachrechnen, dass \( d \) tatsächlich eine Metrik auf \( X \) ist, \zb
+  \( \norm*{\cdot} \) ist eine Norm, da \( \scalarproduct{\cdot}{\cdot} \) ein Skalarprodukt ist. Man kann nachrechnen, dass \( d \) tatsächlich eine Metrik auf \( X \) ist, \zb
   \begin{equation*}
-    d(p,q)=\norm{\vv{pq}}=\norm{-\vv{qp}}=\abs{-1}\cdot\vv{qp}=d(q,p).
+    d(p,q)=\norm*{\vv{pq}}=\norm*{-\vv{qp}}=\abs*{-1}\cdot\vv{qp}=d(q,p).
   \end{equation*}
 \end{bemerkung*}
 \begin{definition*}
@@ -234,7 +234,7 @@ In einem allgemeinen affinen Raum \( X \) haben wir den Begriff von Gerade und p
   \end{figure}
   Wir definieren den Winkel \( \angle (L,L') \) zwischen den Geraden \( L,L' \) durch
   \begin{equation*}
-    \angle (L,L')=\arccos \frac{\abs{\scalarproduct{\vv{pq}}{\vv{pq'}}}}{\norm{\vv{pq}}\cdot\norm{\vv{pq'}}}\in \interval{0}{\frac{\pi}{2}}.
+    \angle (L,L')=\arccos \frac{\abs*{\scalarproduct{\vv{pq}}{\vv{pq'}}}}{\norm*{\vv{pq}}\cdot\norm*{\vv{pq'}}}\in \interval{0}{\frac{\pi}{2}}.
   \end{equation*}
   \begin{figure}[H]
     \centering

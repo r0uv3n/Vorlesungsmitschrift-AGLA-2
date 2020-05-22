@@ -80,7 +80,7 @@ Resultate der affinen Hauptachsentransformation im \( \reals^2 \): \( m=\rang A 
 \begin{frage*}
   Klassifikation aller Quadriken über \( \reals \) bis auf geometrische Äquivalenz?
 \end{frage*}
-Für eine Matrix \( B\in \Mat_{n\times n}(\reals) \) sei \( \sign(B)=\anzahl \) positive Eigenwerte von \( B \) \( -\anzahl \) negative Eingenwerte von \( B \) die Signatur von \( B \).
+Für eine Matrix \( B\in \matrices{n}{n}{\reals} \) sei \( \sign(B)=\anzahl \) positive Eigenwerte von \( B \) \( -\anzahl \) negative Eingenwerte von \( B \) die Signatur von \( B \).
 \begin{satz}[Geometischer Klassifikationssatz (ohne Beweis)]
   Seien \( Q_1,Q_2\subset \reals^n \) nichtleere Quadriken, die beschrieben werden durch erweiterte Matrizen \( A_1',,A_2' \) mit rein quadratischen Anteilen \( A_1,A_2 \). Seien \( Q_1,Q_2 \) nicht gleich an Hyperebenen.
 
@@ -181,7 +181,7 @@ In einem allgemeinen affinen Raum \( X \) haben wir den Begriff von Gerade und p
   \end{equation*}
 \end{beispiel}
 \begin{beispiel}
-  Die Lösungsmenge \( L \) im \( \reals^n \) eines Systems von linearen Gleichungen \( Ax=b \), \( A\in \Mat_{m \times n}(\reals) \), \( b\in \reals^m \)
+  Die Lösungsmenge \( L \) im \( \reals^n \) eines Systems von linearen Gleichungen \( Ax=b \), \( A\in \matrices{m }{n}{\reals} \), \( b\in \reals^m \)
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/hyperebene_beispiel_euklidischer_affiner_raum}
@@ -210,7 +210,7 @@ In einem allgemeinen affinen Raum \( X \) haben wir den Begriff von Gerade und p
   \begin{equation*}
     d\maps \begin{aligned}[t]
       X\times X&\to \reals_{\geq 0}\\
-      (p,q)\mapsto d(p,q)\definedas \norm*{\vv{pq}}.
+      (p,q)\mapsto \distance{p}{q}\definedas \norm*{\vv{pq}}.
     \end{aligned}
   \end{equation*}
   \begin{figure}[H]
@@ -222,7 +222,7 @@ In einem allgemeinen affinen Raum \( X \) haben wir den Begriff von Gerade und p
 \begin{bemerkung*}
   \( \norm*{\cdot} \) ist eine Norm, da \( \scalarproduct{\cdot}{\cdot} \) ein Skalarprodukt ist. Man kann nachrechnen, dass \( d \) tatsächlich eine Metrik auf \( X \) ist, \zb
   \begin{equation*}
-    d(p,q)=\norm*{\vv{pq}}=\norm*{-\vv{qp}}=\abs*{-1}\cdot\vv{qp}=d(q,p).
+    \distance{p}{q}=\norm*{\vv{pq}}=\norm*{-\vv{qp}}=\abs*{-1}\cdot\vv{qp}=\distance{q}{p}.
   \end{equation*}
 \end{bemerkung*}
 \begin{definition*}
@@ -232,9 +232,9 @@ In einem allgemeinen affinen Raum \( X \) haben wir den Begriff von Gerade und p
     \includegraphics[width=0.5\linewidth]{figures/affiner_winkel_definition}
     \label{fig:affiner_winkel_definition}
   \end{figure}
-  Wir definieren den Winkel \( \angle (L,L') \) zwischen den Geraden \( L,L' \) durch
+  Wir definieren den Winkel \( \lineangle{L}{L'} \) zwischen den Geraden \( L,L' \) durch
   \begin{equation*}
-    \angle (L,L')=\arccos \frac{\abs*{\scalarproduct{\vv{pq}}{\vv{pq'}}}}{\norm*{\vv{pq}}\cdot\norm*{\vv{pq'}}}\in \interval{0}{\frac{\pi}{2}}.
+    \lineangle{L}{L'}=\arccos \frac{\abs*{\scalarproduct{\vv{pq}}{\vv{pq'}}}}{\norm*{\vv{pq}}\cdot\norm*{\vv{pq'}}}\in \interval{0}{\frac{\pi}{2}}.
   \end{equation*}
   \begin{figure}[H]
     \centering
@@ -248,5 +248,5 @@ In einem allgemeinen affinen Raum \( X \) haben wir den Begriff von Gerade und p
   \end{figure}
 \end{definition*}
 \begin{bemerkung*}
-  Die Definition des Winkels \( \angle (L,L') \) ist unabhängig von der Wahl der Elemente \( q,q' \) (solange \( p\neq q,q' \)).
+  Die Definition des Winkels \( \lineangle{L}{L'} \) ist unabhängig von der Wahl der Elemente \( q,q' \) (solange \( p\neq q,q' \)).
 \end{bemerkung*}

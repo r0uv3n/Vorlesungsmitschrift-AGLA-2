@@ -3,8 +3,8 @@
 \begin{lemma}
   Sei \( X \) ein euklidischer affiner Raum, \( t\in T(X) \) und \( \tau_t\maps X\to X \) die Translation um \( t \). Seien \( q,q'\in X \) und \( L,L'\subseteq X \) Geraden mit \( L\cap L'\neq \emptyset \). Dann gilt 
   \begin{align*}
-    d(\tau_t(p),\tau_t(q))&=d(p,q)\text{ und}\\
-    \angle (\tau_t(L),\tau_t(L'))&=\angle(L,L').
+    \distance{\tau_t(p)}{\tau_t(q)}&=\distance{p}{q}\text{ und}\\
+    \lineangle{\tau_t(L)}{\tau_t(L')}&=\lineangle{L}{L'}.
   \end{align*}
 \end{lemma}
 \begin{proof}[Beweisidee]
@@ -19,7 +19,7 @@
   \end{figure}
   also
   \begin{equation*}
-    d(\tau_t(p),\tau_t(q))=\norm*{\vv{\tau_t(p)\tau_t(q)}}=\norm*{\vv{pq}}=d(p,q)
+    \distance{\tau_t(p)}{\tau_t(q)}=\norm*{\vv{\tau_t(p)\tau_t(q)}}=\norm*{\vv{pq}}=\distance{p}{q}
   \end{equation*}
   für beliebige Punkte \( p,q\in X \) und \( t\in T(X) \).
   \begin{figure}[H]
@@ -29,7 +29,7 @@
     \label{fig:translation_erhaelt_winkel_beweis_winkel_zwischen_geraden}
   \end{figure}
   \begin{equation*}
-    \angle(L,L')=\arccos \frac{\scalarproduct{\vv{pq}}{\vv{pq'}}}{\explain{\norm*{\vv{\tau_t(p)\tau_t(q)}}}{\norm*{\vv{pq}}}\explain[Bigg]{\norm*{\vv{\tau_t(p)\tau_t(q)}}}{\norm*{\vv{pq'}}}}.
+    \lineangle{L}{L'}=\arccos \frac{\scalarproduct{\vv{pq}}{\vv{pq'}}}{\explain{\norm*{\vv{\tau_t(p)\tau_t(q)}}}{\norm*{\vv{pq}}}\explain[Bigg]{\norm*{\vv{\tau_t(p)\tau_t(q)}}}{\norm*{\vv{pq'}}}}.
   \end{equation*}
 \end{proof}
 \minisec{also:} Translation um ein Element \( t\in T(X) \) erhält Abstände und Winkel.
@@ -47,7 +47,7 @@ Nicht alle affinen Abbildungen haben diese Eigenschaft, \zb \( X=\reals^2 \) mit
 \begin{definition*}
   Seien \( X,X' \) metrische Räume mit Metriken \( d,d' \) und \( f\maps X\to X' \) eine Abbildung. Wir nennen \( f \) eine \emph{Isometrie}, falls \( \forall p,q\in X \) gilt
   \begin{equation*}
-    d'(f(p),f(q))=d(p,q).
+    d'(f(p),f(q))=\distance{p}{q}.
   \end{equation*}
 \end{definition*}
 \begin{frage*}
@@ -157,7 +157,7 @@ Nicht alle affinen Abbildungen haben diese Eigenschaft, \zb \( X=\reals^2 \) mit
 \begin{proof}
   \( f  \) ist Isometrie \gdw
   \begin{equation*}
-    d(f(p),f(q))=d(p,q)\quad \forall p,q\in X,
+    \distance{f(p)}{f(q)}=\distance{p}{q}\quad \forall p,q\in X,
   \end{equation*}
   \dh \gdw
   \begin{equation*}
@@ -168,7 +168,7 @@ Nicht alle affinen Abbildungen haben diese Eigenschaft, \zb \( X=\reals^2 \) mit
 \begin{definition*}
   Sei \( X \) ein euklidischer affiner Raum, \( f\maps X\to X \) eine Abbildung. Sei \( \rho\in \reals_{>0} \). Wir nennen \( f  \) eine \emph{Ähnlichkeit} mit (Ähnlichkeits-) Faktor \( \rho \) wenn \tforall  \( p,q\in X \) gilt
   \begin{equation*}
-    d(f(p),f(q))=\rho\cdot d(p,q).
+    \distance{f(p)}{f(q)}=\rho\cdot \distance{p}{q}.
   \end{equation*}
 \end{definition*}
 \begin{korollar*}[aus \thref{isometrie_affin_und_injektiv}]
@@ -200,13 +200,13 @@ Nicht alle affinen Abbildungen haben diese Eigenschaft, \zb \( X=\reals^2 \) mit
   \end{behauptung*}
   Seien \( p,q\in X \). Dann gilt
   \begin{equation*}
-    d(\inv{\rho}\circ f(p),\inv{\rho}(f(q)))=\norm{\vv{\inv{\rho}\circ f(p) \inv{\rho}\circ f(q)}}
+    \distance{\inv{\rho}\circ f(p)}{\inv{\rho}(f(q))}=\norm{\vv{\inv{\rho}\circ f(p) \inv{\rho}\circ f(q)}}
   \end{equation*}
   also
   \begin{align*}
-    d(\inv{\rho}\circ f(p),\inv{\rho}\circ f(q))&=\norm*{\inv{\rho}\vv{f(p)f(q)}}\\
+    \distance{\inv{\rho}\circ f(p)}{\inv{\rho}(f(q))}&=\norm*{\inv{\rho}\vv{f(p)f(q)}}\\
     &=\inv{\rho}\norm*{\vv{f(p)f(q)}}\\
-    &\explain{\text{\( f \) ist Ähnlichkeit mit Faktor \( \rho \)}}{=}d(p,q),
+    &\explain{\text{\( f \) ist Ähnlichkeit mit Faktor \( \rho \)}}{=}\distance{p}{q},
   \end{align*}
   also ist nach \thref{isometrie_affin_und_injektiv} \( \inv{\rho}\circ f \) injektiv und affin. Damit ist auch \( f \) Affinität.
 \end{proof}

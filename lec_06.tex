@@ -38,7 +38,7 @@
   Die Matrix \( A' \) ist symmetrisch (nach Konstruktion).
 \end{bemerkung*}
 \begin{definition*}
-  In obiger Notation nennen wir \( A' \) di erweiterte Matrix zu \( P \) und \( x' \) den erweiterten Spaltenvektor zu \( x \). Wir sagen, dass \( A'\in \Mat_{(n+1)\times(n+1)}(K) \) die Quadrik \( Q \) beschreibt, wenn gilt
+  In obiger Notation nennen wir \( A' \) di erweiterte Matrix zu \( P \) und \( x' \) den erweiterten Spaltenvektor zu \( x \). Wir sagen, dass \( A'\in \matrices{(n+1)}{(n+1)}{K} \) die Quadrik \( Q \) beschreibt, wenn gilt
   \begin{equation*}
     Q=\Set{x\in K^n|\transpose{x'}A'x'=0}.
   \end{equation*}
@@ -159,7 +159,7 @@ erhalten wir \( z_1^2+z_2^2=2 \), oder nach skalieren mit \( \sqrt{2} \)
   \label{fig:vereinfachte_quadrik}
 \end{figure}
 \begin{satz}[affine Hauptachsentransformation von reellen Quadriken]\label{affine_hauptachsentranformation_reelle_quadriken}
-  Sei \( A'\in \Mat_{(n+1)\times(n+1)}(\reals) \) eine symmetrische Matrix und die Quadrik \( Q\subseteq \reals^n \) gegeben durch
+  Sei \( A'\in \matrices{(n+1)}{(n+1)}{\reals} \) eine symmetrische Matrix und die Quadrik \( Q\subseteq \reals^n \) gegeben durch
   \begin{equation*}
     Q=\Set{(x_1,\dotsc,x_n)\in \reals^n|\transpose{x'}A'x'=0}.
   \end{equation*}
@@ -195,13 +195,13 @@ erhalten wir \( z_1^2+z_2^2=2 \), oder nach skalieren mit \( \sqrt{2} \)
       a_{n0} & & &
     \end{pNiceArray}.
   \end{equation*}
-  mit \( A\in \Mat_{n\times n}(\reals) \).
+  mit \( A\in \matrices{n}{n}{\reals} \).
   \begin{proofenumerate}[label=Schritt \arabic*]
     \item Entferne gemischte Terme.
     \begin{idee*}
       Wollen \( A \) in Diagonalgestalt bringen. 
     \end{idee*}
-    AGLA \Romannum{1}: Orthogonalisierungssatz für reelle symmetrische Matrizen.
+    \agla{1}: Orthogonalisierungssatz für reelle symmetrische Matrizen.
 
     Wir erhalten eine invertierbare Matrix \( T_1\in \GL_n(\reals) \) mit
     \begin{equation*}

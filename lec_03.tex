@@ -113,7 +113,7 @@ Wir formalisieren diese Konzepte für allgemeine affine Räume.
     \end{align*}
 \end{proof}
 \subsection*{Affine Basen und affine Abbildungen}
-Aus der AGLA \Romannum{1}:\\
+Aus der \agla{1}:\\
 Seien \( V,W \) \( K \)-Vektorräume, \( v_1,\dotsc, v_n \in V \) eine Basis von \( V \) und \( w_1,\dotsc, w_n \in W\). Dann gibt es genau eine \( K \)-lineare Abbildung \( \phi\maps V\to W \) mit
 \begin{align*}
     \phi(v_i)=w_i,\quad 1\leq i \leq n.
@@ -210,7 +210,7 @@ oder \( p=\phi((\lambda_1,\dotsc,\lambda_n)) \).
         \caption*{}
         \label{fig:gerade_teilverhaeltnis}
     \end{figure}
-    Sei \( \lambda=\frac{d(p,p_0)}{d(p_1,p_0)} \), mit \( d \) dem euklidischen Abstand, dann können wir die Lage von \( p \) auf \( l \) durch \( \lambda \) (und der Information, ob \( p \) \enquote{rechts oder links} von \( p \) liegt) bestimmen.
+    Sei \( \lambda=\frac{\distance{p}{p_0}}{\distance{p_1}{p_0}} \), mit \( d \) dem euklidischen Abstand, dann können wir die Lage von \( p \) auf \( l \) durch \( \lambda \) (und der Information, ob \( p \) \enquote{rechts oder links} von \( p \) liegt) bestimmen.
 \end{idee*}
 \begin{definition*}
     Sei \( X \) ein affiner Raum über \( K \), \( Y\subseteq X \) eine affine Gerade, \( p_0,p_1,p\in Y \) und \( p_0\neq p_1 \). Dann nennen wir das eindeutig bestimmte Element \( \lambda\in K \) mit \( \vv{p_0 p}=\lambda \vv{p_0 p_1} \) das Teilverhältnis von \( p_0,p_1,p \). Schreibe \( \lambda=\teilverhaeltnis(p_0,p_1,p) \). In \( \characteristic(K)\neq 2 \) nennen wir \( p \) Mittelpunkt von \( p_0,p_2 \) wenn \( \teilverhaeltnis(p_0,p_1,p)=\frac{1}{2} \).

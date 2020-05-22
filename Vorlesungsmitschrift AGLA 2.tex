@@ -5,6 +5,8 @@
 \DeclareMathOperator{\Mat}{M}
 \let\angleold=\angle
 \renewcommand*{\angle}{\sphericalangle}
+\DeclarePairedDelimiterXPP{\aglamatrices}[3]{\Mat_{#1\times #2}}{\lparen}{\rparen}{}{#3}
+\let\matrices\aglamatrices
 
 
 
@@ -14,7 +16,7 @@
 \date{Auf dem Stand vom \today}
 \author{Henry Ruben Fischer}
 
-% \includeonly{lec_08}
+% \includeonly{lec_09}
 
 \begin{document}
 \maketitle
@@ -45,6 +47,7 @@ Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richt
 \include{lec_06}
 \include{lec_07}
 \include{lec_08}
+\include{lec_09}
 % End of lectures
 
 \end{document}

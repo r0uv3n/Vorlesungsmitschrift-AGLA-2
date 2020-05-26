@@ -36,16 +36,16 @@
     \end{figure}
     Sei
     \begin{align*}
-        \Bij(X)=\Set{f\maps X\to X, f \text{ ist bijektiv}}.
+        \bijections{X}=\Set{f\maps X\to X, f \text{ ist bijektiv}}.
     \end{align*}
-    Dann ist \( \tau_w\in \Bij(X) \) für alle \( w\in W \).
+    Dann ist \( \tau_w\in \bijections{X} \) für alle \( w\in W \).
 \end{beispiel}
 \begin{bemerkung*}
-    \( \Bij(X) \) ist eine Gruppe unter Verkettung von Abbildung. 
+    \( \bijections{X} \) ist eine Gruppe unter Verkettung von Abbildung. 
     Wir erhalten eine Abbildung
     \begin{align*}
         \tau\maps \begin{aligned}[t] 
-            W &\to \Bij(X)\\
+            W &\to \bijections{X}\\
             w &\mapsto \tau_w.
         \end{aligned}
     \end{align*}
@@ -94,7 +94,7 @@ Es gilt noch mehr:
     Eine Operation von \( G \) auf \( X \) ist ein Homomorphismus von Gruppen
     \begin{align*}
         \tau\maps \begin{aligned}[t] 
-            G&\to \Bij(X)\\
+            G&\to \bijections{X}\\
             g&\mapsto \tau_g.
         \end{aligned}
     \end{align*}
@@ -114,13 +114,13 @@ Es gilt noch mehr:
 \begin{beispiel}\label{operation:beispiele}
     \begin{enumerate}
         \item \label{operation:beispiele:linkstranslation} Sei \( G \) eine Gruppe und \( X=G \) die Linkstranslation \( l\maps \begin{aligned}[t] 
-            G&\to \Bij(G)\\
+            G&\to \bijections{G}\\
             g&\mapsto l_g
         \end{aligned} \) mit \( l_g(x)=gx \quad\forall x\in G \) ist eine Gruppenoperation von \( G \) auf sich selbst.
         
         \item \label{operation:beispiele:konjugation}\begin{align*}
             k\maps \begin{aligned}[t] 
-                G &\to \Bij(G)\\
+                G &\to \bijections{G}\\
                 g &\mapsto k_g
             \end{aligned}
         \end{align*}
@@ -128,7 +128,7 @@ Es gilt noch mehr:
     \end{enumerate}
 \end{beispiel}
 \begin{frage*}
-    Sei \( \tau\maps G\to \Bij(x) \) eine Gruppenoperation, \( x,y\in X \). 
+    Sei \( \tau\maps G\to \bijections{X} \) eine Gruppenoperation, \( x,y\in X \). 
     Wann gibt es ein \( g\in G \) mit \( \tau_g(x)=y \)?
     \begin{figure}[H]
         \centering
@@ -139,7 +139,7 @@ Es gilt noch mehr:
 \end{frage*}
 
 \begin{definition*}
-    Sei \( \tau\maps G\to \Bij(X) \) eine Gruppenoperation von \( G \) auf \( X \). 
+    Sei \( \tau\maps G\to \bijections{X} \) eine Gruppenoperation von \( G \) auf \( X \). 
     Wir nennen \( \tau \) \emph{einfach transitiv}, wenn \tforall \( x,y\in X \) \emph{genau ein} \( g\in G \) besteht mit
     \begin{align*}
         \tau_g(x)=y.
@@ -162,7 +162,7 @@ Zurück zum \thref{affiner_unterraum} (\( V \) \( K \)-Vektorraum, \( W\subseteq
 Wir haben Translationen definiert
 \begin{align*}
     \tau\maps \begin{aligned}[t] 
-        W&\to \Bij(X)\\
+        W&\to \bijections{X}\\
         x&\mapsto \tau_w
     \end{aligned}
 \end{align*}
@@ -181,7 +181,7 @@ mit \( \tau_w\maps X\to X \), \( p\mapsto p+w \).
     \begin{itemize}
         \item \( X\neq \emptyset \) eine Menge 
         \item \( T(X) \) ein \( K \)-Vektorraum 
-        \item \( \tau\maps T(x)\to \Bij(X) \) eine einfach transitive Gruppenoperation
+        \item \( \tau\maps T(x)\to \bijections{X} \) eine einfach transitive Gruppenoperation
     \end{itemize}
 \end{definition*}
 \begin{konvention*}
@@ -194,9 +194,9 @@ mit \( \tau_w\maps X\to X \), \( p\mapsto p+w \).
 \end{figure}
 \begin{definition*}
     Sei \( (X,T(X),\tau) \) in affiner Raum über einem Körper \( K \). 
-    Dann nennen wir \( \dim_K T(X) \) die Dimension von \( X \), schreiben auch \( \dim X \).
+    Dann nennen wir \( \dim-{K}{T(X)} \) die Dimension von \( X \), schreiben auch \( \affindim-{X} \).
      
-    Ist \( \dim X=1 \) \bzw \( \dim X=2 \), dann nennen wir \( X \) eine affine Gerade \bzw affine Ebene.
+    Ist \( \affindim-{X}=1 \) \bzw \( \affindim{X}=2 \), dann nennen wir \( X \) eine affine Gerade \bzw affine Ebene.
 \end{definition*}
 
 Sei \( (X, T(X), \tau) \) in affiner Raum, \( p,q\in X \). Dann \( \existsone t\in T(X) \) mit \( \tau_t(p)=q \).
@@ -224,7 +224,7 @@ Wir erhalten eine Abbildung
     \label{fig:vektoren_funzen_richtig}
 \end{figure}
 \begin{proof}
-    \( \tau\maps T(X)\to \Bij(X) \) ist ein Homomorphismus. 
+    \( \tau\maps T(X)\to \bijections{X} \) ist ein Homomorphismus. 
     Also gilt \( \tau_{\vv{qr}}\circ \tau_{\vv{pq}}=\tau_{\vv{pq}+\vv{qr}} \). 
     Es gilt damit \( \tau_{\vv{pq}+\vv{qr}}(p)=r \). 
     Also \( \vv{pq}+\vv{qr}=\vv{pr} \).    
@@ -344,8 +344,8 @@ Seien \( X, Y \) affine Räume über einem Körper \( K \).
     
 \end{proof}
 \begin{definition*}
-    Sei \( Y\subseteq X \) ein affiner Unterraum. Wir nennen \( \dim_K T(Y) \) die Dimension von \( Y \) und schreiben 
+    Sei \( Y\subseteq X \) ein affiner Unterraum. Wir nennen \( \dim-{K}{T(Y)} \) die Dimension von \( Y \) und schreiben 
     \begin{align*}
-        \dim Y=\dim_K T(Y).
+        \affindim-{Y}=\dim-{K}{T(Y)}.
     \end{align*}
 \end{definition*}

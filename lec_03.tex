@@ -1,7 +1,7 @@
 % !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
 \lecture{Di 28.04. 10:15}{}
 \section{Affine Koordinaten}
-Koordinaten in einem \( K \)-Vektorraum \( V \). Sei \( \dim V=n \) und \( v_1,\dotsc , v_n \) eine Basis von \( V \). Dann ist die Abbildung
+Koordinaten in einem \( K \)-Vektorraum \( V \). Sei \( \dim-{}{V}=n \) und \( v_1,\dotsc , v_n \) eine Basis von \( V \). Dann ist die Abbildung
 \begin{align*}
     \phi\maps  \begin{aligned}[t]
         K^n&\to V\\
@@ -213,7 +213,7 @@ oder \( p=\phi((\lambda_1,\dotsc,\lambda_n)) \).
     Sei \( \lambda=\frac{\distance{p}{p_0}}{\distance{p_1}{p_0}} \), mit \( d \) dem euklidischen Abstand, dann können wir die Lage von \( p \) auf \( l \) durch \( \lambda \) (und der Information, ob \( p \) \enquote{rechts oder links} von \( p \) liegt) bestimmen.
 \end{idee*}
 \begin{definition*}
-    Sei \( X \) ein affiner Raum über \( K \), \( Y\subseteq X \) eine affine Gerade, \( p_0,p_1,p\in Y \) und \( p_0\neq p_1 \). Dann nennen wir das eindeutig bestimmte Element \( \lambda\in K \) mit \( \vv{p_0 p}=\lambda \vv{p_0 p_1} \) das Teilverhältnis von \( p_0,p_1,p \). Schreibe \( \lambda=\teilverhaeltnis(p_0,p_1,p) \). In \( \characteristic(K)\neq 2 \) nennen wir \( p \) Mittelpunkt von \( p_0,p_2 \) wenn \( \teilverhaeltnis(p_0,p_1,p)=\frac{1}{2} \).
+    Sei \( X \) ein affiner Raum über \( K \), \( Y\subseteq X \) eine affine Gerade, \( p_0,p_1,p\in Y \) und \( p_0\neq p_1 \). Dann nennen wir das eindeutig bestimmte Element \( \lambda\in K \) mit \( \vv{p_0 p}=\lambda \vv{p_0 p_1} \) das Teilverhältnis von \( p_0,p_1,p \). Schreibe \( \lambda=\teilverhaeltnis{p_0}{p_1}{p} \). In \( \characteristic{K}\neq 2 \) nennen wir \( p \) Mittelpunkt von \( p_0,p_2 \) wenn \( \teilverhaeltnis{p_0}{p_1}{p}=\frac{1}{2} \).
 \end{definition*}
 \begin{bemerkungen*}
     \begin{enumerate}
@@ -225,7 +225,7 @@ oder \( p=\phi((\lambda_1,\dotsc,\lambda_n)) \).
                 \phi(1)&=p_1
             \end{aligned}
         \end{align*}
-        und es gilt \( \teilverhaeltnis(p_0,p_1,p)=\inv{\phi(p)} \).
+        und es gilt \( \teilverhaeltnis{p_0}{p_1}{p}=\inv{\phi(p)} \).
     \end{enumerate}
     
 \end{bemerkungen*}

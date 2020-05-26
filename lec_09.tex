@@ -63,7 +63,7 @@ Es gilt also, dass für alle \( v,w\in T(X) \) mit \( \scalarproduct{v}{w}=0 \) 
   Sei \( V \) ein euklidischer Vektorraum, \( F\maps V\to V  \) ein Isomorphismus mit \( F(v)\perp F(w) \) für alle \( v,w\in V \) mit \( v\perp w \). Dann existiert \( \rho\in \reals_{>0} \) \sd \( \frac{1}{\rho}\cdot F \) orthogonal ist.
 \end{lemma}
 \begin{proof}
-  Sei \( n=\dim V \) und \( v_1,\dotsc, v_n \) eine Orthonormal von \( V \), \dh \( \norm{v_i}=1 \), \( 1\leq i\leq n \) und \( \scalarproduct{v_i}{v_\gamma}=0 \) für \( i\leq j \). Sei \( \rho_i\definedas \norm{F(v_i)}  \), \( 1\leq i \leq n \).
+  Sei \( n=\dim-{}{V} \) und \( v_1,\dotsc, v_n \) eine Orthonormal von \( V \), \dh \( \norm{v_i}=1 \), \( 1\leq i\leq n \) und \( \scalarproduct{v_i}{v_\gamma}=0 \) für \( i\leq j \). Sei \( \rho_i\definedas \norm{F(v_i)}  \), \( 1\leq i \leq n \).
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/orthonormalbasis_skalierung}
@@ -71,11 +71,11 @@ Es gilt also, dass für alle \( v,w\in T(X) \) mit \( \scalarproduct{v}{w}=0 \) 
   \end{figure}
   Fpr \( j\neq j \) gilt 
   \begin{equation*}
-    \scalarproduct{v_i+v_j}{v_i-v_j}=\braceannotate{\norm{v_i}^2}{=1}+\braceannotate{\scalarproduct{v_j}{v_i}}{=0}-\braceannotate{\scalarproduct{v_i}{v_j}}{=0}-\braceannotate{\norm{v_j}^2}{=1}=0, 
+    \scalarproduct{v_i+v_j}{v_i-v_j}=\braceannotate{=1}{\norm{v_i}^2}+\braceannotate{=0}{\scalarproduct{v_j}{v_i}}-\braceannotate{=0}{\scalarproduct{v_i}{v_j}}-\braceannotate{=1}{\norm{v_j}^2}=0, 
   \end{equation*}
   also \( v_i+v_j\perp v_i-v_j \). Nach Annahme gilt dann auch
   \begin{equation*}
-    \scalarproduct{F(v_i)}{F(v_i)}+\braceannotate{\scalarproduct{F(v_j)}{F(v_i)}}{=0, \text{ da } F(v_j)\perp F(v_i)}-\braceannotate{\scalarproduct{F(v_i)}{F(v_j)}}{=0}-\scalarproduct{F(v_j)}{F(v_j)}=\scalarproduct{F(v_i+v_j)}{F(v_i-v_j)}=0.
+    \scalarproduct{F(v_i)}{F(v_i)}+\braceannotate{=0, \text{ da } F(v_j)\perp F(v_i)}{\scalarproduct{F(v_j)}{F(v_i)}}-\braceannotate{=0}{\scalarproduct{F(v_i)}{F(v_j)}}-\scalarproduct{F(v_j)}{F(v_j)}=\scalarproduct{F(v_i+v_j)}{F(v_i-v_j)}=0.
   \end{equation*}
   Also gilt
   \begin{equation*}

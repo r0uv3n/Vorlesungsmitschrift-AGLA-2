@@ -3,11 +3,11 @@
 \begin{lemma}\label{teilverhaeltnis_invariant_unter_affinen_abbildungen}
     Seien \( X,Y \) affine Räume und \( f\maps X\to Y \) eine affine Abbildung, seien \( p_0,p1,p \) Punkte in \( X \), die auf einer Geraden liegen und \( f(p_0)\neq f(p_1) \). Dann gilt
     \begin{align*}
-        \teilverhaeltnis(f(p_0),f(p_1),f(p))=\teilverhaeltnis(p_0,p_1,p).
+        \teilverhaeltnis{f(p_0)}{f(p_1)}{f(p)}=\teilverhaeltnis{p_0}{p_1}{p}.
     \end{align*}
 \end{lemma}
 \begin{proof}
-    Sei \( \lambda=\teilverhaeltnis(p_0,p_1,p) \), also \( \vv{p_0 p}=\lambda\vv{p_0 p_1} \). Si \( F\maps T(X)\to T(Y) \) die zu \( f \) gehörige lineare Abbildung. Wir berechnen
+    Sei \( \lambda=\teilverhaeltnis{p_0}{p_1}{p} \), also \( \vv{p_0 p}=\lambda\vv{p_0 p_1} \). Sei \( F\maps T(X)\to T(Y) \) die zu \( f \) gehörige lineare Abbildung. Wir berechnen
     \begin{align*}
         \vv{f(p_0) f(p)}\begin{aligned}[t]
             &=F(\vv{p_0 p})\\
@@ -30,7 +30,7 @@
     \end{align*}
     Dann gilt
     \begin{align*}
-        \teilverhaeltnis(p_0,p_1,q_1)=\teilverhaeltnis(p_0,p_2,q_2).
+        \teilverhaeltnis{p_0}{p_1}{q_1}=\teilverhaeltnis{p_0}{p_2}{q_2}.
     \end{align*}
     \begin{figure}[H]
         \centering
@@ -66,8 +66,8 @@
 
     Also
     \begin{align*}
-        &\rphantom{=}\teilverhaeltnis(\inv{\phi}(p_0),\inv{\phi}(p_1),\inv{\phi}(q_1))=\lambda\\
-        &=\mu=\teilverhaeltnis(\inv{\phi}(p_0),\inv{\phi}(p_2),\inv{\phi}(q_2))
+        &\rphantom{=}\teilverhaeltnis{\inv{\phi}(p_0)}{\inv{\phi}(p_1)}{\inv{\phi}(q_1)}=\lambda\\
+        &=\mu=\teilverhaeltnis{\inv{\phi}(p_0)}{\inv{\phi}(p_2)}{\inv{\phi}(q_2)}
     \end{align*}
     und der Strahlensatz folgt aus \thref{teilverhaeltnis_invariant_unter_affinen_abbildungen}.
 \end{proof}
@@ -179,12 +179,12 @@ Wir betrachten die Matrizen \( B\in \matrices{m}{n}{K} \) bestehend aus den Spal
 \begin{definition*}
     Sei \( X \) ein affiner Raum \( f\maps X\to X \) eine affine Abbildung. Wir nennen
     \begin{align*}
-        \Fix(f)\definedas \Set{x\in X|f(x)=x}
+        \fixpunkte{f}\definedas \Set{x\in X|f(x)=x}
     \end{align*}
     die Menge der Fixpunkte von \( f \).
 \end{definition*}
 \begin{frage*}
-    Welche Struktur hat \( \Fix(f) \).
+    Welche Struktur hat \( \fixpunkte{f} \).
 \end{frage*}
 \begin{beispiel}
     \( X \) affiner Raum.
@@ -194,10 +194,10 @@ Wir betrachten die Matrizen \( B\in \matrices{m}{n}{K} \) bestehend aus den Spal
             x&\mapsto x
         \end{aligned}
     \end{align*}
-    dann \( \Fix(\Id)=X \).
+    dann \( \fixpunkte{\Id}=X \).
 \end{beispiel}
 \begin{beispiel}
-    \( f\maps K^n\to K^n \), \( x\mapsto \underrelate{\isittrue{=}}{x}{\underbrace{x+p_0}} \) mit \( p_0\in K^n\setminus \zeroset \), dann \( \Fix(f)=\emptyset \).
+    \( f\maps K^n\to K^n \), \( x\mapsto \underrelate{\isittrue{=}}{x}{\underbrace{x+p_0}} \) mit \( p_0\in K^n\setminus \zeroset \), dann \( \fixpunkte{f}=\emptyset \).
 \end{beispiel}
 \begin{beispiel}
     \begin{frage*}
@@ -206,12 +206,12 @@ Wir betrachten die Matrizen \( B\in \matrices{m}{n}{K} \) bestehend aus den Spal
     
 \end{beispiel}
 \begin{lemma}\label{affine_fixpunkte_sind_affiner_unterraum}
-    \( \Fix(f)\subseteq X \) ist ein affiner Unterraum.
+    \( \fixpunkte{f}\subseteq X \) ist ein affiner Unterraum.
 \end{lemma}
 \begin{proof}
-    Falls \( \Fix(f)=\emptyset \) dann \checkmark. Sei also \( \Fix(f)\neq \emptyset \) und \( p\in \Fix(f) \), \( F \) die zu \( f \) gehörig lineare Abbildung.
+    Falls \( \fixpunkte{f}=\emptyset \) dann \checkmark. Sei also \( \fixpunkte{f}\neq \emptyset \) und \( p\in \fixpunkte{f} \), \( F \) die zu \( f \) gehörig lineare Abbildung.
 
-    Für \( x\in \Fix(f) \) gilt
+    Für \( x\in \fixpunkte{f} \) gilt
     \begin{align*}
         \vv{px}=\vv{f(p) f(x)}=F(\vv{px}).
     \end{align*}
@@ -219,16 +219,16 @@ Wir betrachten die Matrizen \( B\in \matrices{m}{n}{K} \) bestehend aus den Spal
     \begin{align*}
         \vv{px}=F(\vv{px})=\vv{p f(x)},
     \end{align*}
-    dass \( x=f(x) \), also \( x\in \Fix(f) \).
+    dass \( x=f(x) \), also \( x\in \fixpunkte{f} \).
 
     Damit gilt
     \begin{align*}
-        \Set{\vv{px}\in T(X)|x\in \Fix(f)}=\Set{\vv{px}\in T(X)|\vv{px}=F(\vv{px})}
+        \Set{\vv{px}\in T(X)|x\in \fixpunkte{f}}=\Set{\vv{px}\in T(X)|\vv{px}=F(\vv{px})}
     \end{align*}
     und wir erkennen diese Menge als \( K \)-Untervektorraum von \( X \).
 \end{proof}
 \begin{frage*}
-    Bestimmung von \( \Fix(f) \) für eine beliebige affine Abbildung \( f\maps X\to X \)?
+    Bestimmung von \( \fixpunkte{f} \) für eine beliebige affine Abbildung \( f\maps X\to X \)?
 \end{frage*}
 Nach Wahl eines Koordinatensystems können wir auf den Fall \( X=K^n \) reduzieren und annehmen, dass \( f \) in Matrizendarstellung gegeben ist.
 
@@ -241,7 +241,7 @@ Sei also
 \end{align*}
 Dann gilt
 \begin{align*}
-    \Fix(f)=\set{x\in K^n|(A-\explain{\text{Einheitsmatrix der Dimension \( n \):}\ \begin{pNiceMatrix}
+    \fixpunkte{f}=\set{x\in K^n|(A-\explain{\text{Einheitsmatrix der Dimension \( n \):}\ \begin{pNiceMatrix}
         1 &  & 0 \\
          & \ddots &  \\
         0 &  & 1
@@ -263,7 +263,7 @@ Wir haben das Problem also reduziert auf das Lösen eines linearen Gleichungssys
 
     Dann
     \begin{align*}
-        \Fix(f)=\Set{x\in K^n|(\lambda-1)x=-b}.
+        \fixpunkte{f}=\Set{x\in K^n|(\lambda-1)x=-b}.
     \end{align*}
     Falls \( \lambda-1 \) invertierbar ist \( (\lambda\neq 1) \), gibt es genau einen Fixpunkt.
 \end{beispiel}
@@ -277,7 +277,7 @@ Wir haben das Problem also reduziert auf das Lösen eines linearen Gleichungssys
 \begin{lemma}
     Sei \( f\maps X\to X \) eine Dilatation mit Faktor \( \lambda\neq 1 \). Dann gilt
     \begin{align*}
-        \anzahl \Fix(f)=1.
+        \anzahl-{\fixpunkte{f}}=1.
     \end{align*}
 \end{lemma}
 \begin{proof}
@@ -303,7 +303,7 @@ Dann liegen auch \( f(p_1), f(p_2),f(p_3) \) auf einer Geraden.
     Affinitäten
 \end{beispiel}
 \begin{beispiel}
-    Ist \( \dim X=1 \) und \( f\maps X\to X \) bijektiv, dann ist \( f \) eine Kollineation.
+    Ist \( \affindim-{X}=1 \) und \( f\maps X\to X \) bijektiv, dann ist \( f \) eine Kollineation.
 \end{beispiel}
 \begin{beispiel}\label{kollinieationen:beispiele:komplexe_konjugation}
     Sei \( X=\complexs^2 \) als affiner Raum über \( \complexs \).

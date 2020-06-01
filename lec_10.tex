@@ -35,7 +35,7 @@ Mit \( (x_1,\dotsc,x_n)\in Q \) ist also auch
 \begin{definition*}
   Sei \( K \) ein Körper und \( V \) ein \( K \)-Vektorraum. Wir definieren
   \begin{equation*}
-    \projectionspace{V}=\Set{L\leq V| L\ \text{ist eindimensionaler Untervektorraum von \( V \)}}.
+    \projectionspace{V}=\Set{L\untervektorraum V| L\ \text{ist eindimensionaler Untervektorraum von \( V \)}}.
   \end{equation*}
 \end{definition*}
 \begin{beispiel*}
@@ -105,7 +105,7 @@ Mit \( (x_1,\dotsc,x_n)\in Q \) ist also auch
   \end{equation*}
 \end{bemerkung*}
 \section*{Unterräume eines projektiven Raums}
-\begin{beispiel}
+\begin{beispiel}\label{projektive_unterebene}
   \( V=\reals^3 \), die Menge der Geraden \( \reals\cdot(0,v_1,v_2) \) mit \( (v_1,v_2)\in \reals^2\setminus\zeroset \) \enquote{sieht genauso aus} wie
   \begin{equation*}
     \projectionspaceover{1}{\reals}=\projectionspace{\reals^2}.
@@ -194,7 +194,7 @@ und damit eine Einbettung
 die wir kanonische Einbettung des \( K^n \) in den \( \projectionspaceover{n}{K} \) nennen.
 
 \section*{Dimensionsformel als nächstes Ziel}
-\begin{lemma}
+\begin{lemma}\label{schnitt_von_projektiven_unterraeumen_ist_projektiver_unterraum}
   Sei \( V \) ein \( K \)-Vektorraum und \( (Z_i)_{i\in I} \) eine Familie projektiver Unterräume von \( \projectionspace{V} \), \( i\in I \) gibt es eine Familie projektiver Unterräume von \( \projectionspace{V} \). Dann ist \( \bigcap_{i\in I} Z_i \) in projektiver Unterraum von \( \projectionspace{V} \).
 \end{lemma}
 \begin{proof}
@@ -202,7 +202,7 @@ die wir kanonische Einbettung des \( K^n \) in den \( \projectionspaceover{n}{K}
   \begin{equation*}
     \begin{split}
       \bigcap_{i\in I}Z_i&=\bigcap_{i\in I}\Set{L\subseteq V|\text{Gerade mit \( L\subseteq W_i \)}}\\
-      &=\bigcap_{i\in I}\Set{L\subseteq V|\text{Gerade \( L \) mit \( L\subseteq  \underbrace{\bigcap_{i\in I}W_i}_{\text{\( K \)-Untervektorraum}}\)}}\\
+      &=\bigcap_{i\in I}\Set{L\subseteq V|\text{Gerade \( L \) mit \( L\subseteq  \smash{\underbrace{\bigcap_{i\in I}W_i}_{\mathclap{\text{\( K \)-Untervektorraum}}}\vphantom{\bigcup_{i\in I}}}\)}}\\
       &=\projectionspace*{\bigcap_{i\in I} W_i}
     \end{split}
   \end{equation*}
@@ -257,7 +257,7 @@ die wir kanonische Einbettung des \( K^n \) in den \( \projectionspaceover{n}{K}
 \begin{bemerkung*}
   \( \bigvee_{i\in I}Z_i \) ist der kleinste projektive Unterraum \( Y \) von \( \projectionspace{V} \) mit \( \bigcup_{i\in I}Z_i\subseteq Y \).
 \end{bemerkung*}
-\begin{lemma}
+\begin{lemma}\label{projektiver_verbindungsraum_formel}
   Sei \( V \) ein \( K \)-Vektorraum und \( W_i \), \( i\in I \) Untervektorräume von \( V \). Dann gilt
   \begin{equation*}
     \bigvee_{i\in I}\projectionspace{W_i}=\projectionspace*{\sum_{i\in I} W_i}.

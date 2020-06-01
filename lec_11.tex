@@ -1,0 +1,262 @@
+% !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
+\lecture{Fr 29.05. 10:15}{}
+Im \thref{projektive_unterebene} haben wir angedeutet, dass sich zwei Geraden im \( \projectionspaceover{2}{\reals} \) immer schneiden. Ganz allgemein gilt folgender Satz.
+\begin{satz}[Dimensionsformel]
+  Sei \( V \) ein \( K \)-Vektorraum und \( Z_1,Z_2\subseteq \projectionspace{V} \) projektive Unterräume. Dann gilt
+  \begin{equation*}
+    \projectivedim-{Z_1 \vee Z_2}=\projectivedim-{Z_1}+\projectivedim-{Z_2}-\projectivedim{Z_1\cap Z_2}.
+  \end{equation*}
+  Falls \( \projectivedim-{Z_1}+\projectivedim-{Z_2}\geq\projectivedim-{\projectionspace{V}} \), dann gilt \( Z_1\cap Z_2\neq \emptyset \).
+\end{satz}
+\begin{proof}
+  Sei \( Z_i=\projectionspace{W_i} \), \( 1\leq i\leq 2 \) mit \( W_1, W_2\untervektorraum V\) \( K \)-Untervektorräu me. Es gilt dann
+  \begin{align*}
+    \projectivedim{Z_1 \vee Z2}&\explain{\text{\thref{projektiver_verbindungsraum_formel}}}{=}\projectivedim{\projectionspace{W_1+W_2}}\\
+    &=\dim{K}{W_1+W_2}-1\\
+    &\explain{\text{Dimensionsformel für Untervektorräume aus der \agla{1}}}{=}\dim-{K}{W_1}+\dim-{K}{W_2}-\dim-{K}{W_1\cap W_2}\\
+    &=(\dim{K}{W_1}-1)+(\dim{K}{W_2}-1)-(\dim{K}{W_1\cap W_2}-1)\\
+    &\explain{\text{Beweis von \thref{schnitt_von_projektiven_unterraeumen_ist_projektiver_unterraum}}}{=}\projectivedim-{\projectionspace{W_1}}+\projectivedim-{\projectionspace{W_2}}-\projectivedim-{\underbrace{\projectionspace{W_1}\cap\projectionspace{W_2}}_{=\projectionspace{W_1\cap W_2}}}\\
+    &=\projectivedim-{Z_1}+\projectivedim-{Z_2}-\projectivedim-{Z_1\cap Z_2}.
+  \end{align*}
+  Ist 
+  \begin{equation*}
+    \projectivedim-{Z_1}+\projectivedim-{Z_2}\geq \projectivedim{\projectionspace{V}}\leq \projectivedim{Z_1\vee Z_2}
+  \end{equation*}
+  dann gilt \( \projectivedim{Z_1\cap Z_2}\geq 0 \), also \( Z_1\cap Z_2\neq \emptyset \).  
+\end{proof}
+\section{Projektive Abbildungen}
+Sei \( K \) ein Körper, \( V,W \) \( K \)-Vektorraum und \( F\maps V\to W \) eine \( K \)-lineare Abbildung.
+\begin{frage*}
+  Unter welchen Voraussetzungen induziert \( F \) eine Abbildung \( \projectionspace{V}\to \projectionspace{W} \)?
+\end{frage*}
+Wir wollen eine Abbildung \( f\maps \projectionspace{V}\to \projectionspace{W}  \) definieren durch
+\begin{equation*}
+  K\cdot v\mapsto \braceannotate{F(K\cdot v)}{K\cdot F(v)}
+\end{equation*}
+für \( v\in V\setminus \zeroset \). \( K\cdot F(v) \) ist ein wohldefiniertes Element in \( \projectionspace{W} \) \gdw \( F(v)\neq0 \), \dh wir müssen \( F \) \emph{injektive} voraussetzen.
+\begin{definition*}
+  Sei \( K \) ein Körper \( V,W \) \( K \)-Vektorräume. Wir nennen ein Abbildung
+  \begin{equation*}
+    f\maps \projectionspace{V}\to \projectionspace{W}
+  \end{equation*}
+  \emph{projektiv}, wenn es eine injektive lineare Abbildung \( F\maps \to W \) gibt mit
+  \begin{equation*}
+    f(K\cdot v)=K\cdot F(v)\quad \forall v\in V\setminus\zeroset.
+  \end{equation*}
+  Schreibe \( f=\projectionmap{F} \). Ist die projektive Abbildung \( f \) bijektiv, so nennen wir \( f \) \emph{Projektivität}.
+\end{definition*}
+\begin{bemerkung*}
+  Eine projektive Abbildung \( f\maps \projectionspace{V}\to \projectionspace{W}  \) ist immer injektiv.
+\end{bemerkung*}
+\begin{beispiel*}
+  Für \( m\geq n \) betrachte die Einbettung
+  \begin{equation*}
+    \begin{split}
+      F\maps K^{n+1}&\hookrightarrow K^{m+1}\\
+      (x_0,\dotsc,x_n)\mapsto (x_0,\dotsc,x_n,0,\dotsc,0).
+    \end{split}
+  \end{equation*}
+  \( F \) induziert eine projektive Abbildung
+  \begin{equation*}
+    \begin{split}
+      f\maps \projectionspaceover{n}{K}&\to \projectionspaceover{n}{K}\\
+      (x_0:\dotsc:x_n)&\mapsto(x_0:\dotsc:x_n:0:\dotsc:0).
+    \end{split}
+  \end{equation*}
+  Wir nennen \( f \) die kanonische Einbettung des \( \projectionspaceover{n}{K} \) in den \( \projectionspaceover{m}{K} \).
+
+  \( V=\reals^3 \), \( \ell_0, \ell_1, \ell_2\in \reals[x_0,x_1,x_2] \) linear unabhängige Linearformen in \( x_0,x_1,x_2 \), \dh
+  \begin{equation*}
+    \ell_i(x_0,x_1,x_2)=\sum_{j=0}^{2}\alpha_{ij}x_j
+  \end{equation*}
+  mit \( \alpha_{ij\in \reals} \forall i,j\) und \( \det(\alpha_{ij})\neq 0 \). Dann ist \( f\maps \projectionspaceover{2}{\reals} \to \projectionspaceover{2}{\reals}\), \( (x_0:x_1:x_2)\mapsto (\ell_0(\underline{x}):\ell_1(\underline{x}):\ell_2(\underline{x})) \) eine Projektivität der projektiven Ebene über \( \reals \). Als zugehörige lineare Abbildung können wir \zb
+  \begin{equation*}
+    \begin{split}
+      F\maps \reals^3&\to \reals^3\\
+    (\underbrace{x_0,x_1,x_2}_{\underline{x}})&\mapsto (l_0(\underline{x}),\ell_1(\underline{x}),\ell_2(\underline{x}))
+    \end{split}
+  \end{equation*}
+  wählen. Die Abbildung
+  \begin{equation*}
+    F\maps(\underbrace{x_0,x_1,x_2}_{\underline{x}})\mapsto (5l_0(\underline{x}),5\ell_1(\underline{x}),5\ell_2(\underline{x}))
+  \end{equation*}
+  induziert die gleiche projektive 
+  \begin{equation*}
+    f=\projectionmap{F}=\projectionmap{F'}.
+  \end{equation*}
+\end{beispiel*}
+\minisec{Allgemein:} Sei \( K \) ein Körper, \( V,W \) \( K \)-Vektorräume, \( F\maps V\to W \) eine injektive lineare Abbildung und \( \lambda\in \fieldwithoutzero{K} \). Dann ist
+\begin{equation*}
+  \projectionmap{F}=\projectionmap{\lambda F}.
+\end{equation*}
+\begin{frage*}
+  Gibt es \enquote{noch mehr} lineare Abbildungen \( G\maps V\to W \) mit \( \projectionmap{G}=\projectionmap{F} \)?
+\end{frage*}
+\begin{lemma}
+  Notation wie oben. Seien \( F,G\maps V\to W \) lineare injektive Abbildungen mit \( \projectionmap{F}=\projectionmap{G} \). Dann ist \( G=\lambda  \) für ein \( \lambda\in \fieldwithoutzero{K} \).
+\end{lemma}
+\begin{proof}
+  Sei \( \projectionmap{F}=\projectionmap{G} \) und \( v_0\in V\setminus\zeroset \). Dann gilt
+  \begin{equation*}
+    K\cdot F(v_0)=\projectionmap{F}(Kv_0)=\projectionmap{G}(K\cdot v_0)=K\cdot G(v_0),
+  \end{equation*}
+  also \texists \( \lambda\in \fieldwithoutzero{K} \) mit \( G(v_0)=\lambda F(v_0) \). Sei \( v\in V\setminus \zeroset \). Wir wollen zeigen, dass gilt
+  \begin{equation*}
+    G(v)=\lambda F(v).
+  \end{equation*}
+  \begin{enumerate}[label=Fall \rechtsklammer{\alph*}]
+    \item \( v=\alpha v_0 \) mit \( \alpha\in K \). Dann 
+    \begin{equation*}
+      G(v)=\alpha G(v_0)=\alpha \lambda F(v_0)=\lambda F(v).
+    \end{equation*}
+    \item \( v \) und \( v_0 \) sind linear unabhängig. Sei
+    \begin{equation*}
+      G(v)=\mu F(v)\quad \mu\in \fieldwithoutzero{K}
+    \end{equation*}
+    und
+    \begin{equation*}
+      G(v+v_0)=\varv F(v+v_0)\quad \varv\in \fieldwithoutzero{K}.
+    \end{equation*}
+    \( G \) und \( F \) sind linear, also gilt
+    \begin{align*}
+      0&=G(v+v_0)-G(v)-G(v_0)\\
+      &=\varv \braceannotate{F(v)+F(v_0)}{F(v+v_0)}-\mu F(v)-\lambda F(v_0)\\
+      0&=(\braceannotate{=0}{\varv-\mu})F(v)+(\braceannotate{=0}{\varv-\lambda})F(v_0).
+    \end{align*}
+    \( F \) ist injektiv, also sind \( F(v), F(v_0) \)  linear unabhängig. Es folgt 
+    \begin{equation*}
+      \varv-\mu=\varv-\lambda=0
+    \end{equation*}
+    und insbesondere \( \mu=\lambda \) \dh
+    \begin{equation*}
+      G(v)=\lambda F(v)\quad \forall v\in V.
+    \end{equation*}
+  \end{enumerate}
+\end{proof}
+\begin{bemerkung*}
+  Seien \( V,W \) \( K \)-Vektorräume und \( F \) eine nicht notwendigerweise injektive lineare Abbildung
+  \begin{equation*}
+    F\maps V\to W.
+  \end{equation*}
+  Dann ist \( F(K\cdot v) \) für \( v\in V \) genau dann eine Gerade in \( W \) wenn \( F(v)\neq 0 \). Damit induziert \( F \) eine Abbildung
+  \begin{equation*}
+    \begin{split}
+      f\maps \projectionspace{V}\setminus Z\to \projectionmap{W}\\
+      K\cdot v\mapsto K\cdot F(v)
+    \end{split}
+  \end{equation*}
+  mit \( Z=\projectionspace{\Ker-{F}} \).
+\end{bemerkung*}
+\begin{beispiel*}
+  Die lineare Abbildung 
+  \begin{equation*}
+    \begin{split}
+      \reals^3&\to \reals^2\\
+      (x_0,x_1,x_2)&\mapsto (x_0,x_1)
+    \end{split}
+  \end{equation*}
+  induziert die Abbildung
+  \begin{equation*}
+    \begin{split}
+      p\maps \projectionspaceover{2}{\reals}\setminus\Set{(0:0:1)}&\to \projectionspaceover{1}{\reals}\\
+      (x_0:x_1:x_2)\mapsto (x_0:x_1).
+    \end{split}
+  \end{equation*}
+  \begin{erinnerung*}[Beschreibung von affinen Abbildungen in der affinen Geometrie ]
+    Seien \( X,Y \) affine Räume über einem Körper \( K \), \( \dim X=n \) und \( p_0,\dotsc,p_n \) affin unabhängige Punkte \( X \). Seien \( q_0,\dotsc,q_n\in Y \). Dann gibt es genau eine affine Abbildung \( f\maps X\to Y \) mit
+    \begin{equation*}
+      f(p_i)=q_i\quad 0\leq i\leq n.
+    \end{equation*}
+    Seien \( V,W \) \( K \)-Vektorräume. Auf wie vielen \enquote{unabhängigen} Punkten \( p_i\in \projectionspace{V} \) muss man Bildpunkte \( q_i\in \projectionspace{W} \) vorgeben, \sd eine eindeutig bestimmte projektive Abbildung
+    \begin{equation*}
+      f\maps \projectionspace{V}\to \projectionspace{W}
+    \end{equation*}
+    mit \( f(p_i)=q_i \forall i\) besteht.
+  \end{erinnerung*}
+\end{beispiel*}
+\begin{beispiel*}
+  \( V=K^{n+1} \). Sei 
+  \begin{align*}
+    p_0&=(1:0:\dotsc:0)\\
+    p_1&=(0:1:\dotsc:0)\\
+    &\vdots\\
+    p_n&=(0:0:\dotsc:1)
+  \end{align*}
+  und \( W=V \), \( q_i=p_i\quad \forall 0\leq i\leq n \). Seien \( \lambda_0,\dotsc,\lambda_n\in \fieldwithoutzero{K} \). Dann ist
+  \begin{equation*}
+    \begin{split}
+      f_{(\lambda_0,\dotsc,\lambda_n)}\maps \projectionspaceover{n}{K}&\to \projectionspaceover{n}{K}\\
+      (x_0:\dotsc:x_n)&\mapsto (\lambda_0 x_0:\dotsc:\lambda_n x_n)
+    \end{split}
+  \end{equation*}
+  eine Projektivität mit 
+  \begin{equation*}
+    f_{(\lambda_0,\dotsc,\lambda_n)}(p_i)=q_i
+  \end{equation*}
+  für \( 0\leq i\leq n \), \emph{aber} unterschiedliche Tupel
+   \( (\lambda_0,\dotsc,\lambda_n)\), \( (\mu_0,\dotsc,\mu_n) \) können unterschiedliche Projektivitäten \( f_{(\lambda_0,\dotsc,\lambda_n)} \), \( f_{(\mu_0,\dotsc,\mu_n)} \) induzieren. \Zb ist 
+   \begin{equation*}
+    (\lambda_0:\dotsc:\lambda_n)=f_{(\lambda_0,\dotsc,\lambda_n)}(1:\dotsc:1)\isittrue{=}f_{(\mu_0,\dotsc,\mu_n)}(1:\dotsc:1)=(\mu_0,\dotsc,\mu_n).
+   \end{equation*}
+   Das gilt genau dann, wenn \texists \( a\in \fieldwithoutzero{K}  \) mit \( (\lambda_0,\dotsc,\lambda_n)=\alpha (\mu_0,\dotsc,\mu_n) \).
+\end{beispiel*}
+\begin{idee*}
+  Wir legen \( f  \) fest durch die Bilder der \emph{\( n+2 \) Punkte}
+  \begin{equation*}
+    \equalto{f(p_0)}{q_0},\dotsc,\equalto{f(p_n)}{q_n}
+  \end{equation*}
+  und \( f((1:\dotsc:1)) \).
+\end{idee*}
+\begin{definition*}
+  Sei \( V \) ein \( K \)-Vektorraum und \( p_0,\dotsc,p_r\in \projectionspace{V} \). Wir nennen das Tupel \( (p_0,\dotsc,p_r) \) \emph{projektiv unabhängig}, wenn es \emph{linear unabhängige} Vektoren \( v_0\dotsc,v_r\in V \) gibt mit \( p_i=K v_i \), \( 0\leq i\leq r \).
+\end{definition*}
+\begin{bemerkungen*}
+  Das Tupel \( (p_0,\dotsc,p_r) \) ist projektiv unabhängig \gdw \( \projectivedim{p_0\vee \dotsb\vee p_r}=r \).
+\end{bemerkungen*}
+\begin{beispiel*}
+  Im \( \projectionspaceover{n}{K} \) sind die Punkte
+  \begin{align*}
+    p_0&=(1:0:\dotsc:0)\\
+    &\vdots\\
+    p_n&=(0:0:\dotsc:1)
+  \end{align*}
+  projektiv unabhängig.
+\end{beispiel*}
+\begin{definition*}
+  Sei \( V \) ein \( K \)-Vektorraum mit \( \dim V=n \) und \( p_0,\dotsc,p_n,p_{n+1}\in \projectionspace{V} \). Wir nennen das \( (n+2) \)-Tupel \( (p_0,\dotsc,p_{n+1}) \) \emph{projektive Basis} von \( \projectionspace{V} \), wenn je \( n+1 \) Punkte davon projektiv unabhängig sind.
+\end{definition*}
+\begin{beispiel*}
+  \( V=K^{n+1} \). Dann sind
+  \begin{align*}
+    p_0&=(1:0:\dotsc:0)\\
+    &\vdots\\
+    p_n&=(0:0:\dotsc:1)\\
+    p_{n+1}&=(1:\dotsc:1)
+  \end{align*}
+  eine projektive Basis der \( \projectionspaceover{n}{K} \). Wir nennen \( p_0,\dotsc,p_{n+1}  \) auch kanonische projektive Basis des \( \projectionspace{n}{K} \).
+\end{beispiel*}
+\begin{lemma}
+  Sei \( V \) ein \( K \)-Vektorraum und \( p_0,\dotsc,p_{n+1} \) eine projektive Basis des \( \projectionspace{V} \). Dann gibt es eine Basis \( v_0,\dots,v_n \) von \( V \), sodassgilt
+  \begin{gather*}
+    p_0=Kv_i\quad 0\leq i\leq n\\
+    p_{n+1}=K(v_0+\dotsb+v_n).
+  \end{gather*}
+\end{lemma}
+\begin{proof}
+  \( p_0,\dotsc,p_n \) sind projektiv unabhängig, also gibt es eine Basis \( w_0,\dotsc,w_n \) des \( K \)-Vektorraums \( V \) mit \( p_i=K\cdot w_i \quad 0\leq i\leq n\). Sei \( p_{n+1}=K\cdot w \) mit \( w\in V\setminus\zeroset \). Dann \texists \( \lambda_0,\dotsc,\lambda_n\in K \) mit 
+  \begin{equation*}
+    w=\lambda_0 w_0+\dotsb+\lambda-n w_n.
+  \end{equation*}
+\end{proof}
+\begin{behauptung*}
+  \( \lambda_i\neq 0 \) für \( 0\leq i\leq n \).
+\end{behauptung*}
+\emph{Denn} angenommen \( \lambda_0=0 \). Dann sind die Vektoren
+\begin{equation*}
+  w_0,\dotsc,w_{j-1},w_{j+1},\dotsc,w_n,w
+\end{equation*}
+linear abhängig \contra zu 
+\begin{equation*}
+  p_0,\dotsc,p_{j-1},p_{j+1},\dotsc,p_n,p_{n+1}
+\end{equation*}
+projektiv unabhängig. Wähle nun \( v_i=\lambda_i w_i \), \( 0\leq i\leq n \).

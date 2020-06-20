@@ -29,7 +29,7 @@
     \label{fig:translation_erhaelt_winkel_beweis_winkel_zwischen_geraden}
   \end{figure}
   \begin{equation*}
-    \lineangle{L}{L'}=\arccos \frac{\scalarproduct{\vv{pq}}{\vv{pq'}}}{\explain{\norm*{\vv{\tau_t(p)\tau_t(q)}}}{\norm*{\vv{pq}}}\explain[Bigg]{\norm*{\vv{\tau_t(p)\tau_t(q)}}}{\norm*{\vv{pq'}}}}.
+    \lineangle{L}{L'}=\arccos \frac{\abs{\scalarproduct{\vv{pq}}{\vv{pq'}}}}{\explain{\norm*{\vv{\tau_t(p)\tau_t(q)}}}{\norm*{\vv{pq}}}\explain[Bigg]{\norm*{\vv{\tau_t(p)\tau_t(q')}}}{\norm*{\vv{pq'}}}}.
   \end{equation*}
 \end{proof}
 \minisec{also:} Translation um ein Element \( t\in T(X) \) erhält Abstände und Winkel.
@@ -71,20 +71,18 @@ Nicht alle affinen Abbildungen haben diese Eigenschaft, \zb \( X=\reals^2 \) mit
       \vv{px} &\mapsto \vv{f(p)f(x)}.
     \end{aligned}
   \end{equation*}
-  \newtheorem{beweisbehauptung}{Behauptung}[satz]
-  \renewcommand\thebeweisbehauptung{\arabic{beweisbehauptung}}
   \begin{beweisbehauptung}
     \( F \) ist eine Isometrie.
   \end{beweisbehauptung}
   Seien \( x_1,x_2\in X \).
   \begin{align*}
-    \norm*{F(\vv{px_1})-F(\vv{px_2})}&=\norm{\vv{f(p)f(x_1)}\underbrace{-\vv{f(p)f(x_2)}}_{=\vv{f(x_2)f(p)}}}_{T(Y)}\\
+    \norm*{F(\vv{px_1})-F(\vv{px_2})}_{T(Y)}&=\norm{\vv{f(p)f(x_1)}\underbrace{-\vv{f(p)f(x_2)}}_{=\vv{f(x_2)f(p)}}}_{T(Y)}\\
     &=\norm*{\vv{f(p) f(x_1)}+\vv{f(x_2) f(p)}}_{T(Y)}\\
     &=\norm*{f(x_2)f(x_1)}_{T(Y)}\\
     &=\norm*{\vv{f(x_2) f(x_1)}}_{T(Y)}\\
     &=d_Y(f(x_2), f(x_1))\\
     &\explain{\text{\( f \) ist Isometrie}}{=} d_X(x_2,x_1)=\vv{x_2 x_1}_{T(X)}\\
-    &=\norm*{\vv{px_1}-\vv{px_2}}_{T(x)}.
+    &=\norm*{\vv{px_1}-\norm{\vv{px_2}}}_{T(x)}.
   \end{align*}
   \begin{beweisbehauptung}
     Ist \( F \) \emph{linear}, dann ist \( f \) affin. Seien \( x_1,x_2\in X \). Dann gilt 
@@ -102,6 +100,7 @@ Nicht alle affinen Abbildungen haben diese Eigenschaft, \zb \( X=\reals^2 \) mit
     linear!
   \end{beweisbehauptung}
   Es genügt also folgendes Lemma zu beweisen
+  \file{Euklidische affine Räume Teil 2}
   \begin{lemma}\label{richtige_isometrie_linear}
     Seien \( V,W \) euklidisch Vektorräume, \( F\maps V\to W \) eine Isometrie mit \( F(0)=0 \). Dann ist \( F \) \emph{linear} und injektiv.
   \end{lemma}
@@ -134,11 +133,21 @@ Nicht alle affinen Abbildungen haben diese Eigenschaft, \zb \( X=\reals^2 \) mit
     \end{equation*}
     Seien \( v,v'\in V \).
     \begin{align*}
-      \langle \underbrace{F(v+v')-F(v)-F(v')_{\isittrue{=}0}},F(v+v')-F(v)-F(v')\rangle&=\scalarproduct{F(v+v')}{F(v+v')}-\scalarproduct{F(v+v')}{F(v)}-\dotsb+\scalarproduct{F(v')}{F(v')}\\
-      &=\scalarproduct{v+v'}{v+v'}-\scalarproduct{v+v'}{v}-\dotsb+\scalarproduct{v'}{v'}\\
-      &=\scalarproduct{v+v'-v-v'}{v+v'-v-v'} \quad \forall v,v'\in V.
+      \langle \underbrace{F(v+v')-F(v)-F(v')}_{\isittrue{=}0},F(v+v')-F(v)-F(v')\rangle&=\begin{aligned}[t]
+        &\scalarproduct{F(v+v')}{F(v+v')}\\
+        &-\scalarproduct{F(v+v')}{F(v)}\\
+        &-\dotsb\\
+        &+\scalarproduct{F(v')}{F(v')}
+      \end{aligned}\\
+      &=\begin{aligned}[t]
+        &\scalarproduct{v+v'}{v+v'}\\
+        &-\scalarproduct{v+v'}{v}-\dotsb\\
+        &+\scalarproduct{v'}{v'}
+      \end{aligned}\\
+      &=\scalarproduct{v+v'-v-v'}{v+v'-v-v'} \\
+      &=\scalarproduct{0}{0}=0\quad \forall v,v'\in V,
     \end{align*}
-    Multiplikation mit Skalaren. Sei \( v\in V \), \( \lambda\in \reals \).
+    also gilt \( F(v+v')=F(v)+F(v') \). Multiplikation mit Skalaren. Sei \( v\in V \), \( \lambda\in \reals \).
     \begin{align*}
       \scalarproduct{F(\lambda v)-\lambda F(v)}{F(\lambda v)-\lambda F(v)}&=\scalarproduct{F(\lambda v)}{F(\lambda v)}-2\scalarproduct{F(\lambda v)}{\lambda F(v)}\scalarproduct{\lambda F(v)}{\lambda F(V)}\\
       &=\scalarproduct{F(\lambda v)}{F(\lambda v)}-2\lambda \scalarproduct{F(\lambda v)}{F(v)}+\lambda^2\scalarproduct{F(v)}{F(v)}\\
@@ -148,6 +157,7 @@ Nicht alle affinen Abbildungen haben diese Eigenschaft, \zb \( X=\reals^2 \) mit
     also \( F(\lambda v)=\lambda F(v)\quad  \forall \forall \lambda\in\reals\logicspace \forall v\in V \).
   \end{proof}
 \end{proof}
+\file{Kongruenz}
 \begin{definition*}
   Eine Isometrie \( f\maps X\to X \) eines euklidischen affinen Raumes \( X \) nennen wir \emph{Kongruenz} (also nach \thref{isometrie_affin_und_injektiv} immer eine Affinität).
 \end{definition*}
@@ -165,6 +175,30 @@ Nicht alle affinen Abbildungen haben diese Eigenschaft, \zb \( X=\reals^2 \) mit
   \end{equation*}
   Dies ist äquivalent dazu, dass \( F \) orthogonal ist (also das Skalarprodukt erhält)
 \end{proof}
+\file{Ähnlichkeiten}
+\begin{bemerkung*}
+  Im \( \reals^n \) mit Standardskalarprodukt sind Kongruenzen
+  \begin{equation*}
+    f\maps \reals^n\to \reals^n
+  \end{equation*}
+  genau durch die Abbildungen der Form
+  \begin{equation*}
+    f\maps x\mapsto \boxed{f(0)*A\matrixmult x}\quad \forall x\in \reals^n
+  \end{equation*}
+  gegeben mit \( A\in \orthogonalmatrices{n}{\reals} \) orthogonal, \dh \( \inverse-{A}=\transpose-{A} \). Slogan: \enquote{Kongruenz \( \sim \) orthogonale Abbildung + Translation}.
+\end{bemerkung*}
+\begin{frage*}
+  Kongruenzen erhalten Winkel. Welche \emph{Affinitäten}/ Abbildungen \( f\maps X\to X \) eines euklidischen Raumes \( X \) haben diese Eigenschaft?
+\end{frage*}
+\begin{beispiel*}
+  \( \reals^2 \) mit Standardskalarprodukt.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{haus_zu_haus}
+    \label{fig:haus_zu_haus}
+  \end{figure}
+  erhält Winkel, aber nicht Abstände, \dh ist keine Isometrie des \( \reals^2 \).
+\end{beispiel*}
 \begin{definition*}
   Sei \( X \) ein euklidischer affiner Raum, \( f\maps X\to X \) eine Abbildung. Sei \( \rho\in \reals_{>0} \). Wir nennen \( f  \) eine \emph{Ähnlichkeit} mit (Ähnlichkeits-) Faktor \( \rho \) wenn \tforall  \( p,q\in X \) gilt
   \begin{equation*}

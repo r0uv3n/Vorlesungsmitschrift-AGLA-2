@@ -1,5 +1,6 @@
 % !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
 \lecture{Di 28.04. 10:15}{}
+\file{Affine Koordinaten und Koordinatensysteme}
 \section{Affine Koordinaten}
 Koordinaten in einem \( K \)-Vektorraum \( V \). Sei \( \dim-{}{V}=n \) und \( v_1,\dotsc , v_n \) eine Basis von \( V \). Dann ist die Abbildung
 \begin{align*}
@@ -10,7 +11,7 @@ Koordinaten in einem \( K \)-Vektorraum \( V \). Sei \( \dim-{}{V}=n \) und \( v
 \end{align*}
 ein Isomorphismus von \( K \)-Vektorräumen. Jeder Punkt \( \underrelate{\ni}{V}{v}=\sum_{i=1}^{n}x_i v_i \) ist eindeutig bestimmt durch seine \enquote{Koordinaten}
 \begin{align*}
-    \inf{\phi}(v)=(x_1,\dotsc,x_n)\in K^n.
+    \inverse{\phi}(v)=(x_1,\dotsc,x_n)\in K^n.
 \end{align*}
 \begin{frage*}
     Sei \( X \) ein affiner Raum über einem Körper \( K \). Können wir auch hier die Lage eines Punkte \( p\in X \) durch Angabe von \enquote{Koordinaten} bezüglich einer \enquote{Basis} beschreibe?
@@ -113,7 +114,7 @@ Wir formalisieren diese Konzepte für allgemeine affine Räume.
     \end{align*}
 \end{proof}
 \subsection*{Affine Basen und affine Abbildungen}
-Aus der \agla{1}:\\
+Aus der \aglacourse{1}:\\
 Seien \( V,W \) \( K \)-Vektorräume, \( v_1,\dotsc, v_n \in V \) eine Basis von \( V \) und \( w_1,\dotsc, w_n \in W\). Dann gibt es genau eine \( K \)-lineare Abbildung \( \phi\maps V\to W \) mit
 \begin{align*}
     \phi(v_i)=w_i,\quad 1\leq i \leq n.
@@ -194,13 +195,14 @@ oder \( p=\phi((\lambda_1,\dotsc,\lambda_n)) \).
     \begin{align*}
         \inv{\phi}(p)=(x_1,\dotsc,x_n)\in K^n
     \end{align*}
-    den Koordinatenvektor von \( p \) bezüglich der affinen Basis \( (p_0,\dotsc,p_n) \) und \( (x_1,\dotsc, x_n) \) die Koordinaten von \( p \) bezüglich \( (p_0,\dotsc, p_n) \).
+    den Koordinatenvektor von \( p \) bezüglich der affinen Basis \( (p_0,\dotsc,p_n) \) und \( (x_1,\dotsc, x_n) \) die Koordinaten von \( p \) bezüglich \( (p_0,\dotsc, p_n) \). 
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.7\linewidth]{figures/affine_koordinatenabbildung_r_2}
         \label{fig:affine_koordinatenabbildung_r_2}
     \end{figure}
 \end{definition*}
+\file{Teilverhältnis}
 \section{Das Teilverhältnis}
 \begin{idee*}
     Seien 3 Punkte \( p_0,p_1,p \) auf einer Gerade \( l \) (\zb im \( \reals^3 \)) gegeben, \( p_0\neq p_1 \).

@@ -1,7 +1,9 @@
 % !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
 \chapter{Projektive Geometrie}
-\section{Projektive  Räume}
+\section{Projektive Räume}
+\file{Projektive Räume}
 \lecture{Di 26.05. 10:15}{}
+
 Sei \( K \) ein Körper und 
 \begin{equation*}
   P(x_1,\dotsc, x_n)\in \polynomials{K}{x_1,\dotsc,x_n}
@@ -50,7 +52,7 @@ Mit \( (x_1,\dotsc,x_n)\in Q \) ist also auch
 \begin{bemerkung*}
   Für \( V=\zeroset \) erhalte
   \begin{equation*}
-    \projectivedim{\projectionspace{V}}=\dim{K}{f{V}}-1=0-1=-1
+    \projectivedim{\projectionspace{V}}=\dim{K}{V}-1=0-1=-1
   \end{equation*}
   und \( \projectionspace{V}=\emptyset \).
 \end{bemerkung*}
@@ -59,7 +61,7 @@ Mit \( (x_1,\dotsc,x_n)\in Q \) ist also auch
   \begin{equation*}
     \projectionspaceover{n}{K}\definedas \projectionspace{K^{n+1}}
   \end{equation*}
-  als \( n \)-dimensionalen projektiven Raum über \( K \).
+  als \( n \)-dimensionalen projektiven Raum über \( K \). Weiter definieren wir die projektive Dimension von \( \projectionspace{V} \) als \( \projectivedim{\projectionspace{V}}\definedas \dim{K}{V}-1 \).
 \end{bspdef}
 \begin{bemerkung*}
   Für einen \( K \)-Vektorraum \( V \) haben wir immer eine Abbildung
@@ -77,7 +79,7 @@ Mit \( (x_1,\dotsc,x_n)\in Q \) ist also auch
   \end{figure}
 \end{bemerkung*}
 \begin{definition*}[homogene Koordinaten]
-  \( n\in \logicspace _{\geq 0} \). Sei \( K \) ein Körper und \( L\in \projectionspaceover{n}{K} \). Wir nennen ein Tupel
+  \( n\in \wholes_{\geq 0} \). Sei \( K \) ein Körper und \( L\in \projectionspaceover{n}{K} \). Wir nennen ein Tupel
   \begin{equation*}
     (x_0,\dots,x_n)\in K^{n+1}\setminus\zeroset
   \end{equation*}
@@ -104,7 +106,7 @@ Mit \( (x_1,\dotsc,x_n)\in Q \) ist also auch
     (x_0,\dotsc,x_n)=\lambda (y_0,\dotsc,y_n).
   \end{equation*}
 \end{bemerkung*}
-\section*{Unterräume eines projektiven Raums}
+\subsection*{Unterräume eines projektiven Raums}
 \begin{beispiel}\label{projektive_unterebene}
   \( V=\reals^3 \), die Menge der Geraden \( \reals\cdot(0,v_1,v_2) \) mit \( (v_1,v_2)\in \reals^2\setminus\zeroset \) \enquote{sieht genauso aus} wie
   \begin{equation*}
@@ -193,7 +195,7 @@ und damit eine Einbettung
 \end{equation*}
 die wir kanonische Einbettung des \( K^n \) in den \( \projectionspaceover{n}{K} \) nennen.
 
-\section*{Dimensionsformel als nächstes Ziel}
+\subsection*{Dimensionsformel als nächstes Ziel}
 \begin{lemma}\label{schnitt_von_projektiven_unterraeumen_ist_projektiver_unterraum}
   Sei \( V \) ein \( K \)-Vektorraum und \( (Z_i)_{i\in I} \) eine Familie projektiver Unterräume von \( \projectionspace{V} \), \( i\in I \) gibt es eine Familie projektiver Unterräume von \( \projectionspace{V} \). Dann ist \( \bigcap_{i\in I} Z_i \) in projektiver Unterraum von \( \projectionspace{V} \).
 \end{lemma}

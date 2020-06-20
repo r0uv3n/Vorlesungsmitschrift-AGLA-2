@@ -21,6 +21,10 @@
 *.cb2
 .*.lb
 
+# hrftex tocs
+*.listoflectures
+*.listoffiles
+
 ## Intermediate documents:
 *.dvi
 *.xdv

@@ -1,12 +1,22 @@
-\documentclass[numberindividually, numberwithin=section, empheqoverload]{hrflecture}
+\documentclass[numberindividually, numberwithin=section, empheqoverload,filemanagement]{hrflecture}
 \renewcommand*{\sectionformat}{\textsection\thesection\autodot\enskip}
 \addtokomafont{section}{\mdseries}
 \let\Mat\relax
 \DeclareMathOperator{\Mat}{M}
 \let\angleold=\angle
 \renewcommand*{\angle}{\sphericalangle}
-\DeclarePairedDelimiterXPP{\aglamatrices}[3]{\Mat_{#1\times #2}}{\lparen}{\rparen}{}{#3}
-\let\matrices\aglamatrices
+\DeclarePairedDelimiterXPP{\aglacoursematrices}[3]{\Mat_{#1\times #2}}{\lparen}{\rparen}{}{#3}
+\let\matrices\aglacoursematrices
+
+\DeclareMathOperatorWithDelimiter{\aglacoursetranspose}[1]{\vphantom{#1}^t}{\lparen}{\rparen}{#1}
+\let\transpose\aglacoursetranspose
+
+\newtheorem{beweisbehauptung}{Behauptung}[satz]
+\renewcommand\thebeweisbehauptung{\arabic{beweisbehauptung}}
+
+\setlength{\marginparpush}{1cm}
+\WarningFilter*{latex}{Marginpar on page \thepage\space moved}
+
 
 
 
@@ -16,7 +26,7 @@
 \date{Auf dem Stand vom \today}
 \author{Henry Ruben Fischer}
 
-% \includeonly{lec_10}
+% \includeonly{lec_16}
 
 \begin{document}
 \maketitle
@@ -27,9 +37,11 @@
 
 Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richtigkeit ihrerseits.
 
-\newpage
+% \newpage
 \tableofcontents
-\newpage
+% \newpage
+\listoflectures
+\listoffiles
 
 
 \automark{section}
@@ -50,6 +62,12 @@ Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richt
 \include{lec_09}
 \include{lec_10}
 \include{lec_11}
+\include{lec_12}
+\include{lec_13}
+\include{lec_14}
+\include{lec_15}
+\include{lec_16}
+% \include{lec_17}
 % End of lectures
 
 \end{document}

@@ -13,7 +13,7 @@ Im \thref{projektive_unterebene} haben wir angedeutet, dass sich zwei Geraden im
   \begin{align*}
     \projectivedim{Z_1 \vee Z2}&\explain{\text{\thref{projektiver_verbindungsraum_formel}}}{=}\projectivedim{\projectionspace{W_1+W_2}}\\
     &=\dim{K}{W_1+W_2}-1\\
-    &\explain{\text{Dimensionsformel für Untervektorräume aus der \agla{1}}}{=}\dim-{K}{W_1}+\dim-{K}{W_2}-\dim-{K}{W_1\cap W_2}\\
+    &\explain{\text{Dimensionsformel für Untervektorräume aus der \aglacourse{1}}}{=}\dim-{K}{W_1}+\dim-{K}{W_2}-\dim-{K}{W_1\cap W_2}\\
     &=(\dim{K}{W_1}-1)+(\dim{K}{W_2}-1)-(\dim{K}{W_1\cap W_2}-1)\\
     &\explain{\text{Beweis von \thref{schnitt_von_projektiven_unterraeumen_ist_projektiver_unterraum}}}{=}\projectivedim-{\projectionspace{W_1}}+\projectivedim-{\projectionspace{W_2}}-\projectivedim-{\underbrace{\projectionspace{W_1}\cap\projectionspace{W_2}}_{=\projectionspace{W_1\cap W_2}}}\\
     &=\projectivedim-{Z_1}+\projectivedim-{Z_2}-\projectivedim-{Z_1\cap Z_2}.
@@ -24,6 +24,7 @@ Im \thref{projektive_unterebene} haben wir angedeutet, dass sich zwei Geraden im
   \end{equation*}
   dann gilt \( \projectivedim{Z_1\cap Z_2}\geq 0 \), also \( Z_1\cap Z_2\neq \emptyset \).  
 \end{proof}
+\file{Projektive Abbildungen}
 \section{Projektive Abbildungen}
 Sei \( K \) ein Körper, \( V,W \) \( K \)-Vektorraum und \( F\maps V\to W \) eine \( K \)-lineare Abbildung.
 \begin{frage*}
@@ -207,6 +208,7 @@ für \( v\in V\setminus \zeroset \). \( K\cdot F(v) \) ist ein wohldefiniertes E
   \end{equation*}
   und \( f((1:\dotsc:1)) \).
 \end{idee*}
+\file{Projektive Basis}
 \begin{definition*}
   Sei \( V \) ein \( K \)-Vektorraum und \( p_0,\dotsc,p_r\in \projectionspace{V} \). Wir nennen das Tupel \( (p_0,\dotsc,p_r) \) \emph{projektiv unabhängig}, wenn es \emph{linear unabhängige} Vektoren \( v_0\dotsc,v_r\in V \) gibt mit \( p_i=K v_i \), \( 0\leq i\leq r \).
 \end{definition*}
@@ -235,17 +237,17 @@ für \( v\in V\setminus \zeroset \). \( K\cdot F(v) \) ist ein wohldefiniertes E
   \end{align*}
   eine projektive Basis der \( \projectionspaceover{n}{K} \). Wir nennen \( p_0,\dotsc,p_{n+1}  \) auch kanonische projektive Basis des \( \projectionspace{n}{K} \).
 \end{beispiel*}
-\begin{lemma}
-  Sei \( V \) ein \( K \)-Vektorraum und \( p_0,\dotsc,p_{n+1} \) eine projektive Basis des \( \projectionspace{V} \). Dann gibt es eine Basis \( v_0,\dots,v_n \) von \( V \), sodassgilt
+\begin{lemma}\label{kanonische_projektive_basis_klappt}
+  Sei \( V \) ein \( K \)-Vektorraum und \( p_0,\dotsc,p_{n+1} \) eine projektive Basis des \( \projectionspace{V} \). Dann gibt es eine Basis \( v_0,\dots,v_n \) von \( V \), sodass gilt
   \begin{gather*}
-    p_0=Kv_i\quad 0\leq i\leq n\\
+    p_i=Kv_i\quad 0\leq i\leq n\\
     p_{n+1}=K(v_0+\dotsb+v_n).
   \end{gather*}
 \end{lemma}
 \begin{proof}
   \( p_0,\dotsc,p_n \) sind projektiv unabhängig, also gibt es eine Basis \( w_0,\dotsc,w_n \) des \( K \)-Vektorraums \( V \) mit \( p_i=K\cdot w_i \quad 0\leq i\leq n\). Sei \( p_{n+1}=K\cdot w \) mit \( w\in V\setminus\zeroset \). Dann \texists \( \lambda_0,\dotsc,\lambda_n\in K \) mit 
   \begin{equation*}
-    w=\lambda_0 w_0+\dotsb+\lambda-n w_n.
+    w=\lambda_0 w_0+\dotsb+\lambda_n w_n.
   \end{equation*}
 \end{proof}
 \begin{behauptung*}

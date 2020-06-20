@@ -1,6 +1,5 @@
 % !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
 \lecture{Di 12.05. 10:15}{}
-\renewcommand{\transpose}[1]{\leftidx{^t}{#1}{}}
 \begin{idee*}
   Sei
   \begin{align*}
@@ -27,11 +26,11 @@
   \end{align*}
   Es gilt dann
   \begin{align*}
-    P(x_1,\dotsc,x_n)=\transpose{x'}A'x'
+    P(x_1,\dotsc,x_n)=\transpose-{x'}A'x'
   \end{align*}
   und
   \begin{equation*}
-    Q=\Set{(x_1,\dotsc,x_n)\in K^n| \transpose{x'}A'x'=0}.
+    Q=\Set{(x_1,\dotsc,x_n)\in K^n| \transpose-{x'}A'x'=0}.
   \end{equation*}
 \end{idee*}
 \begin{bemerkung*}
@@ -40,7 +39,7 @@
 \begin{definition*}
   In obiger Notation nennen wir \( A' \) di erweiterte Matrix zu \( P \) und \( x' \) den erweiterten Spaltenvektor zu \( x \). Wir sagen, dass \( A'\in \matrices{(n+1)}{(n+1)}{K} \) die Quadrik \( Q \) beschreibt, wenn gilt
   \begin{equation*}
-    Q=\Set{x\in K^n|\transpose{x'}A'x'=0}.
+    Q=\Set{x\in K^n|\transpose-{x'}A'x'=0}.
   \end{equation*}
 \end{definition*}
 \begin{notation*}
@@ -57,7 +56,7 @@
 \begin{bemerkung*}
   Sei \( Q\subseteq K^n \) eine Quadrik. Dann gibt es im Allgemeinen nicht nur eine erweiterte Matrix \( A' \) die \( Q \) beschreibt. Ist
   \begin{equation*}
-    Q=\Set{(x_1,\dotsc,x_n)\in K^n| \transpose{x'}A'x'=0},
+    Q=\Set{(x_1,\dotsc,x_n)\in K^n| \transpose-{x'}A'x'=0},
   \end{equation*}
   dann beschreibt auch \( \lambda A' \) mit \( \lambda\in K\setminus\zeroset \) die Quadrik \( Q \).
 \end{bemerkung*}
@@ -88,7 +87,7 @@
   \end{equation*}
   Sei \( A' \) die erweiterte Matrix zu \( P \) und \( x' \) der erweiterte Spaltenvektor zu \( x \). Dann gilt
   \begin{align*}
-    Q=\Set{(x_1,\dotsc,x_n\in K^n)|\transpose{x'}A'x'=0}.
+    Q=\Set{(x_1,\dotsc,x_n\in K^n)|\transpose-{x'}A'x'=0}.
   \end{align*}
   Als nächstes beschreibe den durch \( f \) gegebenen Koordinatenwechsel. \( f \) ist eine Affinität, also \texists \( b\in K^n \) und \( S\in \invertiblematrices{n}{K} \) mit
   \begin{equation*}
@@ -123,14 +122,14 @@
   \begin{equation*}
     \begin{split}
       f(Q)&=\Set{f((x_1,\dotsc,x_n))\in K^n| P(x_1,\dotsc,x_n)=0}\\
-      &=\Set{y\in K^n| \transpose{x'}A'x'=0}\\
-      &=\Set{y\in K^n| \transpose{(T'y')}A'(T'y')=0}\\
-      &=\Set{y\in K^n| \transpose{y'}\underbrace{\transpose{T'}A'T'}_{\mathclap{\text{symmetrische Matrix}}}y'=0},
+      &=\Set{y\in K^n| \transpose-{x'}A'x'=0}\\
+      &=\Set{y\in K^n| \transpose-{T'y'}A'(T'y')=0}\\
+      &=\Set{y\in K^n| \underset{\hphantom{\text{symmetrische Matrix}}}{\transpose-{y'}\underbrace{\transpose-{T'}A'T'}_{\mathclap{\text{symmetrische Matrix}}}y'}=0},
     \end{split}
   \end{equation*}
   also ist \( f(Q) \) eine Quadrik mit
   \begin{equation*}
-    P'(y_1,\dotsc, y_n)=\transpose{y'}(\transpose{T'}A'T')y'.
+    P'(y_1,\dotsc, y_n)=\transpose-{y'}(\transpose-{T'}A'T')y'.
   \end{equation*}
 \end{proof}
 \begin{bemerkung*}
@@ -161,7 +160,7 @@ erhalten wir \( z_1^2+z_2^2=2 \), oder nach skalieren mit \( \sqrt{2} \)
 \begin{satz}[affine Hauptachsentransformation von reellen Quadriken]\label{affine_hauptachsentranformation_reelle_quadriken}
   Sei \( A'\in \matrices{(n+1)}{(n+1)}{\reals} \) eine symmetrische Matrix und die Quadrik \( Q\subseteq \reals^n \) gegeben durch
   \begin{equation*}
-    Q=\Set{(x_1,\dotsc,x_n)\in \reals^n|\transpose{x'}A'x'=0}.
+    Q=\Set{(x_1,\dotsc,x_n)\in \reals^n|\transpose-{x'}A'x'=0}.
   \end{equation*}
   Sei \( A \) der rein quadratische Anteil von \( A' \), \( m=\rang A \) und \( m'=\rang A' \). Dann gibt es eine Affinität \( f\maps \reals^n\to \reals^n \), sodass \( f(Q) \) beschrieben wird durch eine der folgenden Gleichungen:
   \begin{eigenschaftenenumerate}
@@ -201,11 +200,11 @@ erhalten wir \( z_1^2+z_2^2=2 \), oder nach skalieren mit \( \sqrt{2} \)
     \begin{idee*}
       Wollen \( A \) in Diagonalgestalt bringen. 
     \end{idee*}
-    \agla{1}: Orthogonalisierungssatz für reelle symmetrische Matrizen.
+    \aglacourse{1}: Orthogonalisierungssatz für reelle symmetrische Matrizen.
 
     Wir erhalten eine invertierbare Matrix \( T_1\in \invertiblematrices{n}{\reals} \) mit
     \begin{equation*}
-        \transpose{T_1}AT_1=\begin{pNiceArray}{C|C|C}
+        \transpose-{T_1}AT_1=\begin{pNiceArray}{C|C|C}
             I_k & 0 & 0\\\hline
             0 & -I_{m-k} & 0\\\hline
             0 & 0 & 0
@@ -225,7 +224,7 @@ erhalten wir \( z_1^2+z_2^2=2 \), oder nach skalieren mit \( \sqrt{2} \)
     Dann gilt
     \begin{equation*}
       \begin{split}
-        A_1'&\definedas \transpose{T_1'}A'T_1'\\
+        A_1'&\definedas \transpose-{T_1'}A'T_1'\\
         &=\begin{pNiceArray}{C|CCC}[create-large-nodes]
           c_{00} & c_{01} & \Cdots & c_{0n} \\\hline
           c_{10} & I_k   & 0   &0    \\\cline{2-4}
@@ -237,7 +236,9 @@ erhalten wir \( z_1^2+z_2^2=2 \), oder nach skalieren mit \( \sqrt{2} \)
         \end{pNiceArray}
       \end{split}
     \end{equation*}
-    für \( c_{00}, c_{01}, \dotsc,c_{0n}, c_{1 0},\dotsc, c_{n 0} \in \reals\) mit \( c_{i0}=c_{0i} \) \tforall \( i \). Die durch \( A' \) bestimmte Quadrik ist gegeben durch
+    für \( c_{00}, c_{01}, \dotsc,c_{0n}, c_{1 0},\dotsc, c_{n 0} \in \reals\) mit \( c_{i0}=c_{0i} \) \tforall \( i \). 
+    \file{Quadriken zweiter Teil}
+    Die durch \( A' \) bestimmte Quadrik ist gegeben durch
     \begin{equation*}
       y_1^2+\dotsb+y_k^2-y_{k+1}^2-\dotsb-y_m^2+2(c_{01}y_1+\dotsb+c_{0n} y_n)+c_{00}=0.
     \end{equation*}
@@ -267,7 +268,7 @@ erhalten wir \( z_1^2+z_2^2=2 \), oder nach skalieren mit \( \sqrt{2} \)
     Sei
     \begin{equation*}
       \begin{split}
-        A_2'&\definedas \transpose{T_2'}A_1'T_2'\\
+        A_2'&\definedas \transpose-{T_2'}A_1'T_2'\\
         &=\begin{pNiceArray}{C|CCCC|CCC}[create-large-nodes]
           d_{00} & 0 & \Cdots & & 0 & c_{0(m+1)} & \Cdots & c_{0 n}\\\hline
           0 & \Block{2-2}<\large>{I_k}\phantom{-IO} & & \Block{2-2}<\large>{0}\phantom{-IOO} & & \Block{4-3}<\LARGE>{0} \\
@@ -302,7 +303,7 @@ erhalten wir \( z_1^2+z_2^2=2 \), oder nach skalieren mit \( \sqrt{2} \)
       \end{equation*}
       Wir berechnen
       \begin{equation*}
-        A_3'\definedas \transpose{T_3'}A_2'T_3'.
+        A_3'\definedas \transpose-{T_3'}A_2'T_3'.
       \end{equation*}
       Dann ist
       \begin{equation*}

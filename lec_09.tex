@@ -31,7 +31,7 @@ Eine Weitere Eignenschaft von Ähnlichkeiten:
   \begin{equation*}
     f(L)\perp f(L').
   \end{equation*}
-  Dann ist \( F \) eine Ähnlichkeit.
+  Dann ist \( f \) eine Ähnlichkeit.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/rechte_winkel_erhalten}
@@ -41,7 +41,7 @@ Eine Weitere Eignenschaft von Ähnlichkeiten:
 \begin{proof}
   Sei \( F\maps T(X)\to T(X) \) die zugehörige bijektive lineare Abbildung. Seien \( p,q,q'\in X \) mit \( p\vee q=L \), \( p\vee q'=L' \) und \( L\perp L' \). Dann gilt \( \lineangle{L}{L'}=\frac{\pi}{2} \), also
   \begin{equation*}
-    \arccos \frac{\abs{\scalarproduct{\vv{pq}}{\vv{pq'}}}}{\norm{\vv{pq}}\norm{\vv{pq}}}=\frac{\pi}{2}
+    \arccos \frac{\abs{\scalarproduct{\vv{pq}}{\vv{pq'}}}}{\norm{\vv{pq}}\norm{\vv{pq'}}}=\frac{\pi}{2}
   \end{equation*}
   \dh \( \scalarproduct{\vv{pq}}{\vv{pq'}}=0 \).
   \begin{figure}[H]
@@ -55,7 +55,7 @@ Eine Weitere Eignenschaft von Ähnlichkeiten:
   \end{equation*}
   und wir können annehmen (wegen \( f(L)\perp f(L') \)), dass 
   \begin{equation*}
-    \braceannotate{\scalarproduct{F(\underrelate{\vertni}{T(X)}{\underbrace{\vv{pq}}})}{F(\underrelate{\vertni}{T(X)}{\underbrace{\vv{pq'}}})}}{\scalarproduct{\vv{f(p)f(q)}}{f(p)f(q')}}=0.
+    \braceannotate{\scalarproduct{F(\underrelate{\vertni}{T(X)}{\underbrace{\vv{pq}}})}{F(\underrelate{\vertni}{T(X)}{\underbrace{\vv{pq'}}})}}{\scalarproduct{\vv{f(p)f(q)}}{\vv{f(p)f(q')}}}=0.
   \end{equation*}
 Es gilt also, dass für alle \( v,w\in T(X) \) mit \( \scalarproduct{v}{w}=0 \) gilt \( \scalarproduct{F(v)}{F(w)}=0 \). Wir haben den Beweis von \thref{nur_aehnlichkeiten_erhalten_rechte_winkel} auf folgendes Lemma reduziert.
 \end{proof}
@@ -63,20 +63,21 @@ Es gilt also, dass für alle \( v,w\in T(X) \) mit \( \scalarproduct{v}{w}=0 \) 
   Sei \( V \) ein euklidischer Vektorraum, \( F\maps V\to V  \) ein Isomorphismus mit \( F(v)\perp F(w) \) für alle \( v,w\in V \) mit \( v\perp w \). Dann existiert \( \rho\in \reals_{>0} \) \sd \( \frac{1}{\rho}\cdot F \) orthogonal ist.
 \end{lemma}
 \begin{proof}
-  Sei \( n=\dim-{}{V} \) und \( v_1,\dotsc, v_n \) eine Orthonormal von \( V \), \dh \( \norm{v_i}=1 \), \( 1\leq i\leq n \) und \( \scalarproduct{v_i}{v_\gamma}=0 \) für \( i\leq j \). Sei \( \rho_i\definedas \norm{F(v_i)}  \), \( 1\leq i \leq n \).
+  Sei \( n=\dim-{}{V} \) und \( v_1,\dotsc, v_n \) eine Orthonormalbasis von \( V \), \dh \( \norm{v_i}=1 \), \( 1\leq i\leq n \) und \( \scalarproduct{v_i}{v_\gamma}=0 \) für \( i\neq j \). Sei \( \rho_i\definedas \norm{F(v_i)}  \), \( 1\leq i \leq n \).
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/orthonormalbasis_skalierung}
     \label{fig:orthonormalbasis_skalierung}
   \end{figure}
-  Fpr \( j\neq j \) gilt 
+  Fpr \( i\neq j \) gilt 
   \begin{equation*}
     \scalarproduct{v_i+v_j}{v_i-v_j}=\braceannotate{=1}{\norm{v_i}^2}+\braceannotate{=0}{\scalarproduct{v_j}{v_i}}-\braceannotate{=0}{\scalarproduct{v_i}{v_j}}-\braceannotate{=1}{\norm{v_j}^2}=0, 
   \end{equation*}
   also \( v_i+v_j\perp v_i-v_j \). Nach Annahme gilt dann auch
-  \begin{equation*}
-    \scalarproduct{F(v_i)}{F(v_i)}+\braceannotate{=0, \text{ da } F(v_j)\perp F(v_i)}{\scalarproduct{F(v_j)}{F(v_i)}}-\braceannotate{=0}{\scalarproduct{F(v_i)}{F(v_j)}}-\scalarproduct{F(v_j)}{F(v_j)}=\scalarproduct{F(v_i+v_j)}{F(v_i-v_j)}=0.
-  \end{equation*}
+  \begin{align*}
+    \scalarproduct{F(v_i)}{F(v_i)}+\braceannotate{=0, \text{ da } F(v_j)\perp F(v_i)}{\scalarproduct{F(v_j)}{F(v_i)}}-\braceannotate{=0}{\scalarproduct{F(v_i)}{F(v_j)}}-\scalarproduct{F(v_j)}{F(v_j)}&=\scalarproduct{F(v_i+v_j)}{F(v_i-v_j)}\\
+    &=0.
+  \end{align*}
   Also gilt
   \begin{equation*}
     \equalto{\rho_i^2}{\norm{F(v_i)}^2}=\equalto{\rho_j^2}{\norm{F(v_j)}^2} \quad \forall i,j
@@ -91,7 +92,8 @@ Im Obigen haben wir gesehen, dass gilt: \( f \) ist \emph{Kongruenz} \tiff \( A 
 \begin{frage*}
   Wie können wir \( A\in \invertiblematrices{n}{\reals} \) für eine allgemeine Affinität \( f \) mit Hilfe von / bis auf eine orthogonale Matrix möglichst einfach ausdrücken?
 \end{frage*}
-Betrachte \( \reals^n \) als euklidischen affinen Raum mit Standard-skalarprodukt
+\file{Hauptachsentransformation Affinitäten}
+Betrachte \( \reals^n \) als euklidischen affinen Raum mit Standardskalarprodukt
 \begin{gather*}
   \scalarproduct{\cdot}{\cdot}\maps \begin{aligned}[t]
     \reals^n\times\reals^n &\to \reals_{\geq 0}\\
@@ -118,15 +120,15 @@ Betrachte \( \reals^n \) als euklidischen affinen Raum mit Standard-skalarproduk
   \end{equation*}
 \end{satz}
 \begin{proof}
-  Wir bilden die Matrix \( C=\transpose{A}A \).
+  Wir bilden die Matrix \( C=\transpose-{A}A \).
   \begin{itemize}
-    \item \( C \) ist symmetrisch da
+    \item \( C \) ist symmetrisch, da
     \begin{equation*}
-      \transpose{C}=\transpose{(\transpose{A}A)}=\transpose{A}\transpose{\transpose{A}}=\transpose{A}A=C.
+      \transpose-{C}=\transpose{\transpose-{A}A}=\transpose-{A}\transpose-{\transpose-{A}}=\transpose-{A}A=C.
     \end{equation*}
-    \item \( C \) ist positiv definit, denn \( I_n \) ist positiv definit und daher nach dem Sylvesterschen Trägheitsgesetz auch \( C \). Aus der Hauptachsentransformation symmetrischer Matrizen (\agla{1}) folgt, dass es eine Matrix \( T\in \orthogonalmatrices{n} \) mit
+    \item \( C \) ist positiv definit, denn \( I_n \) ist positiv definit und daher nach dem Sylvesterschen Trägheitsgesetz auch \( C \). Aus der Hauptachsentransformation symmetrischer Matrizen (\aglacourse{1}) folgt, dass es eine Matrix \( T\in \orthogonalmatrices{n} \) mit
     \begin{equation*}
-      TC\transpose{T}=\begin{pNiceMatrix}
+      TC\transpose-{T}=\begin{pNiceMatrix}
         \beta_1 &  & 0 \\
          & \Ddots &  \\
         0 &  & \beta_n
@@ -138,13 +140,13 @@ Betrachte \( \reals^n \) als euklidischen affinen Raum mit Standard-skalarproduk
     \end{equation*}
     Dann gilt
     \begin{equation*}
-      T\braceannotate{\transpose{A}A}{\transpose{C}}\transpose{T}=D^2=\transpose{D}D,
+      T\braceannotate{\transpose-{A}A}{C}\transpose-{T}=D^2=\transpose-{D}D,
     \end{equation*}
     also
     \begin{equation*}
-      I_n=\braceannotate{S}{\inv{\transpose{A}}\transpose{T}\transpose{D}}\braceannotate{\transpose{S}}{DT\inv{A}}.
+      I_n=\braceannotate{S}{\inv{\transpose-{A}}\transpose-{T}\transpose-{D}}\braceannotate{\transpose-{S}}{DT\inv{A}}.
     \end{equation*}
-    Sei \( S\definedas \inv{\transpose{A}}\transpose{T}\transpose{D} \). Dann gilt \( \transpose{S}S=I_n \) und \( S\in \orthogonalmatrices{n} \) ist orthogonal. Wir erhalten \( \transpose{S}=DT\inv{A} \) und \( A=SDT \).
+    Sei \( S\definedas \inv{\transpose-{A}}\transpose-{T}\transpose-{D} \). Dann gilt \( \transpose-{S}S=I_n \) und \( S\in \orthogonalmatrices{n} \) ist orthogonal. Wir erhalten \( \transpose-{S}=DT\inv{A} \) und \( A=SDT \).
   \end{itemize}
 \end{proof}
 \begin{korollar*}
@@ -159,11 +161,11 @@ Betrachte \( \reals^n \) als euklidischen affinen Raum mit Standard-skalarproduk
       0 &  & \alpha_n
     \end{pNiceMatrix},
   \end{equation*}
-  \( \alpha_1,\dotsc,\alpha_n>0 \) einer Diagonalmatrix. Sei \( v_i=\transpose{T}e_i \), \( 1\leq i\leq n \). \( T \) ist orthogonal, also auch \( \transpose{T} \) und damit ist \( v_1,\dotsc,v_n \) eine Orthonormalbasis des \( \reals^n \). Es gilt
+  \( \alpha_1,\dotsc,\alpha_n>0 \) einer Diagonalmatrix. Sei \( v_i=\transpose-{T}e_i \), \( 1\leq i\leq n \). \( T \) ist orthogonal, also auch \( \transpose-{T} \) und damit ist \( v_1,\dotsc,v_n \) eine Orthonormalbasis des \( \reals^n \). Es gilt
   \begin{align*}
-    F(v_i)&=A\transpose{T}e_i\\
-    &=SD\braceannotate{T\transpose{T}}{I_n}e_i\\
-    &=SDe=S(\alpha_i e_i)\\
+    F(v_i)&=A\transpose-{T}e_i\\
+    &=SD\braceannotate{T\transpose-{T}}{I_n}e_i\\
+    &=SDe_i=S(\alpha_i e_i)\\
     &=\alpha_i S_{e_i}.
   \end{align*}
   Die Matrix \( S \) ist orthogonal, also sind die Vektoren \( Se_1,\dotsc,Se_n \) eine Orthonormalbasis. Da \( \alpha_1,\dotsc,\alpha_n>0 \), bilden \( F(v_1),\dotsc,F(v_n) \) eine orthogonal Basis der \( \reals^n \).

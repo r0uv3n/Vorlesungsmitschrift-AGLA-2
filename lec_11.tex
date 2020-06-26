@@ -12,9 +12,9 @@ Im \thref{projektive_unterebene} haben wir angedeutet, dass sich zwei Geraden im
   Sei \( Z_i=\projectionspace{W_i} \), \( 1\leq i\leq 2 \) mit \( W_1, W_2\untervektorraum V\) \( K \)-Untervektorräu me. Es gilt dann
   \begin{align*}
     \projectivedim{Z_1 \vee Z2}&\explain{\text{\thref{projektiver_verbindungsraum_formel}}}{=}\projectivedim{\projectionspace{W_1+W_2}}\\
-    &=\dim{K}{W_1+W_2}-1\\
-    &\explain{\text{Dimensionsformel für Untervektorräume aus der \aglacourse{1}}}{=}\dim-{K}{W_1}+\dim-{K}{W_2}-\dim-{K}{W_1\cap W_2}\\
-    &=(\dim{K}{W_1}-1)+(\dim{K}{W_2}-1)-(\dim{K}{W_1\cap W_2}-1)\\
+    &=\fielddim{K}{W_1+W_2}-1\\
+    &\explain{\text{Dimensionsformel für Untervektorräume aus der \aglacourse{1}}}{=}\fielddim-{K}{W_1}+\fielddim-{K}{W_2}-\fielddim-{K}{W_1\cap W_2}\\
+    &=(\fielddim{K}{W_1}-1)+(\fielddim{K}{W_2}-1)-(\fielddim{K}{W_1\cap W_2}-1)\\
     &\explain{\text{Beweis von \thref{schnitt_von_projektiven_unterraeumen_ist_projektiver_unterraum}}}{=}\projectivedim-{\projectionspace{W_1}}+\projectivedim-{\projectionspace{W_2}}-\projectivedim-{\underbrace{\projectionspace{W_1}\cap\projectionspace{W_2}}_{=\projectionspace{W_1\cap W_2}}}\\
     &=\projectivedim-{Z_1}+\projectivedim-{Z_2}-\projectivedim-{Z_1\cap Z_2}.
   \end{align*}
@@ -164,7 +164,7 @@ für \( v\in V\setminus \zeroset \). \( K\cdot F(v) \) ist ein wohldefiniertes E
     \end{split}
   \end{equation*}
   \begin{erinnerung*}[Beschreibung von affinen Abbildungen in der affinen Geometrie ]
-    Seien \( X,Y \) affine Räume über einem Körper \( K \), \( \dim X=n \) und \( p_0,\dotsc,p_n \) affin unabhängige Punkte \( X \). Seien \( q_0,\dotsc,q_n\in Y \). Dann gibt es genau eine affine Abbildung \( f\maps X\to Y \) mit
+    Seien \( X,Y \) affine Räume über einem Körper \( K \), \( \dim-{X}=n \) und \( p_0,\dotsc,p_n \) affin unabhängige Punkte \( X \). Seien \( q_0,\dotsc,q_n\in Y \). Dann gibt es genau eine affine Abbildung \( f\maps X\to Y \) mit
     \begin{equation*}
       f(p_i)=q_i\quad 0\leq i\leq n.
     \end{equation*}
@@ -225,7 +225,7 @@ für \( v\in V\setminus \zeroset \). \( K\cdot F(v) \) ist ein wohldefiniertes E
   projektiv unabhängig.
 \end{beispiel*}
 \begin{definition*}
-  Sei \( V \) ein \( K \)-Vektorraum mit \( \dim V=n \) und \( p_0,\dotsc,p_n,p_{n+1}\in \projectionspace{V} \). Wir nennen das \( (n+2) \)-Tupel \( (p_0,\dotsc,p_{n+1}) \) \emph{projektive Basis} von \( \projectionspace{V} \), wenn je \( n+1 \) Punkte davon projektiv unabhängig sind.
+  Sei \( V \) ein \( K \)-Vektorraum mit \( \dim-{V}=n \) und \( p_0,\dotsc,p_n,p_{n+1}\in \projectionspace{V} \). Wir nennen das \( (n+2) \)-Tupel \( (p_0,\dotsc,p_{n+1}) \) \emph{projektive Basis} von \( \projectionspace{V} \), wenn je \( n+1 \) Punkte davon projektiv unabhängig sind.
 \end{definition*}
 \begin{beispiel*}
   \( V=K^{n+1} \). Dann sind

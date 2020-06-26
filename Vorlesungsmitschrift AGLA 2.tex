@@ -8,7 +8,7 @@
 \DeclarePairedDelimiterXPP{\aglacoursematrices}[3]{\Mat_{#1\times #2}}{\lparen}{\rparen}{}{#3}
 \let\matrices\aglacoursematrices
 
-\DeclareMathOperatorWithDelimiter{\aglacoursetranspose}[1]{\vphantom{#1}^t}{\lparen}{\rparen}{#1}
+\DeclareMathOperatorWithDelimiter-{\aglacoursetranspose}[1]{\vphantom{#1}^t}{\lparen}{\rparen}{#1}
 \let\transpose\aglacoursetranspose
 
 \newtheorem{beweisbehauptung}{Behauptung}[satz]
@@ -26,7 +26,7 @@
 \date{Auf dem Stand vom \today}
 \author{Henry Ruben Fischer}
 
-% \includeonly{lec_16}
+% \includeonly{lec_18}
 
 \begin{document}
 \maketitle
@@ -49,7 +49,6 @@ Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richt
 \makeatletter
 \renewtheorem{satz}[lemma]{Satz}
 \makeatother
-
 % Begin of lectures
 \include{lec_01}
 \include{lec_02}
@@ -67,7 +66,8 @@ Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richt
 \include{lec_14}
 \include{lec_15}
 \include{lec_16}
-% \include{lec_17}
+\include{lec_17}
+\include{lec_18}
 % End of lectures
 
 \end{document}

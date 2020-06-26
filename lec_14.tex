@@ -246,21 +246,3 @@ Wir formulieren das Resultat im folgenden Lemma:
     \doppelverhaeltnis{p_0}{p_1}{p_2}{p_3}=\parens*{\det \begin{pmatrix} x_i^{(2)} & x_i^{(0)} \\ x_j^{(2)} & x_j^{(0)} \end{pmatrix}\det \begin{pmatrix} x_i^{(3)} & x_i^{(1)} \\ x_j^{(3)} & x_j^{(1)} \end{pmatrix}:\det \begin{pmatrix} x_i^{(2)} & x_i^{(1)} \\ x_j^{(2)} & x_j^{(1)} \end{pmatrix}\det \begin{pmatrix} x_i^{(3)} & x_i^{(0)} \\ x_j^{(3)} & x_j^{(0)} \end{pmatrix}}.
   \end{equation*}
 \end{lemma}
-\lecture{Fr 12.06. 10:15}{}
-\subsection*{Zusammenhang Doppelverhältnis \( \leftrightarrow \) Teilverhältnis}
-Seien \( p_0,p_1,p_2,p_3\in \projectionspaceover{1}{K} \) paarweise
-verschieden und \( p_i=(1:\mu_i) \) für \( 0\leq i\leq 3 \) (wir schließen also hier den Punkt \( (0:1) \) aus). Dann gilt nach \thref{doppelverhaeltnis_berechnung}
-\begin{align*}
-  \doppelverhaeltnis{p_0}{p_1}{p_2}{p_3}&=\parens*{\braceannotate{\neq 0}{(\mu_0-\mu_2)}(\mu_1-\mu_3):(\mu_1-\mu_2)\braceannotate{\neq 0}{(\mu_0-\mu3)}}\\
-  &=\parens*{\frac{\mu_1-\mu_3}{\mu_0-\mu_3}:\frac{\mu_1-\mu_2}{\mu_0-\mu_2}}\\
-  &=(\teilverhaeltnis{\mu_3}{\mu_0}{\mu_1}:\teilverhaeltnis{\mu_2}{\mu_0}{\mu_1}).
-\end{align*}
-Also können wir in diesem Fall das Doppelverhältnis als \enquote{Verhältnis von Teilverhältnissen} verstehen.
-\begin{bemerkungen*}
-  Ist \( p_0=(0:1) \) und \( p_i=(1:\mu_i) \) für \( 1\leq i\leq 3 \) paarweise verschieden, so gilt nach \thref{doppelverhaeltnis_berechnung}
-  \begin{align*}
-    \doppelverhaeltnis{p_0}{p_1}{p_2}{p_3}&=(\mu_1-\mu_3:\mu_1-\mu_2)\\
-    &=\parens*{\frac{\mu_3-\mu_1}{\mu_2-\mu_1}:1}\\
-    &=(\teilverhaeltnis{\mu_1}{\mu_2}{\mu_3}:1).
-  \end{align*}
-\end{bemerkungen*}

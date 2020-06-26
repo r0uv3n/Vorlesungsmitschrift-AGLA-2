@@ -1,193 +1,328 @@
 % !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
-\lecture{Fr 19.06. 10:15}{}
-\file{Dualität}
-\section{Dualität}
-Sei \( K \) ein Körper und \( L\subseteq \projectionspaceover{2}{K} \) eine projektive Gerade. Seien \( (x_0,x_1,x_2) \) homogene Koordinaten in \( \projectionspaceover{2}{K} \) und \( L=\projectionspace{U} \) mit \( U\subseteq K^3 \) ein \( 2 \)-dimensionaler Untervektorraum. Dann gibt es \( (a_0,a_1,a_2)\in K^3 \), sodass \( U\untervektorraum K^3 \) gegeben ist durch
-\begin{equation*}
-  a_0x_0 +a_1x_1+a_2x_2=0
-\end{equation*}
-und
-\begin{equation*}
-  L=\Set{(x_0:x_1:x_2)\in \projectionspaceover{2}{K}|a_0x_0+a_1x_1+a_2x_2=0}.
-\end{equation*}
-Ist \( \lambda\in \fieldwithoutzero{K} \), so definiert das Tupel \( (\lambda a_0,\lambda a_1,\lambda a_2) \) ebenfalls die Gerade
-\begin{equation*}
-  L=\Set{(x_0,x_1,x_2)\in \projectionspaceover{2}{K}|\lambda a_0 x_0+\lambda a_1 x_1+\lambda a_2 x_2=0}.
-\end{equation*}
-Wir verstehen \( (a_0:a_1:a_2) \) als Element in \( \projectionspaceover{2}{K} \) und erhalten eine Bijektion
-\begin{equation*}
-  \begin{split}
-    \Set{\text{projektive Geraden \( L\subseteq \projectionspaceover{2}{K} \)}}&\leftrightarrow \Set{\text{Punkte in \( \projectionspaceover{2}{K} \)}}\\
-    L=\Set{(x_0,x_1,x_2)\subseteq \projectionspaceover{2}{K}|a_0x_0+a_1x_1+a_2x_2=0}&\leftrightarrow (a_0:a_1:a_2)\in \projectionspaceover{2}{K}.
-  \end{split}
-\end{equation*}
-Ist \( p=(x_0,x_1,x_2)\in \projectionspaceover{2}{K} \) eine Punkt, so können wir die projektive Gerade
-\begin{equation*}
-  \Set{(a_0:a_1:a_2)\in \projectionspaceover{2}{K}|a_0x_0+a_1x_1+a_2x_2=0}
-\end{equation*}
-zuordnen. Wir erhalten eine Bijektion
-\begin{align*}
-  \varphi\maps \Set{\text{projektive Unterräume von \( \projectionspaceover{2}{K} \)}}&\to\Set{\text{projektive Unterräume von \( \projectionspaceover{2}{K} \)}}\\
-  \emptyset&\mapsto \projectionspaceover{2}{K}\\
-  \projectionspaceover{2}{K}&\mapsto \emptyset\\
-  L=\Set{(x_0:x_1:x_2)|a_0x_0+a_1x_1+a_2x_2=0}&\mapsto (a_0:a_1:a_2)\\
-  \projectionspaceover{2}{K}\ni (x_0:x_1:x_2)\mapsto \Set{(a_0:a_1:a_2)\in \projectionspaceover{2}{K}|a_0x_0+a_1x_1+a_2x_2=0}.
-\end{align*}
-Ist \( p\in \projectionspaceover{2}{K} \) und \( L\subset \projectionspaceover{2}{K} \) eine projektive Gerade, so gilt
-\begin{equation*}
-  p\in L\iff \varphi(L)\in \varphi(p)
-\end{equation*}
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\linewidth]{dualitaet_enthaltungssatz}
-  \label{fig:dualitaet_enthaltungssatz}
-\end{figure}
-\subsection*{Dualisierung des Satzes von Desargues.}
-\begin{erinnerung*}[Satz von Desargues]
-  Seien \( p_1,p_2,p_3,p_1',p_2',p_3'\in \projectionspaceover{2}{K} \) paarweise verschiedene Punkte, sodass die Geraden \( p_1\vee p_1' \), \( p_2\vee p_2' \), \( p_3\vee p_3' \) sich paarweise in einem Punkt \( z \) schneiden. Dann liegen die Schnittpunkte
-  \begin{align*}
-    a&\definedas (p_1\vee p_2)\cap (p_1'\vee p_2')\\
-    b&\definedas (p_2\vee p_3)\cap (p_2'\vee p_3')\\
-    c&\definedas (p_3\vee p_1)\cap (p_3'\vee p_1')
-  \end{align*}
-  auf einer gemeinsamen Geraden \( L \). 
-\end{erinnerung*}
-Wir \enquote{dualisieren} den Satz von Desargues. Sei \( \varphi \) wie oben definiert. Setze
-\begin{align*}
-  Z_i&=\varphi(p_i)\quad 1\leq i\leq 3\\
-  Z_i'&=\varphi(p_i')\quad 1\leq i\leq 3.
-\end{align*}
-Dann sind \( Z_1,Z_2,Z_3,Z_1',Z_2',Z_3' \) paarweise verschiedene Geraden mit
-\begin{align*}
-  Z_1\cap Z_1'&=\varphi(p_1\vee p_1')\\
-  Z_2\cap Z_2'&=\varphi(p_2\vee p_2')\\
-  Z_3\cap Z_3'&=\varphi(p_3\vee P_3').
-\end{align*}
-Die Punkte \( Z_1\cap Z_1' \), \( Z_2\cap Z_2' \), \( Z_3\cap Z_3' \) sind enthalten in der Geraden \( \varphi(Z) \), mit
-\begin{equation*}
-  z=(p_1\vee p_1')\cap (p_2\vee p_2')\cap (p_3\vee p_3').
-\end{equation*}
-Weiter gilt
-\begin{align*}
-  \phi((p_1\vee p_2)\cap (p_1'\vee p_2'))&=\varphi(p_1\vee p_2)\vee \varphi(p_1'\vee p_2')\\
-  &=(Z_1\cap Z_2)\vee (Z_1'\cap Z_2')\\
-  \varphi(b)&=(Z_2\cap Z_3)\vee (Z_2'\cap Z_3')\\
-  \varphi(c)&=(Z_3\cap Z_1)\vee (Z_3'\cap Z_1').
-\end{align*}
-Nach dem Satz von Desargues liegen \( a,b,c \) auf einer Geraden, \dh \( \varphi(a) \), \( \varphi(b) \) und \( \varphi(c) \) schneiden sich in einem Punkt.
+\lecture{Di 16.06. 10:15}{}
+\begin{proof}[Beweis von \thref{hauptsatz_projektive_geometrie}]
+  Im Folgenden sei \( K \) ein Körper, \( V,W \) \( K \)-Vektorräume mit \( \dim-{V}=\dim-{W}\geq 3 \) und \( f\maps \projectionspace{V}\to \projectionspace{W} \) eine Kollineation.
+  \begin{lemma}\label{kollineation_erhaelt_verbindungsraum}
+    Seien \( p_0,\dotsc,p_r\in \projectionspace{V} \). Dann ist
+    \begin{equation*}
+      f(p_0 \vee \dotsb\vee p_r)\subseteq f(p_0)\vee \dotsb\vee f(p_r).
+    \end{equation*}
+  \end{lemma}
+  \begin{subproof}
+    Induktion über \( r \).
+    \begin{proofdescription}
+      \item[\( r=0 \)] \( f(p_0)\subseteq f(p_0) \) \checkmark.
+      \item[\( r\geq 1 \)] \( p\in (p_0\vee \dotsb\vee p_{r-1})\vee p_r \) mit \( p_i=K\cdot v_i \), \( v_i\in V \), \( 0\leq i\leq r \). 
 
-Seien \( Z_1,Z_2,Z_3,Z_1',Z_2',Z_3' \) paarweise verschiedene Geraden, sodass die Schnittpunkte \( Z_1\cap Z_1' \), \( Z_2\cap Z_2' \), \( Z_3\cap Z_3' \) paarweise verschieden sind und auf einer Geraden liegen. Dann gibt es paarweise verschiedene Punkt \( p_1,p_2,p_3,p_1',p_2',p_3'\in \projectionspaceover{2}{K} \), die die Annahmen des Satzes von Desargues erfüllen. WÄhle dazu
-\begin{align*}
-  p_i\definedas \inverse{\varphi}(Z_i)\quad 1\leq i\leq 3\\
-  p_i'\definedas \inverse{\varphi}(Z_i')\quad 1\leq i\leq 3.
-\end{align*}
-\begin{satz}[Dualer Satz von Desargues]
-  Seien \( Z_1,Z_2,Z_3,Z_1',Z_2',Z_3' \) paarweise verschiedene Geraden, sodass die Schnittpunkte \( Z_1\cap Z_1' \), \( Z_2\cap Z_2' \), \( Z_3\cap Z_3' \) paarweise verschieden sind und auf einer Geraden liegen. Dann gehen die Geraden \( (Z_1\cap Z_2)\vee (Z_1'\cap Z_2') \), \( (Z_2\cap Z_3)\vee (Z_2'\cap Z_3') \), \( (Z_3\cap Z_1)\vee (Z_3'\cap Z_1') \) durch einen gemeinsamen Punkt.
-\end{satz}
-\begin{bemerkung*}
-  Nach Dualisierung erhalten wir also die Umkehrung zum Satz von Desargues.
-\end{bemerkung*}
-\begin{satz}[Brianchon]
-  (dual zum Satz von Pappos) Seien \( p,p'\in \projectionspaceover{2}{K} \) unterschiedliche Punkte und \( Z_1,Z_2,Z_3,Z_1',Z_2',Z_3'\subseteq \projectionspaceover{2}{K} \) paarweise verschiedene Geraden 
-  \begin{align*}
-    p&=Z_1\cap Z_2\cap Z_3\\
-    p'&=Z_1'\cap Z_2'\cap Z_3'.
-  \end{align*}
-  Dann gehen die Geraden \( (Z_1\cap Z_2')\vee (Z_1'\cap Z_2) \), \( (Z_2\cap Z_3')\vee (Z_2'\cap Z_3) \) und \( (Z_3\cap Z_1')\vee (Z_3'\cap Z_1)\) durch einen gemeinsamen Punkt.
-  
-\end{satz}
-\begin{proof}
-  Die Punkte \( \varphi(Z_1),\varphi(Z_2),\varphi(Z_3),\varphi(Z_1'),\varphi(Z_2'),\varphi(Z_3') \) sind paarweise verschieden und es gilt
-  \begin{align*}
-    \varphi(Z_1),\varphi(Z_2),\varphi(Z_3)&\in \varphi(p)\\
-    \varphi(Z_1'),\varphi(Z_2'),\varphi(Z_3')&\in \varphi(p').
-  \end{align*}
-  Nach dem Satz von Pappos sind die Punkte
-  \begin{align*}
-    a&\definedas(\varphi(Z_1)\vee \varphi(Z_2'))\cap (\varphi(Z_1')\vee \varphi(Z_2))\\
-    b&\definedas (\varphi(Z_2)\vee \varphi(Z_3'))\cap (\varphi(Z_2')\vee \varphi(Z_3))\\
-    c&\definedas (\varphi(Z_3)\vee \varphi(Z_1'))\cap (\varphi(Z_3')\vee \varphi(Z_1))
-  \end{align*}
-  in einer Geraden \( L \) enthalten. Es ist
-  \begin{align*}
-    a&=\varphi(Z_1\cap Z_2')\cap \varphi(Z_1'\cap Z_2)\\
-    &=\varphi((Z_1\cap Z_2')\vee (Z_1'\cap Z_2)).
-  \end{align*}
-  Also gehen die Geraden \( (Z_1\cap Z_2')\vee (Z_1'\cap Z_2) \), \( (Z_2\cap Z_3')\vee (Z_2'\cap Z_3) \) und \( (Z_3\cap Z_1')\vee (Z_3'\cap Z_1)\) durch einen gemeinsamen Punkt.
-  
-\end{proof}
-\file{Korrelationen}
-Die an Anfang dieses Abschnitts konstruierte Bijektion
-\begin{equation*}
-  \varphi\maps \Set{\text{projektive Unterräume von \( \projectionspaceover{2}{K} \)}}\to\Set{\text{projektive Unterräume von \( \projectionspaceover{2}{K} \)}}
-\end{equation*}
-ist eine Beispiel für eine Korrelation.
-\begin{definition*}
-  Sei \( \projectionspace{V} \) ein projektiver Raum mit \( V \) ein \( K \)-Vektorraum. Schreibe \( \projectionspaces{V} \) für die Menge von projektiven Unterräumen von \( V \). Wir nennen eine bijektive Abbildung
-  \begin{equation*}
-    \sigma\maps \projectionspaces{V}\to \projectionspaces{V}
-  \end{equation*}
-  eine Korrelation in \( \projectionspace{V} \), falls es für alle \( Z,Z'\in \projectionspaces{V} \) gilt
-  \begin{equation*}
-    Z'\subseteq Z\iff \sigma(Z')\supseteq \sigma(Z).
-  \end{equation*}
-\end{definition*}
-\begin{bemerkung*}
-  Ist \( \varphi\maps \projectionspaces{V}\to \projectionspaces{V} \) eine Korrelation, dann auch \( \inverse{\sigma} \).
-\end{bemerkung*}
-\begin{lemma}
-  Sei \( \projectionspace{V} \) ein projektiver Raum, \( \sigma\maps \projectionspaces{V}\to \projectionspaces{V} \) eine Korrelation und \( Z,Z'\in \projectionspaces{V} \) projektive Unterräume. Dann gilt
-  \begin{enumerate}
-    \item \label{dimension_unter_korrelation} \( \projectivedim-{\sigma(Z)}=\projectivedim-{\projectionspace{V}}-(\projectivedim-{Z}+1) \)
-    \item \label{schnitt_unter_korrelation} \( \sigma(Z\cap Z')=\sigma(Z)\vee \sigma(Z') \)
-    \item \label{verbindung_unter_korrelation} \( \sigma(Z\vee Z')=\sigma(Z)\cap \sigma(Z') \).
-  \end{enumerate}
-\end{lemma}
-\begin{proof}
-  \begin{proofdescription}
-    \item[\ref{dimension_unter_korrelation}] Sei \( n\definedas \projectivedim-{\projectionspace{V}} \), \( k\definedas \projectivedim-{Z} \). Wähle projektive Unterräume \( Z_i \), \( -1\leq i\leq n \) mit \( Z_{-1}=\emptyset \), \( Z_k=Z \), \( Z_n=\projectionspace{V} \) und \( \projectivedim-{Z_i}=i \), \( -1\leq i\leq n \) und 
+      Dann ist
+      \begin{equation*}
+        p_0\vee \dotsb\vee p_{r-1}\vee p_r=\projectionspace{K\cdot v_0+\dotsb+K\cdot v_r}
+      \end{equation*}
+      und
+      \begin{equation*}
+        \exists p'\in p_0\vee \dotsb\vee p_{r_1}=\projectionspace{Kv_0+\dotsb+Kv_{r-1}}
+      \end{equation*}
+      mit \( p\in p'\vee p_r \). Dann gilt
+      \begin{align*}
+        f(p)&\explain{f \text{ ist Kollineation}}{\in}f(p')\vee (p_r)\\
+        &\in f(p_0)\vee \dotsb\vee f(p_{r-1})\vee f(p_r).
+      \end{align*}
+    \end{proofdescription}
+  \end{subproof}
+  \begin{lemma}\label{kollineation_verhaelt_sich_gut_mit_basen}
+    Sei \( \dim-{V}=\dim-{W}=n+1 \). Dann gibt es Basen \( v_0,\dotsc,v_n \) von \( V \) und \( w_0,\dotsc,w_n \) von \( W \) mit der Eigenschaft
     \begin{equation*}
-      \emptyset =Z_{-1}\subseteq Z_0\subseteq Z_1\subseteq \dotsb\subseteq \equalto{Z}{Z_k}\subseteq Z_{k+1}\subseteq\dotsb\subseteq Z_n=\projectionspace{V}.
+      f(K\cdot v_i)=K\cdot w_i\quad 0\leq i\leq n 
     \end{equation*}
-    Dann ist \( Z_i\neq Z_{i+1} \) für \( 1\leq i\leq n-1 \) und
+    und 
     \begin{equation*}
-      \sigma(Z_{-1})\supseteq \sigma(Z_0)\supseteq \sigma(Z_1)\supseteq \dotsb\supseteq \sigma(Z_k)\supseteq\dotsb\supseteq \sigma(Z_n).
+      f(K\cdot (v_0+v_i))=K\cdot (w_0+w_i)1\leq i\leq n.
     \end{equation*}
-    Da \( \sigma \) Bijektion ist, gilt \( \sigma(Z_i)\neq \sigma(Z_{i+1}) \), \( -1\leq i\leq n \), also \( \projectivedim-{\sigma(Z_i)}\geq \projectivedim-{\sigma(Z_{i+1})}+1 \). Daraus folgt
+  \end{lemma}
+  \begin{subproof}
+    Wähl eine Basis \( v_0,\dotsc,v_n \) von \( V \) und \( w_0',\dotsc,w_n'\in W \), sodass
     \begin{equation*}
-      \projectivedim-{\sigma(Z)}=\projectivedim{\projectionspace{V}}-(\projectivedim-{Z}+1).
+      f(K\cdot v_i)=K\cdot w_i'\quad 0\leq i\leq n.
     \end{equation*}
-    \item[\ref{schnitt_unter_korrelation}] Seien \( Z,Z'\in \projectionspaces{V} \). Es ist \( Z\cap Z'\subseteq Z,Z' \), also
+    Es ist
+    \begin{align*}
+      \projectionspace{W}&=f(\projectionspace{V})\\
+      &=f(K\cdot v_0\vee \dotsb\vee K\cdot v_n)\\
+      &\explain{\text{\thref{kollineation_erhaelt_verbindungsraum}}}{\subseteq} f(K\cdot v_0)\vee \dotsb\vee f(K\cdot v_n)\\
+      &=\projectionspace{K\cdot w_0'+\dotsb+K\cdot w_n'},
+    \end{align*}
+    also ist \( w_0',\dotsc,w_n' \) eine Basis von \( W \). Es gilt
     \begin{equation*}
-      \sigma(Z\cap Z')\supseteq \sigma(Z),\sigma(Z').
-    \end{equation*} \( 
-      \sigma(Z\cap Z') \) ist projektiver Raum, also 
+      K\cdot (v_0+v_i)\in K\cdot v_0\vee K\cdot v_i,
+    \end{equation*}
+    also, da \( f \) Kollineation,
+    \begin{align*}
+      f(K\cdot (v_0+v_i))&\in \braceannotate{K\cdot w_0'}{f(K\cdot v_0)}\vee \braceannotate{K\cdot w_i'}{f(K\cdot v_i)}\\
+      &\in K\cdot w_0'\vee K\cdot w_i', 
+    \end{align*}
+    also \texists \( \lambda_i,\mu_i\in K \), \( 1\leq i \leq n \) mit
+    \begin{align*}
+      f(K(v_0+v_i))&=K(\mu_i w_0'+\lambda_i w_i')\\
+      &=K(w_0'+\inverse{\mu_i}\lambda_i w_i').
+    \end{align*}
+    Außerdem ist \( \lambda_i,\mu_i\neq 0\quad \forall i \), denn aus \( \lambda_i=0 \), \( \mu_i\neq 0 \) folgt \zb
+    \begin{equation*}
+      f(K\cdot(v_0+v_i))=K\cdot w_0'=f(K\cdot v_0),
+    \end{equation*}
+    \contra \( f \) ist bijektiv.
+
+    Also ist \( \lambda_i, \mu_i\in \fieldwithoutzero{K}\quad \forall 1\leq i\leq n \).
+
+    Setze nun \( w_0\definedas w_0' \) und \( w_i=\braceannotate{\in \fieldwithoutzero{K}}{\lambda_i \inverse{\mu_i}}w_i' \), \( 1\leq i\leq n \).
+    
+  \end{subproof}
+  Im Folgenden seien \( v_0,\dotsc,v_n\in V\) und \( w_0,\dotsc,w_n\in W \) wie in \thref{kollineation_verhaelt_sich_gut_mit_basen}, \dh \( v_0,\dotsc,v_n \) ist Basis von \( V \), \( w_0,\dotsc, w_n \) ist Basis von \( W \) mit
+  \begin{align*}
+    f(K\cdot v_i)&=K\cdot w_i\quad 0\leq i\leq n\\
+    f(K\cdot (v_0+ v_i))=K(w_0+w_i)\quad 1\leq i\leq n.
+  \end{align*}
+  \begin{lemma}\label{kollineation_hat_zugehoerigen_vielleicht_automorphismus}
+    Es gibt ein injektive Abbildung
+    \begin{equation*}
+      \alpha\maps K\to K
+    \end{equation*}
+    mit \( \alpha(0)=0 \), \( \alpha(1)=1 \), und
+    \begin{equation*}
+      f(K\cdot (v_0+\lambda v_i))=K\cdot (w_0+\alpha(\lambda)w_i)\quad 1\leq i\leq n\logicspace \forall \lambda\in K.
+    \end{equation*}
+  \end{lemma}
+  \begin{proof}
+    Sei \( 1\leq i\leq n \) fest, \( \lambda\in K \). Setze
+    \begin{equation*}
+      p=K(v_0+\lambda v_i).
+    \end{equation*}
+    Dann ist \( p\in K\cdot v_0\vee K\cdot v_i \), also \( f(p)\in K\cdot w_0\vee K\cdot w_i \). Aus \( p\neq K\cdot v_i \) folgt \( f(p)\neq K\cdot w_i \) und es gibt \( \alpha_i(\lambda)\in K \) mit 
+    \begin{equation*}
+      f(p)=K\cdot (w_0+\alpha_i(\lambda)w_i).
+    \end{equation*}
+    Definiere \( \alpha_i\maps K\to K \), \( \lambda\mapsto \alpha_i(\lambda) \), \( \alpha_i \) ist injektiv, denn für \( \lambda_1\neq \lambda_2 \) ist
+    \begin{equation*}
+      K\cdot (v_0+\lambda_1 v_i)\neq K\cdot (v_0\lambda_2 v_i).
+    \end{equation*}
+    Nach Konstruktion von \( v_0,\dotsc,v_n \), \( w_0,\dotsc,w_n \) gilt \( \alpha_i(0)=0 \) und \( \alpha_i(1)=1 \).
+
+    Wir zeigen nun \( \alpha_i=\alpha_j \) für \( 1\leq i,j\leq n \). Seien \( i,j\subset \set{1,\dotsc,n} \), \( i\neq j \). Für \( \lambda\in \fieldwithoutzero{K} \) betrachte
+    \begin{equation*}
+      p\definedas K\cdot(v_i-v_j)=K\cdot (v_0+\lambda v_i-(v_0+\lambda v_j)).
+    \end{equation*}
+    Dann ist
+    \begin{equation*}
+      p\in K\cdot v_i\vee K\cdot v_j
+    \end{equation*}
+    und
+    \begin{equation*}
+      p\in K\cdot (v_0 +\lambda v_i)\vee K\cdot (v_0+\lambda v_j),
+    \end{equation*}
+    also \( f(p)\in K\cdot w_i\vee K\cdot w_j \) und
+    \begin{equation*}
+      f(p)\in K(w_0+\alpha_i(\lambda)w_i)\vee K\cdot (w_0+\alpha_j(\lambda)w_j).
+    \end{equation*}
+    Sei \( w\in W \) mit \( f(p)=K\cdot w \). Dann \texists \( \mu_i, \mu_j, \beta_i, \beta_j\in K \) mit
+    \begin{align*}
+      w&=\mu_i w_i+\mu_j w_j\\
+      &=\beta_i (w_0+\alpha_i(\lambda)w_i)+\beta_j (w_0+\alpha_j(\lambda)w_j).
+    \end{align*}
+    Aus der linearen Unabhängigkeit von \( w_0,w_1,\dotsc,w_n \) folgt
+    \begin{equation*}
+      \beta_i=-\beta_j\quad \mu_i=\beta_i \alpha_i(\lambda)\quad \mu_j=\beta_j \alpha_j(\lambda),
+    \end{equation*}
+    also
+    \begin{equation*}
+      f(p)=K\cdot (\alpha_i(\lambda)w_i-\alpha_j(\lambda)w_j).
+    \end{equation*}
+    \( p \) ist von \( \lambda\in \fieldwithoutzero{K} \) unabhängig, also
+    \begin{align*}
+      f(p)&=K\cdot (\alpha_i(1)w_i-\alpha_j(1)w_j)\\
+      &=K\cdot(w_i-w_j)\\
+      &=K\cdot(\alpha_i(\lambda)w_i-\alpha_j(\lambda)w_j)\quad \forall \lambda\in \fieldwithoutzero{K}.
+    \end{align*}
+    Also \( \alpha_i(\lambda)=\alpha_j(\lambda) \quad \forall \lambda\in K\).
+  \end{proof}
+  \begin{lemma}\label{kollineation_vielleicht_automorphismus_verhaelt_sich_gut_mit_komischer_art_basis}
+    Notation wie oben. Seien \( \lambda_1,\dotsc,\lambda_n\in K \). Dann ist
+    \begin{equation*}
+      f(K(v_0+\lambda_1 v_2+\dotsb+\lambda_n v_n))=K\cdot (w_0+\alpha(\lambda_1)w_1+\dotsb+\alpha(\lambda_n)w_n).
+    \end{equation*}
+  \end{lemma}
+  \begin{proof}
+    Wir zeigen induktiv für \( 1\leq r\leq n \), dass
+    \begin{equation*}
+      f(K\cdot (v_0+\lambda_1 v_1+\dotsb+\lambda_r v_r))=K\cdot (w_0+\alpha(\lambda_1)w_1+\dotsb+\alpha(\lambda_r)w_r)\quad \lambda_1,\dotsc,\lambda_r\in K.
+    \end{equation*}
+    \begin{proofdescription}
+      \item[\( r=1 \)] \tto \thref{kollineation_hat_zugehoerigen_vielleicht_automorphismus} \checkmark.
+      \item[\( r\geq 2 \)] Sei 
       \begin{equation*}
-        \sigma(Z\cap Z')\supseteq \sigma(Z)\vee \sigma(Z').
+        p\definedas K\cdot (v_0+\lambda_1 v_1+\dotsb+\lambda_r v_r)
       \end{equation*}
-      Aus
+      mit \( \lambda_1,\dotsc,\lambda_r\in K \). Dann ist
       \begin{equation*}
-        \sigma(Z),\sigma(Z')\subseteq \sigma(Z)\vee \sigma(Z')
+        p\in K(v_0+\lambda_1 v_1+\dotsb+\lambda_{r-1}v_{r-1})\vee K\cdot v_r
       \end{equation*}
-      folgt nach Anwendung von \( \inverse{\sigma} \)
+      und
       \begin{equation*}
-        Z\cap Z'\supseteq \inverse{\sigma}(\sigma(Z)\vee \sigma(Z'))
-      \end{equation*}
-      und damit
-      \begin{equation*}
-        \sigma(Z\cap Z')\subseteq \sigma(Z)\vee \sigma(Z').
-      \end{equation*}
-      \item[\ref{verbindung_unter_korrelation}] Es ist \( Z,Z'\subseteq \sigma(Z)\cap \sigma(Z') \), also \( \sigma(Z\vee Z')\subseteq \sigma(Z)\cap \sigma(Z') \). Wende nun \( \inverse{\sigma} \) an auf
-      \begin{equation*}
-        \sigma(Z)\cap \sigma(Z')\subseteq \sigma(Z),\sigma(Z')
-      \end{equation*}
-      und erhalte
-      \begin{equation*}
-        Z\vee Z'\subseteq \inverse{\sigma}(\sigma(Z)\cap \sigma(Z')),
+        p\in K(v_0+\lambda_r v_r)\vee K \cdot v_1\vee \dotsb\vee K\cdot v_{r-1},
       \end{equation*}
       also
       \begin{equation*}
-        \sigma(Z\vee Z')\subseteq \sigma(Z)\cap \sigma(Z').
+        f(p)\in K\cdot (w_0+\alpha(\lambda_1)w_1+\dotsb+\alpha(\lambda_{r-1}w_{r-1}))\vee K\cdot w_r
       \end{equation*}
-  \end{proofdescription}  
+      und
+      \begin{equation*}
+        f(p)\in K(w_0+\alpha(\lambda_r)w_r)\vee K\cdot w_1\vee \dotsb\vee K\cdot v_{r-1}.
+      \end{equation*}
+      Daraus folgt die Existenz von \( \beta,\beta_1,\dotsc,\beta_{r-1}\in K \) mit 
+      \begin{align*}
+        f(p)&=K\cdot (w_0+\alpha(\lambda_1)w_1+\dotsb+\alpha(\lambda_{r-1})w_{r-1}+\explain{=\alpha(\lambda_r)}\beta\cdot w_r)\\
+        &=K\cdot (w_0+\alpha(\lambda_r)w_r+\beta_1 w_1+\dotsb+\beta_{r-1}w_{r-1} \to \beta=\alpha(\lambda_r).
+      \end{align*}
+    \end{proofdescription}
+    
+  \end{proof}
+  \begin{lemma}\label{kollineation_mit_automorphismus_verhaelt_sich_gut_auf_teilbasis}
+    Sei \( (\lambda_1,\dotsc,\lambda_n)\in K^n\setminus \zeroset \). Dann ist 
+    \begin{equation*}
+      f(K\cdot (\lambda_1 v_1+\dotsb+\lambda_n v_n))=K\nonumber (\alpha(\lambda_1)w_1+\dotsb+\alpha(\lambda_n)w_n).
+    \end{equation*}
+  \end{lemma}
+  \begin{proof}
+    Sei \( (\lambda_1,\dotsc,\lambda_n)\neq (0,\dotsc,0) \) und
+    \begin{equation*}
+      p=K\cdot(\lambda_1 v_1+\dotsb+\lambda_n v_n).
+    \end{equation*}
+    Es ist
+    \begin{equation*}
+      f(p)\in K\cdot w_1\vee \dotsb\vee K\cdot w_n
+    \end{equation*}
+    und
+    \begin{equation*}
+      f(p)\in K\cdot w_0\vee K\cdot(w_0+\alpha(\lambda_1)w_1+\dotsb+\alpha(\lambda_n)w_n),
+    \end{equation*}
+    denn
+    \begin{equation*}
+      K\in Kv_0\vee K(v_0+\lambda_1 v_1+\dotsb+\lambda_n v_n).
+    \end{equation*}
+    Also \texists \( \beta_1,\dotsc,\beta_n,\beta_0,\beta\in K \) mit
+    \begin{equation*}
+      f(p)=K\cdot(\beta_1 w_1+\dotsb+\beta_n w_n)
+    \end{equation*}
+    und
+    \begin{equation*}
+      f(p)=K\cdot (\explain{-\beta}{\beta_0}w_0+\beta(w_0+\alpha(\lambda_1)w_1+\dotsb+\alpha(\lambda_n)w_n)).
+    \end{equation*}
+    Es folgt \( \beta_0=-\beta \) und
+    \begin{equation*}
+      f(p)=K\cdot (\alpha(\lambda_1)w_1+\dotsb+\alpha(\lambda_n)w_n).
+    \end{equation*}
+      
+  \end{proof}
+  \begin{lemma}\label{kollineation_vielleicht_automorphismus_ist_automorphismus}
+    Die Abbildung \( \alpha\maps K\to K \) aus \thref{kollineation_hat_zugehoerigen_vielleicht_automorphismus} ist ein Körperautomorphismus von \( K \).
+  \end{lemma}
+  \file{Hauptsatz projektive Geometrie Teil 2}
+  \begin{erinnerung*}
+    \( \alpha\maps K\to K \) ist injektiv, \( \alpha(0)=0 \), \( \alpha(1)=1 \),
+    \begin{equation*}
+      f(K\cdot (v_0+\lambda v_i))=K(w_0+\alpha(\lambda)w_i)\quad \forall \lambda\in K\logicspace \forall 1\leq i\leq n.
+    \end{equation*}
+  \end{erinnerung*}
+  \begin{proof}[Beweis von \thref{kollineation_vielleicht_automorphismus_ist_automorphismus}]
+    \begin{itemize}
+      \item \( \alpha \) ist surjektiv.
+      Für \( \mu\in K \) ist 
+      \begin{equation*}
+        q\definedas K\cdot (w_0+\mu w_1)\in \projectionspace{W},
+      \end{equation*}
+      also
+      \begin{equation*}
+        \exists p=K\cdot (\lambda_0 v_0+\dotsb+\lambda_n v_n)\in \projectionspace{V}
+      \end{equation*}
+      mit \( f(p)=q \), also \( \lambda_0\neq 0 \), daher 
+      \begin{equation*}
+        p=K\cdot \parens*{v_0+\frac{\lambda_1}{\lambda_0}v_1+\dotsb+\frac{\lambda_n}{\lambda_0}v_n}
+      \end{equation*}
+      und
+      \begin{align*}
+        q&=f(p)=K\cdot(w_0+\mu w_1)\\
+        &\explain{\text{\thref{kollineation_vielleicht_automorphismus_verhaelt_sich_gut_mit_komischer_art_basis}}}{=}K\cdot \parens*{w_0+\alpha\parens*{\frac{\lambda_1}{\lambda_0}}w_1+\dotsb+\alpha\parens*{\frac{\lambda_n}{\lambda_0}}w_n},
+      \end{align*}
+      und daher \( \mu=\alpha\parens*{\frac{\lambda_1}{\lambda_0}} \).
+      \item Wir zeigen \( \alpha(\lambda+\mu)=\alpha(\lambda)+\alpha(\mu) \quad \lambda,\mu\in K\):
+      
+      Seien \( \lambda,\mu\in K \). Dann ist
+      \begin{equation*}
+        p\definedas K\cdot(v_0+(\lambda+\mu)v_1+v_2)\in K\cdot (v_0+\lambda v_1)\vee K(\mu v_1+v_2).
+      \end{equation*}
+      Also gilt nach Anwendung on \( f \)
+      \begin{equation*}
+        f(p)\in K\cdot(w_0+\alpha(\lambda)w_1)\vee K(\cdot\alpha(\mu)w_1+w_2),
+      \end{equation*}
+      also \texists \( \beta,\beta'\in K \) mit
+      \begin{equation*}
+        w_0+\alpha(\lambda+\mu)w_1+w_2)=\beta(w_0+\alpha(\lambda)w_1)+\beta'(\alpha(\mu)w_1+w_2),
+      \end{equation*}
+      denn
+      \begin{equation*}
+        f(p)=K\cdot(w_0+\alpha(\lambda+\mu)w_1+w_2),
+      \end{equation*}
+      \( w_0,w_1,w_2 \) sind linear unabhängig, also
+      \begin{gather*}
+        \beta=1=\beta'\\
+        \alpha(\lambda+\mu)=\alpha(\lambda)+\alpha(\mu).
+      \end{gather*}
+      \item Wir zeigen \( \alpha(\lambda\cdot \mu)=\alpha(\lambda)\alpha(\mu) \quad \forall \lambda,\mu\in K\).
+      
+      Für \( \lambda=0 \) gilt
+      \begin{equation*}
+        \alpha(0\cdot \mu)=\alpha(0)=0=0\cdot \alpha(\mu)=\alpha(0)\cdot \alpha(\mu).
+      \end{equation*}
+      Wir können also annehmen, dass \( \lambda\neq 0 \).
+
+      Betrachte
+      \begin{equation*}
+        p\definedas K\cdot (v_0+\lambda \mu v_1+\lambda v_2)\in K\cdot v_0\vee K(\mu v_1+v_2).
+      \end{equation*}
+      Also
+      \begin{equation*}
+        f(p)=K\cdot (w_0+\alpha(\lambda\mu)w_1+\alpha(\lambda)w_2)\in K\cdot w_0\vee K\cdot(\alpha(\mu)w_1+w_2).
+      \end{equation*}
+      Es gibt also \( \beta,\beta'\in K \) mit
+      \begin{equation*}
+        w_0+\alpha(\lambda\mu)w_1+\alpha(\lambda)w_2=\beta w_0+\beta'(\alpha(\mu)w_1+w_2).
+      \end{equation*}
+      Daraus folgt \( \beta=1 \), \( \beta'=\alpha(\lambda) \) und \( \alpha(\lambda\mu)=\braceannotate{\beta'}{\alpha(\lambda)\alpha(\mu)} \).
+    \end{itemize}
+  \end{proof}
+  \begin{lemma}
+    Sei
+    \begin{equation*}
+      (\lambda_0,\dotsc,\lambda_n)\in K^{n+1}\setminus \Set{(0,\dotsc,0)}.
+    \end{equation*}
+    Dann ist
+    \begin{equation*}
+      f(K\cdot (\braceannotate{\in V}{\lambda_0 v_0+\dotsb+\lambda_n v_n}))=K\cdot(\alpha(\lambda_0)w_0+\dotsb+\alpha(\lambda_n)w_n).
+    \end{equation*}
+  \end{lemma}
+  \begin{proof}
+    Ist \( \lambda_0=0 \), so verwende \thref{kollineation_mit_automorphismus_verhaelt_sich_gut_auf_teilbasis}. Wir können also \( \lambda\neq 0 \) annehmen. Nach \thref{kollineation_vielleicht_automorphismus_verhaelt_sich_gut_mit_komischer_art_basis}
+    \begin{align*}
+      f(K\cdot (\lambda_0 v_0+\lambda_1 v_1+\dotsb+\lambda_n v_n))&= f\parens*{K\cdot \parens*{v_0+\frac{\lambda_1}{\lambda_0}v_1+\dotsb+\frac{\lambda_n}{\lambda_0}v_n}}\\
+      &= K\cdot \parens*{w_0+\alpha\parens*{\frac{\lambda_1}{\lambda_0}}w_1+\dotsb+\alpha\parens*{\frac{\lambda_n}{\lambda_0}}w_n}\\
+      &\explain{\text{\thref{kollineation_vielleicht_automorphismus_ist_automorphismus}}}{=}K\cdot \parens*{w_0+\frac{\alpha(\lambda_1)}{\alpha(\lambda_0)}w_1+\dotsb+\frac{\alpha(\lambda_n)}{\alpha(\lambda_0)}w_n}\\
+      &=K\cdot(\alpha(\lambda_0 )w_0+\alpha(\lambda_1)w_1+\dotsb+\alpha(\lambda_n)w_n).
+    \end{align*}
+  \end{proof}
+  Die Abbildung
+  \begin{equation*}
+    \begin{split}
+      F\maps V\to W\\
+      \lambda_0 v_0+\dotsb+\lambda_n v_n&\mapsto \alpha(\lambda_0)w_0+\dotsb+\alpha(\lambda_n)w_n
+    \end{split}
+  \end{equation*}
+  ist semilinear und injektiv und es gilt \( f=\projectionmap{F} \). Damit ist \( f \) eine Semiprojektivität und \thref{hauptsatz_projektive_geometrie} bewiesen.
 \end{proof}

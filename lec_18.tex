@@ -1,0 +1,263 @@
+% !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
+\lecture{Di 23.06. 10:15}{}
+\file{Dualräume}
+\begin{frage*}
+  Wie können wir für einen allgemeinen projektiven Raum \( \projectionspace{V} \) Korrelationen konstruieren?
+\end{frage*}
+\subsection{Dualräume}
+\begin{definition*}
+  Sei \( K \) ein Körper und \( V \) ein \( K \)-Vektorraum. Wir nennen 
+  \begin{equation*}
+    \dualspace{V}\definedas \set{\varphi\maps V\to K|\varphi \text{ ist \( K \)-linear}}
+  \end{equation*}
+  den Dualraum zu \( V \).
+\end{definition*}
+\begin{bemerkung*}
+  \( \dualspace{V} \) ist selbst wieder ein \( K \)-Vektorraum.
+
+  Sei \( v_1,\dotsc,v_n \) Basis von \( V \) und \( i\in \set{1,\dotsc, n} \). Dann gibt es eine eindeutig bestimmte ABbildung \( \dualvector{v_i}\in \dualspace{V} \) mit
+  \begin{equation*}
+    \dualvector{v_i}(v_j)=\kroneckerdelta{ij}\quad \forall 1\leq j\leq n.
+  \end{equation*}
+\end{bemerkung*}
+\begin{lemma}
+  Sei \( v_1,\dotsc,v_n \) eine Basis des \( K \)-Vektorraums \( V \). Dann ist \( \dualvector{v_1},\dotsc, \dualvector{v_n} \) (wie oben definiert) Basis von \( \dualspace{V} \).
+\end{lemma}
+\begin{proof}
+  Sei \( \varphi\in \dualspace{V} \). Dann ist \( \varphi \) eindeutig bestimmt durch die Bilder \( \varphi(v_i) \), \( 1\leq i\leq n \). Sei 
+  \begin{equation*}
+    \varphi'=\varphi(v_1)\dualvector{v_1}+\dotsb+\varphi(v_n)\dualvector{v_n}.
+  \end{equation*}
+  Dann ist \( \varphi'(v_i)=\varphi(v_i) \), \( 1\leq i\leq n \), also \( \varphi=\varphi' \) und \( \dualvector{v_1},\dotsc,\dualvector{v_n} \) spannen \( \dualspace{V} \) auf. Seien umgekehrt \( \lambda_1,\dotsc,\lambda_n\in K \) mit
+  \begin{equation*}
+    \lambda_1 \dualvector{v_1}+\dotsb+\lambda_n \dualvector{v_n}\equiv 0.
+  \end{equation*}
+  Dann gilt nach Auswertung auf \( v_i \), \( 1\leq \leq n \)
+  \begin{equation*}
+    (\lambda_1 \dualvector{v_1}+\dotsb+\lambda_n \dualvector{v_n})(v_i)=\lambda_i =0.
+  \end{equation*}
+  Also sind \( \dualvector{v_1},\dotsc,\dualvector{v_n}  \) linear unabhängig.
+\end{proof}
+\begin{bemerkung*}
+  Es gilt insbesondere
+  \begin{equation*}
+    \dim-{V}=\dim-{\dualspace{V}}.
+  \end{equation*}
+\end{bemerkung*}
+\begin{definition*}
+  Sei \( V \) ein \( K \)-Vektorraum und \( W\subseteq V \) ein \( K \)-Untervektorraum. Wir definieren den orthogonalen Raum
+  \begin{equation*}
+    \orthogonalspace{W}\definedas \Set{\varphi\in \dualspace{V}|\varphi(W)=0}.
+  \end{equation*}
+\end{definition*}
+\begin{beispiel*}
+  Sei \( V=K^3 \) mit kanonischer Basis \( e_1=(1,0,0) \), \( e_2=(0,1,0) \), \( e_3=(0,0,1) \) und dualer Basis \( \dualvector{e_1}, \dualvector{e_2},\dualvector{e_3} \). Dann können wir jedes \( \varphi\in \dualspace{V} \) schreiben als \( a_1 \dualvector{e_1}+a_2\dualvector{e_2}+a_3\dualvector{e_3} \) mit \( (a_1,a_2,a_3)\in K^3 \). Insbesondere \( \dualspace{V}\simeqq V \). Sei \( W=\Set{\lambda(x_1,x_2,x_3)|\lambda\in K} \) für ein \( (x_1,x_2,x_3)\in K^3\setminus \zeroset \). Dann ist
+  \begin{align*}
+    \orthogonalspace{W}&=\Set{(a_1,a_2,a_3)\in K^3|(a_1\dualvector{e_1}+a_2\dualvector{e_2}+a_3\dualvector{e_3})(W)=0}\\
+    &=\Set{(a_1,a_2,a_3)\in K^3|(a_1\dualvector{e_1}+a_2\dualvector{e_2}+a_3\dualvector{e_3})}(x_1,x_2,x_3)=0\\
+    &=\Set{(a_1,a_2,a_3)\in K^3|a_1x_1+a_2x_2+a_3x_3=0}.
+  \end{align*}
+\end{beispiel*}
+\begin{lemma}
+  Sei \( V \) ein \( K \)-Vektorraum und \( U\subseteq V \) ein \( K \)-Untervektorraum. Dann gilt
+  \begin{equation*}
+    \dim-{\orthogonalspace{U}}=\dim-{V}-\dim-{U}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Sei \( k=\dim-{U} \) und \( v_1,\dotsc,v_k \) Basis von \( U \). Seien \( v_{k+1},\dotsc, v_n\in V \) so gewählt, dass \( v_1,\dotsc, v_n \) Basis von \( V  \) ist. Sei \( \dualvector{v_1},\dotsc, \dualvector{v_n} \) die zu \( v_1,\dotsc,v_n \) duale Basis.
+  \begin{behauptung}
+    \( \orthogonalspace{U}=\Span{\dualvector{v_{k+1}},\dotsc,\dualvector{v_n}} \).
+  \end{behauptung}
+  Sei \( \varphi\in \Span{\dualvector{v_{k+1}},\dotsc,\dualvector{v_n}} \), \dh
+  \begin{equation*}
+    \varphi=\lambda_{k+1}\dualvector{v_{k+1}}+\dotsb+\lambda_n \dualvector{v_n}
+  \end{equation*}
+  mit \( \lambda_{k+1},\dotsc, \lambda_m\in K \). Dann ist \( \varphi(u)=0 \quad \forall u\in U\), also \( \varphi\in \orthogonalspace{U} \). Sei umgekehrt \( \varphi\in \orthogonalspace{U} \). Schreibe \( \varphi=\lambda_1 \orthogonalspace{v_1}+\dotsb+\lambda_n \orthogonalspace{v_n} \) mit \( \lambda_1,\dotsc,\lambda_n\in K \). Da \( \varphi\in \orthogonalspace{U} \), gilt
+  \begin{equation*}
+    \varphi(v_i)=0\quad 1\leq i\leq k,
+  \end{equation*}
+  also \( \lambda_1=\dotsb=\lambda_k=0 \) und \( \varphi\in \Span{\dualvector{v_{k+1}},\dotsc,\dualvector{v_n}} \). Da \( \dualvector{v_{k+1}},\dotsc,\dualvector{v_n} \) linear unabhängig sind, gilt
+  \begin{equation*}
+    \dim-{\orthogonalspace{U}}=n-k=\dim-{V}-\dim-{U}.
+  \end{equation*}
+\end{proof}
+\begin{frage*}
+  Was erhalten wir, wenn wir den Dualraum zum Dualraum \( \dualspace+{\dualspace{V}} \).
+\end{frage*}
+\begin{definition*}
+  Sei \( V \) ein \( K \)-Vektorraum. Wir nennen \( \bidualspace{V}\definedas \dualspace+{\dualspace{V}} \) den \emph{Bidualraum} zu \( V \). Sei \( v\in V \). Dann induziert \( v \) eine Abbildung
+  \begin{equation*}
+    \begin{split}
+      \dualspace{V}&\to K\\
+      \varphi&\to \varphi(v).
+    \end{split}
+  \end{equation*}
+  Wir definieren damit die kanonische Abbildung
+  \begin{equation*}
+    \begin{split}
+      \iota\maps V&\to \bidualspace{V}\\
+      v&\to w
+    \end{split}
+  \end{equation*}
+  durch \( \iota_v(\varphi)=\varphi(v)\quad \forall v\in\dualspace{V} \).
+\end{definition*}
+\begin{satz}
+  Sei \( V \) ein \( K \)-Vektorraum. Dann ist die kanonische Abbildung
+  \begin{equation*}
+    \iota\maps V\to \bidualspace{V}
+  \end{equation*}
+  ein Isomorphismus von Vektorräumen. Für jede Untervektorraum \( W\untervektorraum V \) gilt
+  \begin{equation*}
+    \orthogonalspace+{\orthogonalspace{W}}=\iota(W).
+  \end{equation*}
+\end{satz}
+\begin{proof}
+  \( \iota \) ist injektiv. Sei \( v\in V\Minuszero \). Ergänze \( v \) zu einer Basis von \( V \) durch \( v,v_2,\dotsc,v_n \). Dann ist \( \dualvector{v},\dualvector{v_2},\dotsc,\dualvector{v_n} \) Basis von \( \dualspace{V} \) und \( \iota_v(\dualvector{v})=\dualvector{v}(v)=1 \), also \( \iota_v\neq 0 \). Es ist 
+  \begin{equation*}
+    \dim-{\bidualspace{V}}=\dim-{\dualspace{V}}=\dualspace-{V},
+  \end{equation*}
+  also ist \( \iota \) ein Isomorphismus.
+
+  Sei \( W\untervektorraum V \) ein \( K \)-Untervektorraum. Dann ist \( \iota(W)\subseteq \orthogonalspace+{\orthogonalspace{W}} \), denn fpr \( w\in W \) und \( \varphi\in \orthogonalspace{W} \) gilt \( \iota_w(\phi)=\varphi(w)=0 \). Es ist
+  \begin{align*}
+    \dim-{\orthogonalspace{W}}&=\dim-{\dualspace{V}}-\dim-{\orthogonalspace{W}}\\
+    &=\dim-{V}-\parens{\dim-{V}-\dim-{W}}\\
+    &=\dim-{W},
+  \end{align*}
+  also \( \iota(W)=\orthogonalspace+{\orthogonalspace{W}} \).
+\end{proof}
+\begin{frage*}
+  Was bedeutet Dualität für die zu \( V \) und \( \dualspace{V} \) gehörenden projektiven Räume?
+\end{frage*}
+Sei \( V \) ein \( K \)-Vektorraum mit dualem Vektorraum \( \dualspace{V} \). Elemente von \( \projectionspace{\dualspace{V}} \) haben die Form \( K\cdot \varphi \) mit \( \varphi\maps \to K \) eine lineare Abbildung \( \neq 0 \). Sei 
+\begin{equation*}
+  W\definedas \Set{v\in V|\varphi(v)=0}.
+\end{equation*}
+Dann ist auch für \( \lambda\in K\Minuszero \)
+\begin{equation*}
+  W=\Set{v\in V\maps (\lambda \varphi)(v)=0}
+\end{equation*}
+und \( \projectionspace{W}\subseteq \projectionspace{V} \) ist eine projektive Hyperebene. Wir erhalten also eine Abbildung
+\begin{equation*}
+  \begin{split}
+    \alpha\maps \projectionspace{\dualspace{V}}&\to \Set{\text{Hyperebenen in \( \projectionspace{V} \)}}\\
+    K\cdot \varphi&\mapsto \projectionspace*{\Set{v\in V\maps \varphi(v)=0}}.
+  \end{split}
+\end{equation*}
+Die Abbildung \( \alpha \) ist bijektiv, \dh
+\begin{equation*}
+  \text{Punkte in \( \projectionspace{\dualspace{V}} \)}\leftrightarrow \text{Hyperebenen in \( \projectionspace{V} \)}.
+\end{equation*}
+\file{Dualräume und Korrelationen}
+\begin{idee*}
+  Wähle eine Projektivität
+  \begin{equation*}
+    \projectionspace{\dualspace{V}}\simeqq \projectionspace{V}
+  \end{equation*}
+  oder etwas allgemeiner:
+  
+  Sei \( f\maps \projectionspace{V}\to \projectionspace{\dualspace{V}} \) eine Semiprojektivität induziert durch eine semilineare bijektive Abbildung \( F\maps V\to \dualspace{V} \), \dh \( f=\projectionmap{F} \). Sei \( Z\subseteq \projectionspace{V} \) projektiver Unterraum der Form \( Z=\projectionspace{W} \) mit \( W\untervektorraum V \) ein \( K \)-Untervektorraum.
+
+  Dann ist \( F(W)\subseteq \dualspace{V} \) ebenfalls \( K \)-Untervektorraum mit \( \dim-{W}=\dim-{F(W)} \) und \( \orthogonalspace{F(W)}\subseteq \bidualspace{V} \) \( K \)-Untervektorraum der Dimension
+  \begin{equation*}
+    \dim-{\orthogonalspace{F(W)}}=\dim-{V}-\dim-{F(W)}=\dim-{V}-\dim-{W}.
+  \end{equation*}
+  Wir verwenden die kanonische Abbildung \( \iota\maps V\to \bidualspace{V} \), um \( V \) und \( \bidualspace{V} \) mit einander zu identifizieren.
+
+  Dann ist 
+  \begin{equation*}
+    \orthogonalspace{F(W)}=\Set{v\in V|\varphi(v)=0\quad \forall \varphi\in F(W)}.
+  \end{equation*}
+  Wir definieren
+  \begin{equation*}
+    \begin{split}
+      \sigma_f\maps \projectionspaces{V}&\to\projectionspaces{V}\\
+      Z=\projectionspace{W}&\mapsto \projectionspace{\orthogonalspace{F(W)}}.
+    \end{split}
+  \end{equation*}
+\end{idee*}
+\begin{lemma}
+  Sei \( V \) ein \( K \)-Vektorraum und \( f\maps \projectionspace{V}\to \projectionspace{\dualspace{V}} \) eine Semiprojektivität, induziert durch eine bijektive semilineare Abbildung \( F\maps V\to \dualspace{V} \). Dann ist die Abbildung
+  \begin{equation*}
+    \begin{split}
+      \sigma_f\maps \projectionspaces{V}&\to\projectionspaces{V}\\
+      Z=\projectionspace{W}&\mapsto \projectionspace{\orthogonalspace{F(W)}}.
+    \end{split}
+  \end{equation*}
+  eine Korrelation.
+\end{lemma}
+\begin{proof}
+  Seien \( W, W'\untervektorraum V \) \( K \)-Untervektorraum mit 
+  \begin{equation*}
+    \orthogonalspace{F(W)}=\orthogonalspace{F(W')}.
+  \end{equation*}
+  Dann ist
+  \begin{equation*}
+    F(W)=\orthogonalspace+*{\orthogonalspace{F(W)}}=\orthogonalspace+*{\orthogonalspace{F(W')}}=F(W'),
+  \end{equation*}
+  also \( W=W' \) und \( \sigma_f \) ist injektiv.
+
+  Sei nun \( U\untervektorraum V \) \( K \)-Untervektorraum. Dann ist
+  \begin{equation}
+    \inverse{F}(\orthogonalspace{U})\subseteq V
+  \end{equation}
+  \( K \)-Untervektorraum mit
+  \begin{equation*}
+    \sigma_f(\projectionspace{\inverse{F}(\orthogonalspace{U})})=\projectionspace{U}
+  \end{equation*}
+  also \( \sigma_f \) surjektiv.
+
+  Für zwei projektive Unterräume \( Z=\projectionspace{W} , Z'=\projectionspace{W'} \in \projectionspaces{V}  \) gilt
+  \begin{align*}
+    Z'\subseteq Z\iff &W'\subseteq W\\
+    \iff &F(W')\subseteq F(W)\\
+    \iff &\orthogonalspace{F(W')}\supseteq \orthogonalspace{F(W)}\\
+    \iff &\sigma_f(Z')\supseteq \sigma_f(Z).
+  \end{align*}
+\end{proof}
+\begin{beispiel*}
+  Sei \( V=K^3 \) mit Basis \( e_1,e_2,e_3 \) und \( \dualvector{e_1},\dualvector{e_2},\dualvector{e_3} \) zugehörige Basis von \( \dualspace{V} \) mit \( \dualvector{e_i}(e_j)=\kroneckerdelta{ij} \). Sei \( F\maps V\to \dualspace{V} \), \( K \)-linear, gegeben durch
+  \begin{equation*}
+    e_i\mapsto \dualvector{e_i}\quad 1\leq i\leq 3
+  \end{equation*}
+  und
+  \begin{equation*}
+    f=\projectionmap{F}\maps \equalto{\projectionspaceover{2}{K}}{\projectionspace{V}}\to \equalto{\projectionspaceover{2}{K}}{\projectionspace{\dualspace{V}}}.
+  \end{equation*}
+  Dann ist \( \sigma_f\maps \projectionspaces{V}\to \projectionspaces{V} \) die am Anfang diesen Abschnitts verwendete Korrelation.
+\end{beispiel*}
+\begin{satz}
+  Sei \( V \) ein \( K \)-Vektorraum mit \( \fielddim{K}{V}\geq 3 \). Dann ist die Abbildung
+  \begin{equation*}
+    \begin{split}
+      \beta\maps \Set{\text{Semiprojektivitäten \( f\maps \projectionspace{V}\to \projectionspace{\dualspace{V}} \)}}&\to \Set{\text{Korrelationen \( \sigma\maps \projectionspaces{V}\to \projectionspaces{V} \)}}\\
+      f&\mapsto \sigma_f
+    \end{split}
+  \end{equation*}
+  bijektiv. (Notation wie oben).
+\end{satz}
+\begin{proof}[Beweisidee]
+  Wir konstruieren eine Umkehrabbildung
+  \begin{equation*}
+    \gamma\maps\Set{\text{Korrelationen \( \sigma\maps \projectionspaces{V}\to \projectionspaces{V} \)}}\to  \Set{\text{Semiprojektivitäten \( f\maps \projectionspace{V}\to \projectionspace{\dualspace{V}} \)}}.
+  \end{equation*}
+  Sei \( \sigma\maps \projectionspaces{V}\to \projectionspaces{V} \) eine Korrelation und \( p\in \projectionspace{V} \). Nach \thref{korrelation_verhalten} ist
+  \begin{equation*}
+    \dim-{\sigma(p)}=\dim-{\projectionspaces{V}}-1,
+  \end{equation*}
+  also \( \sigma(p)\subseteq \projectionspace{V} \) Hyperebene. Wir erhalten also eine Abbildung
+  \begin{equation*}
+    \begin{split}
+      f_\sigma\definedas \projectionspace{V}&\to \projectionspace{\dualspace{V}}\\
+      p&\mapsto \sigma(p)
+    \end{split}
+  \end{equation*}
+  indem wir Hyperebenen in \( \projectionspace{V} \) mit Punkten in \( \projectionspace{\dualspace{V}} \) wie oben identifizieren.
+  \begin{ziel*}
+    Zeige, dass \( f_{\sigma} \) eine Semiprojektivität ist.
+  \end{ziel*}
+  Seien \( p_0,p_1,p_2\in \projectionspace{V} \) in einer Geraden \( L\subseteq \projectionspace{V} \) enthalten. Dann \( \sigma(p_0),\sigma(p_1),\sigma(p_2)\supseteq \sigma(L) \), wobei \( \dim-{\sigma(L)}=\dim-{\projectionspace{V}}-2 \). Also sind \( \sigma(p_0),\sigma(p_1),\sigma(p_2) \) kollinear.
+
+  Es folgt, dass \( f_0 \) eine Kollineation ist und nach dem Hauptsatz der projektiven Geometrie ist \( f_0 \) Semiprojektivität. Definiere \( \gamma(\sigma)\definedas f_{\sigma} \). Dann ist \( \gamma \) Umkehrabbildung zu \( \beta \).
+\end{proof}

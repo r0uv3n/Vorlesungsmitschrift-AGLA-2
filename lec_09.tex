@@ -63,7 +63,7 @@ Es gilt also, dass für alle \( v,w\in T(X) \) mit \( \scalarproduct{v}{w}=0 \) 
   Sei \( V \) ein euklidischer Vektorraum, \( F\maps V\to V  \) ein Isomorphismus mit \( F(v)\perp F(w) \) für alle \( v,w\in V \) mit \( v\perp w \). Dann existiert \( \rho\in \reals_{>0} \) \sd \( \frac{1}{\rho}\cdot F \) orthogonal ist.
 \end{lemma}
 \begin{proof}
-  Sei \( n=\dim-{}{V} \) und \( v_1,\dotsc, v_n \) eine Orthonormalbasis von \( V \), \dh \( \norm{v_i}=1 \), \( 1\leq i\leq n \) und \( \scalarproduct{v_i}{v_\gamma}=0 \) für \( i\neq j \). Sei \( \rho_i\definedas \norm{F(v_i)}  \), \( 1\leq i \leq n \).
+  Sei \( n=\dim-{V} \) und \( v_1,\dotsc, v_n \) eine Orthonormalbasis von \( V \), \dh \( \norm{v_i}=1 \), \( 1\leq i\leq n \) und \( \scalarproduct{v_i}{v_\gamma}=0 \) für \( i\neq j \). Sei \( \rho_i\definedas \norm{F(v_i)}  \), \( 1\leq i \leq n \).
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/orthonormalbasis_skalierung}
@@ -120,15 +120,15 @@ Betrachte \( \reals^n \) als euklidischen affinen Raum mit Standardskalarprodukt
   \end{equation*}
 \end{satz}
 \begin{proof}
-  Wir bilden die Matrix \( C=\transpose-{A}A \).
+  Wir bilden die Matrix \( C=\transpose{A}A \).
   \begin{itemize}
     \item \( C \) ist symmetrisch, da
     \begin{equation*}
-      \transpose-{C}=\transpose{\transpose-{A}A}=\transpose-{A}\transpose-{\transpose-{A}}=\transpose-{A}A=C.
+      \transpose{C}=\transpose+{\transpose{A}A}=\transpose{A}\transpose{\transpose{A}}=\transpose{A}A=C.
     \end{equation*}
     \item \( C \) ist positiv definit, denn \( I_n \) ist positiv definit und daher nach dem Sylvesterschen Trägheitsgesetz auch \( C \). Aus der Hauptachsentransformation symmetrischer Matrizen (\aglacourse{1}) folgt, dass es eine Matrix \( T\in \orthogonalmatrices{n} \) mit
     \begin{equation*}
-      TC\transpose-{T}=\begin{pNiceMatrix}
+      TC\transpose{T}=\begin{pNiceMatrix}
         \beta_1 &  & 0 \\
          & \Ddots &  \\
         0 &  & \beta_n
@@ -140,13 +140,13 @@ Betrachte \( \reals^n \) als euklidischen affinen Raum mit Standardskalarprodukt
     \end{equation*}
     Dann gilt
     \begin{equation*}
-      T\braceannotate{\transpose-{A}A}{C}\transpose-{T}=D^2=\transpose-{D}D,
+      T\braceannotate{\transpose{A}A}{C}\transpose{T}=D^2=\transpose{D}D,
     \end{equation*}
     also
     \begin{equation*}
-      I_n=\braceannotate{S}{\inv{\transpose-{A}}\transpose-{T}\transpose-{D}}\braceannotate{\transpose-{S}}{DT\inv{A}}.
+      I_n=\braceannotate{S}{\inv{\transpose{A}}\transpose{T}\transpose{D}}\braceannotate{\transpose{S}}{DT\inv{A}}.
     \end{equation*}
-    Sei \( S\definedas \inv{\transpose-{A}}\transpose-{T}\transpose-{D} \). Dann gilt \( \transpose-{S}S=I_n \) und \( S\in \orthogonalmatrices{n} \) ist orthogonal. Wir erhalten \( \transpose-{S}=DT\inv{A} \) und \( A=SDT \).
+    Sei \( S\definedas \inv{\transpose{A}}\transpose{T}\transpose{D} \). Dann gilt \( \transpose{S}S=I_n \) und \( S\in \orthogonalmatrices{n} \) ist orthogonal. Wir erhalten \( \transpose{S}=DT\inv{A} \) und \( A=SDT \).
   \end{itemize}
 \end{proof}
 \begin{korollar*}
@@ -161,10 +161,10 @@ Betrachte \( \reals^n \) als euklidischen affinen Raum mit Standardskalarprodukt
       0 &  & \alpha_n
     \end{pNiceMatrix},
   \end{equation*}
-  \( \alpha_1,\dotsc,\alpha_n>0 \) einer Diagonalmatrix. Sei \( v_i=\transpose-{T}e_i \), \( 1\leq i\leq n \). \( T \) ist orthogonal, also auch \( \transpose-{T} \) und damit ist \( v_1,\dotsc,v_n \) eine Orthonormalbasis des \( \reals^n \). Es gilt
+  \( \alpha_1,\dotsc,\alpha_n>0 \) einer Diagonalmatrix. Sei \( v_i=\transpose{T}e_i \), \( 1\leq i\leq n \). \( T \) ist orthogonal, also auch \( \transpose{T} \) und damit ist \( v_1,\dotsc,v_n \) eine Orthonormalbasis des \( \reals^n \). Es gilt
   \begin{align*}
-    F(v_i)&=A\transpose-{T}e_i\\
-    &=SD\braceannotate{T\transpose-{T}}{I_n}e_i\\
+    F(v_i)&=A\transpose{T}e_i\\
+    &=SD\braceannotate{T\transpose{T}}{I_n}e_i\\
     &=SDe_i=S(\alpha_i e_i)\\
     &=\alpha_i S_{e_i}.
   \end{align*}

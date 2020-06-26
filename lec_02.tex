@@ -151,16 +151,16 @@
          also \( q_1=q_2 \) und \( Y_1\cap Y_2\neq \emptyset \) \contra.
     \end{proofdescription}
 \end{proof}
-Als nächstes: \( \affindim{Y_1\vee Y_2} \) ist durch \( \dim-{K}{T(Y_1\vee Y_2)} \) gegeben, also sollten wir aus \thref{verbindungsraum:translationen} für \( Y_1\vee Y_2 \) ableiten können.
+Als nächstes: \( \affindim{Y_1\vee Y_2} \) ist durch \( \fielddim-{K}{T(Y_1\vee Y_2)} \) gegeben, also sollten wir aus \thref{verbindungsraum:translationen} für \( Y_1\vee Y_2 \) ableiten können.
 \begin{lemma}\label{verbindungsraum:dimension}
     Sei \( X \) ein affiner Raum, \( Y_1, Y_2\neq \emptyset \) affine Unterräume von \( X \).
     \begin{eigenschaftenenumerate}
         \item\label{verbindungsraum:dimension:schnitt_nicht_leer} Sei \( Y_1\cap Y_2\neq \emptyset \).
-         Dann gilt \( \dim(Y_1\vee Y_2)=\dim(Y_1)+\dim(Y_2)-\dim(Y_1\cap Y_2) \).
+         Dann gilt \( \dim{Y_1\vee Y_2}=\dim{Y_1}+\dim{Y_2}-\dim{Y_1\cap Y_2} \).
         \item\label{verbindungsraum:dimension:schnitt_leer} Sei \( Y_1\cap Y_2=\emptyset \).
         Dann gilt
         \begin{align*}
-            \dim(Y_1\vee Y_2)=\dim(Y_1)+\dim(Y_2)-\dim(T(Y_1)\cap T(Y_2))+1.
+            \dim{Y_1\vee Y_2}=\dim{Y_1}+\dim{Y_2}-\dim{T(Y_1)\cap T(Y_2)}+1.
         \end{align*}
     \end{eigenschaftenenumerate}
     
@@ -175,9 +175,9 @@ Als nächstes: \( \affindim{Y_1\vee Y_2} \) ist durch \( \dim-{K}{T(Y_1\vee Y_2)
         aus der Dimensionsformel für Untervektorräume folgt
         \begin{equation*}
             \affindim{Y_1\vee Y_2}\begin{aligned}[t] 
-                &=\dim-{}{T(Y_1\vee Y_2)}\\
-                &=\affindim{Y_1}+\dim-{}{T(Y_2)}-\dim{}{T(Y_1)\cap T(Y_2)}\\
-                &\explain{\text{\thref{schnittraum:translationen}}}{=}\dim-{}{T(Y_1)}+\dim-{}{T(Y_2)}-\dim-{}{T(Y_1\cap Y_2)}\\
+                &=\dim-{T(Y_1\vee Y_2)}\\
+                &=\affindim{Y_1}+\dim-{T(Y_2)}-\dim{T(Y_1)\cap T(Y_2)}\\
+                &\explain{\text{\thref{schnittraum:translationen}}}{=}\dim-{T(Y_1)}+\dim-{T(Y_2)}-\dim-{T(Y_1\cap Y_2)}\\
                 &=\affindim-{Y_1}+\affindim-{Y_2}-\affindim-{Y_1\cap Y_2}.
             \end{aligned}
         \end{equation*}
@@ -186,16 +186,16 @@ Als nächstes: \( \affindim{Y_1\vee Y_2} \) ist durch \( \dim-{K}{T(Y_1\vee Y_2)
         
         Dann ist
         \begin{align*}
-            \affindim-{Y}=\dim-{}{T(Y)}=1.
+            \affindim-{Y}=\dim-{T(Y)}=1.
         \end{align*}
         Wir erhalten
         \begin{align*}
             \affindim{Y_1\vee Y_2}\begin{aligned}[t] 
-                % &=\dim-{}{T(Y_1\vee Y_2)}\\
+                % &=\dim-{T(Y_1\vee Y_2)}\\
                 % &\explain{\text{\thref{verbindungsraum:translationen}}}{=}\affindim{(T(Y_1)+T(Y_2))\oplus T(Y)}\\
-                % &=\dim{}{T(Y_1)+T(Y_2)}+\equalto{1}\dim-{}{T(Y)}\\
-                % &=\dim-{}{T(Y_1)}+\dim-{}{T(Y_2)}- \dim-{}{T(Y_1)\cap T(Y_2)}+1\\
-                &=\affindim-{Y_1}+\affindim-{Y_2} -\dim{}{T(Y_1)\cap T(Y_2)}+1
+                % &=\dim{T(Y_1)+T(Y_2)}+\equalto{1}\dim-{T(Y)}\\
+                % &=\dim-{T(Y_1)}+\dim-{T(Y_2)}- \dim-{T(Y_1)\cap T(Y_2)}+1\\
+                &=\affindim-{Y_1}+\affindim-{Y_2} -\dim{T(Y_1)\cap T(Y_2)}+1
             \end{aligned}
         \end{align*}
     \end{proofdescription}
@@ -207,7 +207,7 @@ Als nächstes: \( \affindim{Y_1\vee Y_2} \) ist durch \( \dim-{K}{T(Y_1\vee Y_2)
         \label{fig:verbindungsraum_parallele_geraden}
     \end{figure}
     \begin{align*}
-        \affindim{Y_1\vee Y_2}=1+1-\underbrace{\dim{}{T(Y_1)\cap T(Y_2)}}_{=1}+1=2
+        \affindim{Y_1\vee Y_2}=1+1-\underbrace{\dim{T(Y_1)\cap T(Y_2)}}_{=1}+1=2
     \end{align*}
     \begin{figure}[H]
         \centering
@@ -309,7 +309,7 @@ Für \( p\in X \) definiere
     \begin{align*}
         \affindim-{Y_1\vee W(p)}\begin{aligned}[t] 
             &=\affindim-{Y_1}+\affindim-{W(p)}-\affindim{\underbrace{T(Y_1)\cap W}_{\textcolor{LimeGreen}{=\zeroset}}}+1\\
-            &=\dim-{}{T(Y_1)}+\affindim-{W}+1
+            &=\dim-{T(Y_1)}+\affindim-{W}+1
         \end{aligned}
     \end{align*}
     \contra zu \( Y_1\vee W(p)\subseteq X \), also ist \( Y_1\cap W(p)\neq \zeroset \), und nach \thref{verbindungsraum:dimension}~\ref{verbindungsraum:dimension:schnitt_nicht_leer} gilt Folgendes:
@@ -322,7 +322,7 @@ Für \( p\in X \) definiere
     und nach \thref{schnittraum:translationen}
     \begin{align*}
         \affindim-{Y_1\vee W(p)}\begin{aligned}[t] 
-            &=\dim{}{T(Y_1)+W}\\
+            &=\dim{T(Y_1)+W}\\
             &=n,
         \end{aligned}
     \end{align*}

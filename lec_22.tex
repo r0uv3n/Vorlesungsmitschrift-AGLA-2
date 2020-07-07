@@ -1,0 +1,268 @@
+% !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
+\lecture{Di 07.07. 10:15}{}
+\chapter{Multilineare Algebra}
+\section{Tensorprodukte}
+\begin{erinnerung*}
+  Sei \( K \) ein Körper und \( V,W \) \( K \)-Vektorräume. Wir nennen eine Abbildung
+  \begin{align*}
+    \varphi\maps V\times W&\to K\\
+    (v,w)&\mapsto \varphi(v,w)
+  \end{align*}
+  \emph{bilinear}, wenn \tforall  \( v,v'\in V \), \( w,w'\in W \), \( \lambda\in K \) gilt
+  \begin{align*}
+    \varphi(v+v',w)&=\varphi(v,w)+\varphi(v',w)\\
+    \varphi(v,w+w')&=\varphi(v,w)+\varphi(v,w')\\
+    \varphi(\lambda v,w)&= \lambda \varphi(v,w)=\varphi(v,\lambda w).
+  \end{align*}
+\end{erinnerung*}
+\begin{beispiele*}
+  \begin{enumerate}
+    \item \( V=W=K^n \), \( A\in \sqmatrices{n}{K} \). Dann ist 
+    \begin{align*}
+      \varphi\maps K^n\times K^n&\to K\\
+      (\underline{x},\underline{y})&\mapsto \transpose{\underline{x}}A\underline{y}
+    \end{align*}
+    bilinear.
+    \item \( V=W=K^2 \) Interpretiere \( V\times W \) als \( \sqmatrices{2}{K} \). Dann ist
+    \begin{align*}
+      \varphi\maps V\times W&\to K\\
+      (\explain{\text{Spaltenvektoren}}{\underline{x},\underline{y}})&\mapsto \determinant+{\underline{x},\underline{y}}
+    \end{align*}
+    bilinear.
+    \item Sei \( V \) ein \( K \)-Vektorraum mit Dualraum \( \dualspace{V} \). Die Abbildung
+    \begin{align*}
+      \dualspace{V}\times V\to K\\
+      (\varphi,v)\mapsto \varphi(v)
+    \end{align*}
+    ist bilinear.
+    \item Sei \( V=W=\sqmatrices{n}{K} \). Die Abbildung
+    \begin{align*}
+      \varphi\maps V\times W&\to V\\
+      (A,B)&\mapsto AB
+    \end{align*}
+    ist nach obiger Definition nur für \( n=1 \) eine bilineare Abbildung.
+  \end{enumerate}
+\end{beispiele*}
+Wir verallgemeinern den Begriff \enquote{bilineare Abbildung} zu
+\begin{definition*}
+  Sei \( K \) ein Körper und \( U,V,W \) \( K \)-Vektorräume. Wir nennen eine Abbildung
+  \begin{equation*}
+    \varphi\maps V\times W\to U
+  \end{equation*}
+  bilinear, falls für jedes \( v\in V \) und \( w\in W \) die Abbildungen
+  \begin{gather*}
+    \varphi_V\maps W\to U\quad w\mapsto \varphi(v,w)\\
+    \varphi_W\maps V\to U\quad u\mapsto \varphi(v,w)
+  \end{gather*}
+  Wir schreiben
+  \begin{equation*}
+    \bilinearities{V}{W}{U}\definedas \Set{\varphi\maps V\times W\to U| \varphi \text{ ist bilinear}}.
+  \end{equation*}
+\end{definition*}
+\begin{bemerkungen*}
+  \begin{enumerate}
+    \item \( \bilinearities{V}{W}{U} \) ist ein \( K \)-Vektorraum mit
+    \begin{align*}
+      (\varphi_1+\varphi_2)(v,w)&\definedas \varphi_1(v,w)+\varphi_2(v,w)\\
+      (\lambda \varphi)(v,w)&=\lambda \varphi(v,w).
+    \end{align*}
+    \item Seien \( V,W,U,U'\) \( K \)-Vektorräume, \( \varphi\maps V\times W\to U \) bilinear und \( \psi\maps U\to U' \) linear. Dann ist die Abbildung 
+    \begin{equation*}
+      \psi\circ \varphi\maps V\bigcup W\to U'
+    \end{equation*}
+    bilinear.
+    \item \label{bilinearitaet_beispiel} (Beispiel) Sei \( K \) ein Körper,
+    \begin{equation*}
+      V=W=\Set{P(x)\in \polynomials{K}{x}|\grad-{P(x)}\leq d}.
+    \end{equation*}
+    und
+    \begin{equation*}
+      U=\Set{P(x)\in \polynomials{K}{x}|\grad-{P(x)}\leq 2d}.
+    \end{equation*}
+    Dan sind \( U,V,W \) \( K \)-Vektorräume der Dimension
+    \begin{gather*}
+      \dim-{V}=\dim-{W}=d+1\\
+      \dim-{U}=2d+1
+    \end{gather*}
+    mit Basen \( 1,x,\dotsc,x^d \) \bzw \( 1,x,\dotsc,x^{2d} \). Die Abbildung
+    \begin{align*}
+      \varphi\maps V\times W&\to U\\
+      (P,Q)&\mapsto P\cdot Q
+    \end{align*}
+    ist bilinear.
+    \item \( V=\polynomials{K}{x} \), \( W=\polynomials{K}{y} \) als \( \infty \)-dimensionale \( K \)-Vektorräume, \( U=\polynomials{K}{x,y} \). Betrachte
+    \begin{align*}
+      \varphi\maps V\times W&\to U\\
+      (P(x),Q(y))&\mapsto P(x)Q(y).
+    \end{align*}
+    Dann ist \( \varphi \) eine bilineare Abbildung.
+  \end{enumerate}
+\end{bemerkungen*}
+\begin{erinnerung*}
+  Eine \( K \)-lineare Abbildung \( f\maps V\to W \) ist eindeutig bestimmt durch die Bilder \( f(v_1),\dotsc,f(v_n) \), falls \( v_1,\dotsc,v_n \) eine Basis von \( V \) ist.
+\end{erinnerung*}
+\begin{frage*}
+  Welche Daten muss man angeben um eine bilineare Abbildung \( \varphi\maps V\times W\to U \) eindeutig zu beschreiben?
+\end{frage*}
+\begin{idee*}
+  Sei \( vv_1,\dotsc,v_n \) Basis von \( V \) und \( w_1,\dotsc,w_m \) Basis von \( W \). Schreibe \( v\in V \) und \( w\in W \) als
+  \begin{gather*}
+    v=\sum_{i=1}^{n}\lambda_i v_i\\
+    w=\sum_{j=1}^{m}\mu_j w_j
+  \end{gather*}
+  mit \( \lambda_1,\dotsc,\lambda_n,\mu_1,\dotsc,\mu_m\in K \). Dann ist
+  \begin{align*}
+    \varphi(v,w)&=\varphi\p[\Big]{\braceannotate{v}{\sum_{i=1}^{n}\lambda_i v_i},\braceannotate{w}{\sum_{j=1}^{m}\mu_j w_j}}\\
+    &=\sum_{i=1}^{n}\lambda_i \sum_{j=1}^{m}\mu_j \varphi_j \varphi(v_i w_j)\\
+    &=\sum_{i=1}^{n}\sum_{j=1}^{m}\lambda_i \mu_j \varphi(v_i,w_j),
+  \end{align*}
+  \dh \( \varphi(v,w) \) ist eindeutig bestimmt sobald wir \( \varphi(v_i,w_j) \), \( 1\leq i leq n \), \( 1\leq j\leq m \) kennen. Wählen wir \( \varphi(v_i,w_j)\in U \) beliebig (für einen \( K \)-Vektorraum \( U \)), dann ist die Abbildung
+  \begin{align*}
+    V\times W&\to U\\
+    \p*{\sum_{i=1}^{n}\lambda_i v_i, \sum_{j=1}^{m}\mu_j w_j}&\mapsto \sum_{i=1}^{n}\sum_{j=1}^{m}\lambda_i \mu_j \varphi(v_i w_j)
+  \end{align*}
+  bilinear.
+\end{idee*}
+\begin{lemma}\label{bilineare_abbildung_eindeutig_bestimmt}
+  Sei \( K \) ein Körper, \( V \), \( W \), \( U \) endlich-dimensionale \( K \)-Vektorräume mit Basen \( v_1,\dotsc,v_n\in V \) und \( w_1,\dotsc,w_m\in W \). Seien \( u_{ij\in U} \) für \( 1\leq i\leq n \), \( 1\leq j\leq m \). Dann gibt es genau eine bilineare Abbildung
+  \begin{equation*}
+    \varphi\maps V\times W\to U
+  \end{equation*}
+  mit der Eigenschaft
+  \begin{equation*}
+    \varphi(v_i,w_j)=u_{ij}\quad \forall 1\leq i\leq n\logicspace 1\leq j\leq m.
+  \end{equation*}
+\end{lemma}
+\begin{frage*}
+  Gibt es eine vergleichbare Beschreibung für \( \infty \)-dimensionale Vektorräume?
+\end{frage*}
+\begin{definition*}
+  Sei \( V \) ein \( K \)-Vektorraum, \( I \) eine beliebige Indexmenge und \( v_i \in V\quad \forall i\in I\). Wir definieren 
+  \begin{equation*}
+    \fieldspan-{K}{\p*{v_i}_{i\in I}}\definedas \Set{\sum_{i\in I}\lambda_i v_i,\logicspace \lambda_i \in K\quad \forall i\in I|\lambda_i=0 \text{ für alle bis auf endlich viele } i\in I}.
+  \end{equation*}
+\end{definition*}
+\begin{bemerkung*}
+  \( \fieldspan-{K}{\p*{v_i}_{i\in I}}\subseteq V \) ist ein \( K \)-Untervektorraum.
+\end{bemerkung*}
+\begin{beispiel*}
+  Sei \( V=\polynomials{K}{t} \), \( I=\wholes_{\geq 0} \), \( v_i=t^i \), \( t^0\definedas 1 \). Dann ist
+  \begin{equation*}
+    \fieldspan-{K}{\p*{v_i}_{i\in I}}=\polynomials{K}{t}.
+  \end{equation*}
+\end{beispiel*}
+\begin{definition*}
+  Sei \( V \) ein \( K \)-Vektorraum \( \p*{v_i}_{i\in I} \) eine Familie von Elementen \( v_i\in V \). Wir nennen \( \p*{v_i}_{i\in I} \) \emph{linear unabhängig}, falls jede endliche Teilfamilie von \( \p*{v_i}_{i\in I} \) linear unabhängig ist.
+\end{definition*}
+\begin{beispiel*}
+  In \( V=\polynomials{K}{t} \) ist die Familie \( \p*{t^{2i}}_{i\geq 0} \) linear unabhängig.
+\end{beispiel*}
+\begin{definition*}
+  Sei \( V \) ein \( K \)-Vektorraum und \( v_i\in V \) für \( i\in I \). Wir nennen \( \p*{v_i}_{i\in I} \) \emph{Erzeugendensystem} von \( V \), falls
+  \begin{equation*}
+    V=\fieldspan-{K}{\p*{v_i}_{i\in I}}.
+  \end{equation*}
+  Weiter nennen wir \( \p*{v_i}_{i\in I} \) \emph{Basis} von \( V \), falls \( \p*{v_i}_{i\in I} \) linear unabhängig und eine Erzeugendensystem ist.
+\end{definition*}
+\begin{beispiel*}
+  \( \p*{t^i}_{i\geq 0} \) ist Basis von \( \polynomials{K}{t} \).
+\end{beispiel*}
+\begin{satz}[ohne Beweis]
+  Jeder Vektorraum besitzt eine Basis.
+\end{satz}
+Wir können \thref{bilineare_abbildung_eindeutig_bestimmt} verallgemeinern zu 
+\begin{lemmastrich}\label{}
+  Sei \( K \) ein Körper, \( V,W,U \) \( K \)-Vektorräume, \( \p*{v_i}_{i\in I} \) Basis von \( V \) und \( \p*{w_i}_{i\in I} \) Basis von \( W \). Seien \( u_{ij}\in U \quad \forall i\in I\logicspace \forall j\in J\). Dann gibt es genau eine bilineare Abbildung \( \varphi\maps V\times W\to U \) mit
+  \begin{equation*}
+    \varphi(v_i,w_j)=u_{ij}\quad \forall i\in I, \logicspace j\in J.
+  \end{equation*}
+\end{lemmastrich}
+\begin{proof}
+  Es gilt \( V=\fieldspan-{K}{\p*{v_i}_{i\in I}} \), \dh jedes \( v\in V \) kann man schreiben in der Form
+  \begin{equation*}
+    v=\sum_{i\in I} \lambda_i v_i\quad \lambda_i\in K
+  \end{equation*}
+  mit \( \lambda_i=0 \) für alle \( i\in I \) außerhalb einer endlichen Teilmenge von \( I \).
+  \begin{notation*}
+    Wir schreiben \( \sum_{i\in I}'\lambda_i v_i \) für eine Summe in der nur endlich viele \( \lambda_i\neq 0 \) sind.
+  \end{notation*}
+  Sei \( \varphi\maps V\times W\to U \) eine bilineare Abbildung mit
+  \begin{equation*}
+    \varphi(v_i,w_j)=u_{ij} \quad \forall i\in I,\logicspace j\in J.
+  \end{equation*}
+  Seien \( v\in V \), \( w\in W \) beliebig. Dann ist
+  \begin{equation*}
+    \sum_{i\in I}' \lambda_i v_i
+  \end{equation*}
+  und
+  \begin{equation*}
+    w=\sum_{j\in J}' \mu_j w_j
+  \end{equation*}
+  mit \( \lambda_i,\mu_j \in K\quad \forall i\in I,\logicspace j\in J \). Nach der Bilinearität von \( \varphi \) gilt
+  \begin{align*}
+    \varphi(v,w)&=\varphi\p*{\sum_{i\in I}'\lambda_i v_i,\sum_{j\in J}' \mu_j w_j}\\
+    &=\sum_{i\in I}'\lambda_i \varphi \p*{v_i,\sum_{j\in J}'\mu_j w_j}\\
+    &=\sum_{i\in I}'\sum_{j\in J}'\lambda_i \mu_j \varphi(v_i,w_j).
+  \end{align*}
+  Es gibt also höchstens eine bilineare Abbildung \( \varphi\maps V\times W\to U \) mit \( \varphi(v_i,w_j)=u_{ij}\quad \forall i\in I,\logicspace j\in J \). Umgekehrt definiert
+  \begin{align*}
+    \varphi\maps V\times W&\to U\\
+    \p*{\sum_{i\in I}'\lambda_i v_i,\sum_{j\in J}'\mu_j w_j}&\mapsto \sum_{i,j}'\lambda_i \mu_j u_{ij}
+  \end{align*}
+  eine solche Abbildung.
+\end{proof}
+\begin{erinnerung*}
+  Ist \( f\maps V\to W \) eine \( K \)-lineare Abbildung zwischen den \( K \)-Vektorräumen \( V,W \), so ist \( f(V)\subseteq W \) ein \( K \)-Untervektorraum.
+\end{erinnerung*}
+\begin{achtung*}
+  Für bilineare Abbildungen \( \varphi\maps V\times W\to U \) muss \( \varphi(V\times W)\subseteq U \) im Allgemeinen kein \( K \)-Untervektorraum von \( U \) sein.
+
+  \minisec{In Beispiel \ref{bilinearitaet_beispiel}}
+  \begin{align*}
+    \span U=\Set{P(x)\in \polynomials{K}{x},\grad-{P(x)}\leq 2d}\\
+    \varphi\maps V\times W& \to U\\
+    (P(x),Q(x))&\mapsto P(x)\cdot Q(x).
+  \end{align*}
+  Dann ist \( \varphi(x^i,x^j)=x^{i+j} \) für \( 0\leq i,j\leq d \) und
+  \begin{equation*}
+    \fieldspan{K}{\image-{\varphi}}=U,
+  \end{equation*}
+  \emph{aber} \zb über \( K=\rationals \), \( d=1 \)
+  \begin{equation*}
+    U\ni t^2+3\not\in \image-{\varphi}.
+  \end{equation*}
+\end{achtung*}
+\begin{beispiel*}
+  \begin{enumerate}[resume*]
+    \item \label{bilinaritaet_beispiel_polynommultiplikation_gleiche_variable}\begin{align*}
+      \varphi\maps \polynomials{K}{x}\times \polynomials{K}{y}&\to \polynomials{K}{x,y}\\
+      (P(x),Q(y))&\mapsto P(x)Q(y),\\
+      \span \varphi(x^i,y^j)=x^i y^j\quad \forall i,j\in \wholes_{\geq 0}
+    \end{align*}
+    und \( x^i y^j \), \( i,j\in \wholes_{\geq 0} \) spannen \( \polynomials{K}{x,y} \) als \( K \)-Vektorraum auf, \emph{aber} das Polynom \( xy+1\not\in \image-{\varphi} \).
+  \end{enumerate}
+\end{beispiel*}
+\begin{bemerkung*}
+  Die Abbildung
+  \begin{align*}
+    \psi\maps \polynomials{K}{x}\times\polynomials{K}{y}&\to \polynomials{K}{z}\\
+    (P(x),Q(y))&\mapsto P(z)Q(z).
+  \end{align*}
+  faktorisiert über \( \varphi \) aus Beispiel \ref{bilinaritaet_beispiel_polynommultiplikation_gleiche_variable}, \dh es gibt ein kommutatives Diagramm
+  \begin{equation*}
+    \begin{tikzcd}
+      \polynomials{K}{x}\times \polynomials{K}{y}\arrow["\varphi",r,color=OrangeRed]\arrow["\psi",dr]& \textcolor{OrangeRed}{\polynomials{K}{x,y}}\arrow["f",d,color=LimeGreen]\\
+      & \polynomials{K}{z}
+    \end{tikzcd}
+  \end{equation*}
+  mit der \emph{linearen} Abbildung
+  \begin{align*}
+    f\maps \polynomials{K}{x,y}&\to \polynomials{K}{z}\\
+    P(x,y)&\mapsto P(z,z)\in \polynomials{K}{z}.
+  \end{align*}
+  Auch jede andere bilineare Abbildung
+  \begin{equation*}
+    \tilde{\psi}\maps \polynomials{K}{x}\times \polynomials{K}{y}\to U
+  \end{equation*}
+  in einem \( K \)-Vektorraum \( U \) faktorisiert über \( \varphi \).
+\end{bemerkung*}

@@ -1,0 +1,155 @@
+% !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
+\lecture{Do 09.07. 10:15}{}
+\begin{definition*}
+  Sei \( K \) ein Körper, \( V,W,T \) \( K \)-Vektorräume und \( \eta\maps V\times W\to T \) eine bilineare Abbildung. Wir sagen, dass \( \eta \) die universelle Eigenschaft \tensorproperty hat, falls gilt: Für jeden \( K \)-Vektorraum \( U \) und jede bilineare Abbildung \( \varphi\maps V\times W\to U \) gibt es genau eine lineare Abbildung \( f\maps T\to U \), sodass \( \varphi=f\circ \eta \), \dh das Diagramm
+  \begin{equation*}
+    \begin{tikzcd}
+      V\times W\arrow[color=OrangeRed, "\eta", r] \arrow[dr,"\varphi"]&\textcolor{OrangeRed}{T}\arrow[color=LimeGreen,d,"\existsone f"]\\
+      &U
+    \end{tikzcd}
+  \end{equation*}
+  kommutiert.
+\end{definition*}
+\begin{bemerkung*}
+  Hat \( \eta\maps V\times W\to T \) die universelle Eigenschaft \tensorproperty, so gilt \( \fieldspan{K}{\image-{\varphi}}=T \).
+\end{bemerkung*}
+\begin{beispiel*}
+  Sei \( V=K \) und \( W \) ein \( K \)-Vektorraum. Dann hat die Abbildung
+  \begin{align*}
+    \eta\maps K\times W&\to W\\
+    (\lambda,w)&\mapsto \lambda\cdot w
+  \end{align*}
+  die universelle Eigenschaft \tensorproperty. Für eine beliebige bilineare Abbildung \( \varphi\maps K\times W\to U \) setze
+  \begin{align*}
+    f\maps W&\to U\\
+    w&\mapsto \varphi(1,w).
+  \end{align*}
+  Dann gilt für alle \( \lambda\in K \), \( w\in W \)
+  \begin{equation*}
+    f(\eta(\lambda,w))=f(\lambda w)=\lambda f(w)=\lambda \varphi(1,w)\explain{\varphi \text{ bilinear}}{=}\varphi(\lambda,w),
+  \end{equation*}
+  also kommutiert das Diagramm
+  \begin{equation*}
+    \begin{tikzcd}
+      K\times W\arrow[r,"\eta"]\arrow[dr,"\varphi"]&W\arrow[d,"f"]\\
+      &U
+    \end{tikzcd}
+  \end{equation*}
+\end{beispiel*}
+\begin{lemma}
+  Seien \( V,W,T,\tilde{T} \) \( K \)-Vektorräume und \( \eta\maps V\times W\to T \), \( \tilde{\eta}\maps V\times \to \tilde{T} \) bilineare Abbildungen mit der universellen Eigenschaft \tensorproperty.
+
+  Dann gibt es einen Isomorphismus \( f\maps T\to \tilde{T} \) von \( K \)-Vektorräumen mit \( f\circ \eta=\tilde{\eta} \).
+\end{lemma}
+\begin{proof}
+  Nach der universellen Eigenschaft \tensorproperty von \( \eta \) und \( \tilde{\eta} \) gibt es lineare Abbildung
+  \begin{equation*}
+    f\maps T\to \tilde{T},\quad g\maps \tilde{T}\to T,
+  \end{equation*}
+  sodass
+  \begin{equation*}
+    \begin{tikzcd}
+      V times W\arrow[r,"\eta"]\arrow[dr,"\tilde{\eta}"]&T\arrow[d,"f"]\\
+      &U \arrow[u,bend left,"g"]
+    \end{tikzcd}
+  \end{equation*}
+  kommutiert, \dh \( f\circ \eta=\tilde{\eta} \) und \( \eta=g\circ \tilde{\eta} \), also folgt \( (f\circ g)\circ \tilde{\eta}=\tilde{\eta} \), und das Diagramm
+  \begin{equation*}
+    \begin{tikzcd}
+      V\times W \arrow[r,"\tilde{\eta}"]\arrow[dr,"\tilde{\eta}"]&\tilde{T}\arrow[d,"f\circ g"]\\
+      &\tilde{T}
+    \end{tikzcd}
+  \end{equation*}
+  kommutiert. Nach der universellen Eigenschaft \tensorproperty on \( \tilde{\eta} \) folgt \( f\circ g=\Id_{\tilde{T}} \). Ebenso gilt \( f\circ f=\Id_{T} \).
+\end{proof}
+\begin{frage*}
+  Seien \( V,W \) \( K \)-Vektorräume. Gibt es immer eine bilineare Abbildung \( \eta\maps V\times W\to T \) in einem \( K \)-Vektorraum \( T \) mit der universellen Eigenschaft \tensorproperty?
+\end{frage*}
+\begin{idee*}
+  Sind \( V,W \) endlich-dimensionaler Vektorräume mit Basen \( v_1,\dotsc,v_n\in V \) und \( _1,\dotsc,w_m\in W \), dann ist eine bilineare Abbildung \( \varphi\maps V\times W\to U \) eindeutig bestimmt durch die Bilder \( \varphi(v_i,w_j) \) (für einen \( K \)-Vektorraum \( U \)).
+
+  Verwende die Tupel \( \p*{v_{ii}w_j}_{\substack{1\leq i\leq n\\ 1\leq j\leq m}} \) als Basis für den \( K \)-Vektorraum \( T \) mit der bilinearen Abbildung
+\begin{align*}
+  \eta\maps V\times W&\to T\\
+  (v_i,w_j)&\mapsto (v_i,w_j).
+\end{align*}
+\end{idee*}
+\begin{satz}
+  Seien \( V,W \) \( K \)-Vektorräume. Dann gibt es einen \( K \)-Vektorraum \( T \) und eine bilineare Abbildung \( V\times W\to T \), welche die universelle Eigenschaft \tensorproperty hat. Falls \( \dim-{V}, \dim-{W}<\infty \), dann gilt \( \dim-{T}=(\dim-{V})(\dim-{W}) \).
+\end{satz}
+\begin{proof}
+  Sei \( \p*{v_i}_{i\in I} \) Basis von \( V \) und \( \p*{w_j}_{j\in J} \) Basis on \( W \).
+
+  Setze
+  \begin{equation*}
+    T\definedas \Set{\tau\maps I\times J\to K|\tau(i,j)\neq 0 \text{ für ur endlich viele }(i,j)\in I\times J}.
+  \end{equation*}
+  Dann ist \( T \) ein \( K \)-Vektorraum unter punktweiser Addition / Multiplikation mit Skalaren
+  \begin{gather*}
+    (\lambda \tau)(i,j)=\lambda \tau(i,j)\\
+    (\tau+\tau')(i,j)=\tau(i,j)+\tau'(i,j)\quad \forall \tau,\tau'\in T\logicspace \forall \lambda\in K\logicspace (i,j)\in I\times J.
+  \end{gather*}
+  Definiere \( \tau_{i_0,j_0}\in T \) für \( (i_0,j_0)\in I\times J \) durch
+  \begin{equation*}
+    \tau_{i_0,j_0}(i,j)=\begin{cases}
+      1&(i,j)=(i_0,j_0)\\
+      0&(i,j)\neq (i_0,j_0).
+    \end{cases}
+  \end{equation*}
+  Dann ist
+  \begin{equation*}
+    T=\fieldspan{K}{\p*{\tau_{ij}}_{(i,j)\in T\times J}},
+  \end{equation*}
+  denn für \( \tau\in T \) ist.
+  \begin{equation*}
+    \tau=\sum_{\mathclap{(i,j)\in I\times J}}\braceannotate{\in K}{\tau(i,j)}\braceannotate{T}{\tau_{ij}}.
+  \end{equation*}
+  Die Familie \( \p*{\tau_{ij}}_{(i,j)\in I\times J} \) ist linear unabhängig, denn aus
+  \begin{equation*}
+    \sum_{\mathcal{(i,j)\in I\times J}}'\lambda_{ij}\tau_{ij}=0
+  \end{equation*}
+  folgt
+  \begin{equation*}
+    \braceannotate{\lambda_{i',j'}}{\sum_{\mathclap{(i,j)\in I\times J}}'\lambda_{ij}\tau_{ij}(i',j')}=0\quad \forall (i',j')\in I\times J,
+  \end{equation*}
+  also \( \lambda_{ij}=0\quad \forall (i,j)\in I\times J \). Damit ist \( \p*{\tau_{ij}}_{(i,j)\in I\times J} \) Basis von \( T \). Falls \( \dim-{V},\dim-{W}<\infty \) gilt insbesondere
+  \begin{equation*}
+    \dim-{T}=(\dim-{V})(\dim-{W}).
+  \end{equation*}
+  Sei \( \eta\maps V\times W\to T \) die eindeutig bestimmte lineare Abbildung mit
+  \begin{equation*}
+    \eta(v_i,w_j)=\tau_{ij}\quad \forall (i,j)\in I\times J.
+  \end{equation*}
+  \emph{wir zeigen:}\\
+  \( \eta\maps V\times W\to T \) hat die universelle Eigenschaft. Sei \( \varphi\maps V\times W\to U \) eine bilineare Abbildung in einen \( K \)-Vektorraum \( U \), setze
+  \begin{equation*}
+    u_{ij}\definedas \varphi(v_i,w_j)\quad \forall (i,j)\in I\times J
+  \end{equation*}
+  und sei \( f\maps T\to U \) die eindeutig bestimmte lineare Abbildung mit \( f(\tau_{ij})=u_{ij} \quad \forall (i,j)\in I\times J\). Seien \( v\in  \), \( w\in W \) und schreibe 
+  \begin{align*}
+    v&=\sum_{i\in I}'\lambda_i v_i\\
+    w&=\sum_{j\in J}'\mu_j w_j
+  \end{align*}
+  mit \( \lambda_i,\mu_j\in K \), \( i\in I \), \( j\in J \). Dann gil
+  \begin{align*}
+    (f\circ \eta)(v,w)&\explain{\eta \text{ ist bilinear}}f\p*{\sum_{\substack{i\in I\\ j\in J}}\lambda_i \mu_j \eta(v_i,w_j)}\\
+    &=f\p*{\sum_{\substack{i\in I\\ j\in J}}\lambda_i \mu_j \tau_{ij}}\\
+    &\explain[Big]{f \text{ linear},f(\tau_{ij})=u_{ij}}{=}\sum_{(i,j)\in I\times J}\lambda_i \mu_j u_{ij}\\
+    &=\sum_{\mathclap{(i,j)\in I\times J}}\lambda_i \mu_j \varphi(v_i,w_j)\\
+    &\explain{\varphi \text{ bilinear}}{=}\varphi(v,w),
+  \end{align*}
+  also \( f\circ \nu=\varphi \), \dh
+  \begin{equation*}
+    \begin{tikzcd}
+      V\times W\arrow[r,"\eta"]\arrow[dr,"\varphi"]&T\arrow[d,"f"]\\
+      &U
+    \end{tikzcd}
+  \end{equation*}
+  kommutiert.
+
+  Ist \( g\maps T\to U \) eine weitere \( K \)-lineare Abbildung \( \varphi=g\circ \eta \),fan gilt
+  \begin{equation*}
+    u_{ij}=\varphi(v_i,w_j)=g(\tau_{ij})\quad \forall (i,j)\in I\times J,
+  \end{equation*}
+  also \( f=g \).
+\end{proof}

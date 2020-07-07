@@ -1,3 +1,5 @@
+\includeonly{lec_23}
+
 \documentclass[numberindividually, numberwithin=section, empheqoverload,filemanagement]{hrflecture}
 \renewcommand*{\sectionformat}{\textsection\thesection\autodot\enskip}
 \addtokomafont{section}{\mdseries}
@@ -8,11 +10,12 @@
 \DeclarePairedDelimiterXPP{\aglacoursematrices}[3]{\Mat_{#1\times #2}}{\lparen}{\rparen}{}{#3}
 \let\matrices\aglacoursematrices
 
-\DeclareMathOperatorWithDelimiter-{\aglacoursetranspose}[1]{\vphantom{#1}^t}{\lparen}{\rparen}{#1}
+\DeclareMathOperatorWithDelimiter-{\aglacoursetranspose}[1,1]{\vphantom{#1}^t}{\lparen}{\rparen}{#1}
 \let\transpose\aglacoursetranspose
 
 \newtheorem{beweisbehauptung}{Behauptung}[satz]
 \renewcommand\thebeweisbehauptung{\arabic{beweisbehauptung}}
+\newtheorem*{lemmastrich}{Lemma 1'}
 
 \setlength{\marginparpush}{1cm}
 \WarningFilter*{latex}{Marginpar on page \thepage\space moved}
@@ -25,8 +28,6 @@
 \subtitle{Prof.~Dr.~Damaris~Schindler}
 \date{Auf dem Stand vom \today}
 \author{Henry Ruben Fischer}
-
-% \includeonly{lec_18}
 
 \begin{document}
 \maketitle
@@ -48,6 +49,7 @@ Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richt
 % some more adjustments
 \makeatletter
 \renewtheorem{satz}[lemma]{Satz}
+\renewtheorem{korollar}[lemma]{Korollar}
 \makeatother
 % Begin of lectures
 \include{lec_01}
@@ -68,6 +70,11 @@ Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richt
 \include{lec_16}
 \include{lec_17}
 \include{lec_18}
+\include{lec_19}
+\include{lec_20}
+\include{lec_21}
+\include{lec_22}
+\include{lec_23}
 % End of lectures
 
 \end{document}

@@ -41,7 +41,7 @@
 \begin{bemerkung*}
   Es gilt insbesondere
   \begin{equation*}
-    \dim-{V}=\dim-{\dualspace{V}}.
+    \dim{V}=\dim{\dualspace{V}}.
   \end{equation*}
 \end{bemerkung*}
 \begin{definition*}
@@ -61,11 +61,11 @@
 \begin{lemma}
   Sei \( V \) ein \( K \)-Vektorraum und \( U\subseteq V \) ein \( K \)-Untervektorraum. Dann gilt
   \begin{equation*}
-    \dim-{\orthogonalspace{U}}=\dim-{V}-\dim-{U}.
+    \dim{\orthogonalspace{U}}=\dim{V}-\dim{U}.
   \end{equation*}
 \end{lemma}
 \begin{proof}
-  Sei \( k=\dim-{U} \) und \( v_1,\dotsc,v_k \) Basis von \( U \). Seien \( v_{k+1},\dotsc, v_n\in V \) so gewählt, dass \( v_1,\dotsc, v_n \) Basis von \( V  \) ist. Sei \( \dualvector{v_1},\dotsc, \dualvector{v_n} \) die zu \( v_1,\dotsc,v_n \) duale Basis.
+  Sei \( k=\dim{U} \) und \( v_1,\dotsc,v_k \) Basis von \( U \). Seien \( v_{k+1},\dotsc, v_n\in V \) so gewählt, dass \( v_1,\dotsc, v_n \) Basis von \( V  \) ist. Sei \( \dualvector{v_1},\dotsc, \dualvector{v_n} \) die zu \( v_1,\dotsc,v_n \) duale Basis.
   \begin{behauptung}
     \( \orthogonalspace{U}=\Span{\dualvector{v_{k+1}},\dotsc,\dualvector{v_n}} \).
   \end{behauptung}
@@ -79,7 +79,7 @@
   \end{equation*}
   also \( \lambda_1=\dotsb=\lambda_k=0 \) und \( \varphi\in \Span{\dualvector{v_{k+1}},\dotsc,\dualvector{v_n}} \). Da \( \dualvector{v_{k+1}},\dotsc,\dualvector{v_n} \) linear unabhängig sind, gilt
   \begin{equation*}
-    \dim-{\orthogonalspace{U}}=n-k=\dim-{V}-\dim-{U}.
+    \dim{\orthogonalspace{U}}=n-k=\dim{V}-\dim{U}.
   \end{equation*}
 \end{proof}
 \begin{frage*}
@@ -115,15 +115,15 @@
 \begin{proof}
   \( \iota \) ist injektiv. Sei \( v\in V\Minuszero \). Ergänze \( v \) zu einer Basis von \( V \) durch \( v,v_2,\dotsc,v_n \). Dann ist \( \dualvector{v},\dualvector{v_2},\dotsc,\dualvector{v_n} \) Basis von \( \dualspace{V} \) und \( \iota_v(\dualvector{v})=\dualvector{v}(v)=1 \), also \( \iota_v\neq 0 \). Es ist 
   \begin{equation*}
-    \dim-{\bidualspace{V}}=\dim-{\dualspace{V}}=\dualspace-{V},
+    \dim{\bidualspace{V}}=\dim{\dualspace{V}}=\dualspace-{V},
   \end{equation*}
   also ist \( \iota \) ein Isomorphismus.
 
   Sei \( W\untervektorraum V \) ein \( K \)-Untervektorraum. Dann ist \( \iota(W)\subseteq \orthogonalspace+{\orthogonalspace{W}} \), denn fpr \( w\in W \) und \( \varphi\in \orthogonalspace{W} \) gilt \( \iota_w(\phi)=\varphi(w)=0 \). Es ist
   \begin{align*}
-    \dim-{\orthogonalspace{W}}&=\dim-{\dualspace{V}}-\dim-{\orthogonalspace{W}}\\
-    &=\dim-{V}-\parens{\dim-{V}-\dim-{W}}\\
-    &=\dim-{W},
+    \dim{\orthogonalspace{W}}&=\dim{\dualspace{V}}-\dim{\orthogonalspace{W}}\\
+    &=\dim{V}-\parens{\dim{V}-\dim{W}}\\
+    &=\dim{W},
   \end{align*}
   also \( \iota(W)=\orthogonalspace+{\orthogonalspace{W}} \).
 \end{proof}
@@ -159,9 +159,9 @@ Die Abbildung \( \alpha \) ist bijektiv, \dh
   
   Sei \( f\maps \projectionspace{V}\to \projectionspace{\dualspace{V}} \) eine Semiprojektivität induziert durch eine semilineare bijektive Abbildung \( F\maps V\to \dualspace{V} \), \dh \( f=\projectionmap{F} \). Sei \( Z\subseteq \projectionspace{V} \) projektiver Unterraum der Form \( Z=\projectionspace{W} \) mit \( W\untervektorraum V \) ein \( K \)-Untervektorraum.
 
-  Dann ist \( F(W)\subseteq \dualspace{V} \) ebenfalls \( K \)-Untervektorraum mit \( \dim-{W}=\dim-{F(W)} \) und \( \orthogonalspace{F(W)}\subseteq \bidualspace{V} \) \( K \)-Untervektorraum der Dimension
+  Dann ist \( F(W)\subseteq \dualspace{V} \) ebenfalls \( K \)-Untervektorraum mit \( \dim{W}=\dim{F(W)} \) und \( \orthogonalspace{F(W)}\subseteq \bidualspace{V} \) \( K \)-Untervektorraum der Dimension
   \begin{equation*}
-    \dim-{\orthogonalspace{F(W)}}=\dim-{V}-\dim-{F(W)}=\dim-{V}-\dim-{W}.
+    \dim{\orthogonalspace{F(W)}}=\dim{V}-\dim{F(W)}=\dim{V}-\dim{W}.
   \end{equation*}
   Wir verwenden die kanonische Abbildung \( \iota\maps V\to \bidualspace{V} \), um \( V \) und \( \bidualspace{V} \) mit einander zu identifizieren.
 
@@ -244,7 +244,7 @@ Die Abbildung \( \alpha \) ist bijektiv, \dh
   \end{equation*}
   Sei \( \sigma\maps \projectionspaces{V}\to \projectionspaces{V} \) eine Korrelation und \( p\in \projectionspace{V} \). Nach \thref{korrelation_verhalten} ist
   \begin{equation*}
-    \dim-{\sigma(p)}=\dim-{\projectionspaces{V}}-1,
+    \dim{\sigma(p)}=\dim{\projectionspaces{V}}-1,
   \end{equation*}
   also \( \sigma(p)\subseteq \projectionspace{V} \) Hyperebene. Wir erhalten also eine Abbildung
   \begin{equation*}
@@ -257,7 +257,7 @@ Die Abbildung \( \alpha \) ist bijektiv, \dh
   \begin{ziel*}
     Zeige, dass \( f_{\sigma} \) eine Semiprojektivität ist.
   \end{ziel*}
-  Seien \( p_0,p_1,p_2\in \projectionspace{V} \) in einer Geraden \( L\subseteq \projectionspace{V} \) enthalten. Dann \( \sigma(p_0),\sigma(p_1),\sigma(p_2)\supseteq \sigma(L) \), wobei \( \dim-{\sigma(L)}=\dim-{\projectionspace{V}}-2 \). Also sind \( \sigma(p_0),\sigma(p_1),\sigma(p_2) \) kollinear.
+  Seien \( p_0,p_1,p_2\in \projectionspace{V} \) in einer Geraden \( L\subseteq \projectionspace{V} \) enthalten. Dann \( \sigma(p_0),\sigma(p_1),\sigma(p_2)\supseteq \sigma(L) \), wobei \( \dim{\sigma(L)}=\dim{\projectionspace{V}}-2 \). Also sind \( \sigma(p_0),\sigma(p_1),\sigma(p_2) \) kollinear.
 
   Es folgt, dass \( f_0 \) eine Kollineation ist und nach dem Hauptsatz der projektiven Geometrie ist \( f_0 \) Semiprojektivität. Definiere \( \gamma(\sigma)\definedas f_{\sigma} \). Dann ist \( \gamma \) Umkehrabbildung zu \( \beta \).
 \end{proof}

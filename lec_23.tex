@@ -75,7 +75,7 @@
 \end{align*}
 \end{idee*}
 \begin{satz}
-  Seien \( V,W \) \( K \)-Vektorräume. Dann gibt es einen \( K \)-Vektorraum \( T \) und eine bilineare Abbildung \( V\times W\to T \), welche die universelle Eigenschaft \tensorproperty hat. Falls \( \dim-{V}, \dim-{W}<\infty \), dann gilt \( \dim-{T}=(\dim-{V})(\dim-{W}) \).
+  Seien \( V,W \) \( K \)-Vektorräume. Dann gibt es einen \( K \)-Vektorraum \( T \) und eine bilineare Abbildung \( V\times W\to T \), welche die universelle Eigenschaft \tensorproperty hat. Falls \( \dim{V}, \dim{W}<\infty \), dann gilt \( \dim{T}=(\dim{V})(\dim{W}) \).
 \end{satz}
 \begin{proof}
   Sei \( \p*{v_i}_{i\in I} \) Basis von \( V \) und \( \p*{w_j}_{j\in J} \) Basis on \( W \).
@@ -112,9 +112,9 @@
   \begin{equation*}
     \braceannotate{\lambda_{i',j'}}{\sum_{\mathclap{(i,j)\in I\times J}}'\lambda_{ij}\tau_{ij}(i',j')}=0\quad \forall (i',j')\in I\times J,
   \end{equation*}
-  also \( \lambda_{ij}=0\quad \forall (i,j)\in I\times J \). Damit ist \( \p*{\tau_{ij}}_{(i,j)\in I\times J} \) Basis von \( T \). Falls \( \dim-{V},\dim-{W}<\infty \) gilt insbesondere
+  also \( \lambda_{ij}=0\quad \forall (i,j)\in I\times J \). Damit ist \( \p*{\tau_{ij}}_{(i,j)\in I\times J} \) Basis von \( T \). Falls \( \dim{V},\dim{W}<\infty \) gilt insbesondere
   \begin{equation*}
-    \dim-{T}=(\dim-{V})(\dim-{W}).
+    \dim{T}=(\dim{V})(\dim{W}).
   \end{equation*}
   Sei \( \eta\maps V\times W\to T \) die eindeutig bestimmte lineare Abbildung mit
   \begin{equation*}
@@ -132,7 +132,7 @@
   \end{align*}
   mit \( \lambda_i,\mu_j\in K \), \( i\in I \), \( j\in J \). Dann gil
   \begin{align*}
-    (f\circ \eta)(v,w)&\explain{\eta \text{ ist bilinear}}f\p*{\sum_{\substack{i\in I\\ j\in J}}\lambda_i \mu_j \eta(v_i,w_j)}\\
+    (f\circ \eta)(v,w)&\explain[Big]{\eta \text{ ist bilinear}}{=}f\p*{\sum_{\substack{i\in I\\ j\in J}}\lambda_i \mu_j \eta(v_i,w_j)}\\
     &=f\p*{\sum_{\substack{i\in I\\ j\in J}}\lambda_i \mu_j \tau_{ij}}\\
     &\explain[Big]{f \text{ linear},f(\tau_{ij})=u_{ij}}{=}\sum_{(i,j)\in I\times J}\lambda_i \mu_j u_{ij}\\
     &=\sum_{\mathclap{(i,j)\in I\times J}}\lambda_i \mu_j \varphi(v_i,w_j)\\
@@ -147,9 +147,123 @@
   \end{equation*}
   kommutiert.
 
-  Ist \( g\maps T\to U \) eine weitere \( K \)-lineare Abbildung \( \varphi=g\circ \eta \),fan gilt
+  Ist \( g\maps T\to U \) eine weitere \( K \)-lineare Abbildung \( \varphi=g\circ \eta \), dann gilt
   \begin{equation*}
     u_{ij}=\varphi(v_i,w_j)=g(\tau_{ij})\quad \forall (i,j)\in I\times J,
   \end{equation*}
   also \( f=g \).
 \end{proof}
+\file{Tensorprodukte Teil 3}
+\begin{definition*}
+  Seien \( V,W \) \( K \)-Vektorräume. Ein \emph{Tensorprodukt} von \( V \) auf \( W \) ist eine bilineare Abbildung \( \eta\maps V\times W \) in einem \( K \)-Vektorraum \( T \), welche die universelle Eigenschaft \tensorproperty hat.
+  
+  Schreibe auch
+  \begin{equation*}
+    \tensorproduct \maps V\times W\to V \fieldtensorproduct{K} W
+  \end{equation*}
+  für das bis auf Isomorphie eindeutig bestimmte Tensorprodukt von \( V \) und \( W \).
+
+  Für \( v\in V \), \( w\in W \) schreibe \( v\tensorproduct w\) für \( \tensorproduct(v,w) \).
+\end{definition*}
+\begin{beispiele*}
+  \begin{itemize}
+    \item Sei \( V=W=\polynomials{K}{t} \). Dann ist
+    \begin{align*}
+      V\fieldtensorproduct{K} W&=\polynomials{K}{t}\fieldtensorproduct{K} \polynomials{K}{t}\\
+      &\simeq \polynomials{K}{t_1,t_2}\\
+      \tensorproduct\maps V\times W\to \polynomials{t_1}{t_2}\span.
+    \end{align*}
+    ist gegeben durch
+    \begin{equation*}
+      t^i\tensorproduct t^j=t_1^i t_2^j,\quad i,j\geq 0.
+    \end{equation*}
+    \item Sei \( W=\reals^n \) und \( V=\complexs \), \( K=\reals \). Dann ist die bilineare Abbildung
+    \begin{align*}
+      \eta\maps \complexs\times \reals^n&\to \complexs^n\\
+      (\lambda,\underline{x})&\mapsto \lambda\underline{x} 
+    \end{align*}
+    ein Tensorprodukt von \( \complexs \) und \( \reals^n \), also
+    \begin{equation*}
+      \complexs \fieldtensorproduct{\reals} \reals^n=\complexs^n.
+    \end{equation*}
+    Wir betrachten \( \complexs^n \) als \( 2n \)-dimensionalen Vektorraum mit Basis
+    \begin{align*}
+      \equalto{1\tensorproduct e_1}{e_1},\dotsc,\equalto{1\tensorproduct e_n}{e_n},\equalto{i\tensorproduct e_1}{ie_1},\dotsc,\equalto{i\tensorproduct e_n}{ie_n}.
+    \end{align*}
+  \end{itemize}
+\end{beispiele*}
+\begin{bemerkung*}
+  Seien \( V,W \) \( K \)-Vektorräume und \( \tensorproduct \maps V\times W\to V\fieldtensorproduct{K} W \) ein Tensorprodukt. Im Allgemeinen hat nicht jedes Element aus \( V\fieldtensorproduct{K}W \) die Form \( v\tensorproduct w \) für \( \in V \), \( w\in W \). Sei \zb \( V=W \) ein \( K \)-Vektorraum \( 2\leq \dim{V}<\infty \) und \( v_1,v_2,\dotsc,v_n \) Basis von \( V \). Dann ist
+  \begin{equation*}
+    v_1\tensorproduct v_2+v_2\tensorproduct _1\in V\fieldtensorproduct{K}V.
+  \end{equation*}
+  Angenommen
+  \begin{equation*}
+    v_1\tensorproduct v_2+v_2\tensorproduct v_1=v\tensorproduct w
+  \end{equation*}
+  mit \( v,w\in V \). Schreibe \( v=\sum_{i=1}^{n}\lambda_i _i \), \( w=\sum_{j=1}^{n}\mu_j v_j \). Dann ist
+  \begin{align*}
+    v_1\tensorproduct _2+v_2\tensorproduct v_1=\tensorproduct \p*{\sum_{i=1}^{n}\lambda_i v_i, \sum_{j=1}^{n}\mu_j v_j}\\
+    &=\sum_{i=1}^{n}\sum_{j=1}^{n}\lambda_i \mu_j v_i\tensorproduct v_j.
+  \end{align*}
+Die Elemente \( v_i\tensorproduct v_j \), \( 1\leq i,j\leq n \), bilden eine Basis von \( V\tensorproduct W \), also folgt nach Koeffizientenvergleich \( \lambda_1 \mu_1=0 \), \( \lambda_1\mu_2=1 \), \( \lambda_2\mu_1=1 \), \( \lambda_2 \mu_2=0 \), \contra.
+\end{bemerkung*}
+\subsection*{Weitere Eigenschaften des Tensorprodukts}
+\begin{lemma}
+  Seien \( V,W \) \( K \)-Vektorräume mit Tensorprodukt \( \tensorproduct\maps V\times W\to V\fieldtensorproduct{K}W \). Dann gilt für \( v,v'\in V \), \( w,w'\in W \), \( \lambda\in K \), dass 
+  \begin{enumerate}
+    \item \label{tensorprodukt:distributiv}
+    \begin{align*}
+      v\tensorproduct w+v'\tensorproduct w=(v+v')\tensorproduct w\\
+      v\tensorproduct w+\tensorproduct w'=v\tensorproduct (w+w')
+    \end{align*}
+    \item \( (\lambda\cdot v)\tensorproduct w=v\tensorproduct (\lambda w)=\lambda (v \tensorproduct w) \).
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  Folgt aus der Bilinearität der Abbildung \( \tensorproduct(v,w)=v\tensorproduct w \).
+\end{proof}
+\begin{lemma}
+  Seien \( V,W \) \( K \)-Vektorräume mit Tensorprodukt
+  \begin{equation*}
+    \tensorproduct\maps V\times W\to V\fieldtensorproduct{K} W,
+  \end{equation*}
+  \( v_1,\dotsc,v_n\in V \), \( w_1,\dotsc,w_n\in W \) und \( v_1,\otsc,v_n \) linear unabhängig mit
+  \begin{equation*}
+    \sum_{i=1}^{n}v_i\tensorproduct w_i=0
+  \end{equation*}
+  in \( V\fieldtensorproduct{K}W \). Dann gilt \( w_0=0 \), \( 1\leq i\leq n \).
+\end{lemma}
+\begin{proof}
+  Für \( 1\leq i\leq n \) definiere lineare Abbildungen \( f_i\maps V\to K \) mit \( f_i(v_j)=\kroneckerdelta{ij} \), \( 1\leq i,j\leq n \). Seien \( g_i\maps W\to K \), \( 1\leq i\leq n \), beliebige lineare Abbildungen. Setze 
+  \begin{equation*}
+    \varphi(v,w)\definedas \sum_{i=1}^{n}f_i(v)g_i(w).
+  \end{equation*}
+  Dann ist \( \varphi\maps V\times W\to K \) bilinear, also \texistsone lineare Abbildung \( h\maps \fieldtensorproduct{K}W\to K \) mit \( \phi=h\circ \tensorproduct \).
+  \begin{equation*}
+    \begin{tikzcd}
+      V\times W\arrow[r,"\tensorproduct"]\arrow[dr,"\varphi"]&V\fieldtensorproduct{K}W\arrow[d,"h"]\\
+      &K,
+    \end{tikzcd}
+  \end{equation*}
+  \dh
+  \begin{align*}
+    0&=h\p[Big]{\braceannotate{=0}{\sum_{i=1}^{n}v_i\tensorproduct w_i}}\\
+    &=\sum_{i=1}^{n}h(v_i\tensorproduct w_i)\\
+    &=\sum_{i=1}^{n}\phi(v_i,w_i)\\
+    &=\sum_{i=1}^{n}\sum_{j=1}^{n}\braceannotate{\kroneckerdelta{ij}}{f_j(_i)}g_j(w_i)\\
+    &=\sum_{i=1}^{n}g_i(w_i)\tag{\( * \)}\label{eq:funktion_gleich_null_wenn_tensor_gleich_null}.
+  \end{align*}
+  Da \eqref{eq:funktion_gleich_null_wenn_tensor_gleich_null} für alle linearen Abbildungen
+  \begin{equation*}
+    g_i\maps W\to K,\quad 1\leq i\leq n
+  \end{equation*}
+  gilt, folgt \( w_i=0 \), \( 1\leq i\leq n \).
+\end{proof}
+\begin{korollar}
+  Seien \( V,W \) \( K \)-Vektorräume mit Tensorprodukt
+  \begin{equation*}
+    \tensorproduct\maps V\times W\to V\fieldtensorproduct{K}W 
+  \end{equation*}
+  und \( v\in V\setminus \zeroset \), \( w\in W\setminus \zeroset  \). Dann ist \( v\tensorproduct w\neq 0 \) in \( V\tensorproduct W \).
+\end{korollar}

@@ -185,7 +185,7 @@ Wir können \thref{bilineare_abbildung_eindeutig_bestimmt} verallgemeinern zu
   \end{equation*}
   mit \( \lambda_i=0 \) für alle \( i\in I \) außerhalb einer endlichen Teilmenge von \( I \).
   \begin{notation*}
-    Wir schreiben \( \sum_{i\in I}'\lambda_i v_i \) für eine Summe in der nur endlich viele \( \lambda_i\neq 0 \) sind.
+    Wir schreiben \( {\sum_{i\in I}}'\lambda_i v_i \) für eine Summe in der nur endlich viele \( \lambda_i\neq 0 \) sind.
   \end{notation*}
   Sei \( \varphi\maps V\times W\to U \) eine bilineare Abbildung mit
   \begin{equation*}
@@ -193,22 +193,22 @@ Wir können \thref{bilineare_abbildung_eindeutig_bestimmt} verallgemeinern zu
   \end{equation*}
   Seien \( v\in V \), \( w\in W \) beliebig. Dann ist
   \begin{equation*}
-    \sum_{i\in I}' \lambda_i v_i
+    {\sum_{i\in I}}' \lambda_i v_i
   \end{equation*}
   und
   \begin{equation*}
-    w=\sum_{j\in J}' \mu_j w_j
+    w={\sum_{j\in J}}' \mu_j w_j
   \end{equation*}
   mit \( \lambda_i,\mu_j \in K\quad \forall i\in I,\logicspace j\in J \). Nach der Bilinearität von \( \varphi \) gilt
   \begin{align*}
-    \varphi(v,w)&=\varphi\p*{\sum_{i\in I}'\lambda_i v_i,\sum_{j\in J}' \mu_j w_j}\\
-    &=\sum_{i\in I}'\lambda_i \varphi \p*{v_i,\sum_{j\in J}'\mu_j w_j}\\
-    &=\sum_{i\in I}'\sum_{j\in J}'\lambda_i \mu_j \varphi(v_i,w_j).
+    \varphi(v,w)&=\varphi\p*{{\sum_{i\in I}}'\lambda_i v_i,{\sum_{j\in J}}' \mu_j w_j}\\
+    &={\sum_{i\in I}}'\lambda_i \varphi \p*{v_i,{\sum_{j\in J}}'\mu_j w_j}\\
+    &={\sum_{i\in I}}'{\sum_{j\in J}}'\lambda_i \mu_j \varphi(v_i,w_j).
   \end{align*}
   Es gibt also höchstens eine bilineare Abbildung \( \varphi\maps V\times W\to U \) mit \( \varphi(v_i,w_j)=u_{ij}\quad \forall i\in I,\logicspace j\in J \). Umgekehrt definiert
   \begin{align*}
     \varphi\maps V\times W&\to U\\
-    \p*{\sum_{i\in I}'\lambda_i v_i,\sum_{j\in J}'\mu_j w_j}&\mapsto \sum_{i,j}'\lambda_i \mu_j u_{ij}
+    \p*{{\sum_{i\in I}}'\lambda_i v_i,{\sum_{j\in J}}'\mu_j w_j}&\mapsto {\sum_{i,j}}'\lambda_i \mu_j u_{ij}
   \end{align*}
   eine solche Abbildung.
 \end{proof}

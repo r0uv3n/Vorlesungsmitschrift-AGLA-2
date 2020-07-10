@@ -1,13 +1,346 @@
 % !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
 \lecture{Di 14.07. 10:15}{}
-\subsection*{Eine alternative Konstruktion des Tensorprodukts}
-Seien \( V,W \) \( K \)-Vektorräume. Definiere
+\subsection{Weitere Beispiele von Tensorprodukten}
+\begin{beispiel}
+  Seien \( V,W \) \( K \)-Vektorräume mit Dualräumen \( \dualspace{V}, \dualspace{W} \). Für \( \varphi\in \dualspace{V} \), \( \psi\in \dualspace{W} \) definiert
+  \begin{align*}
+    \varphi\cdot\psi\maps V\times W&\to K\\
+    (v,w)&\mapsto \varphi(v)\psi(w)
+  \end{align*}
+  eine bilineare Abbildung. Also gibt es genau eine lineare Abbildung
+  \begin{equation*}
+    _{\varphi,\psi}\maps V\fieldtensorproduct{K} W\to K
+  \end{equation*}
+  mit \( \varphi\cdot \psi=f_{\varphi,\psi\circ \tensorproduct} \).
+
+  Insbesondere gilt \tforall \( v\subset V \), \( w\in W \)
+  \begin{equation*}
+    f_{\varphi,\psi}(v\fieldtensorproduct{K}w)=\varphi(v)\psi(w).
+  \end{equation*}
+  Es ist \( f_{\varphi,\psi}\in \dualspace+*{V\fieldtensorproduct{K}W} \). Wir erhalten eine Abbildung
+  \begin{align*}
+    \dualspace{V}\times \dualspace{W}&\to \dualspace+*{V\fieldtensorproduct{K}W}\\
+    (\phi,\psi)&\mapsto f_{(\varphi,\psi)},
+  \end{align*}
+  die bilinear ist, also besteht genau eine lineare Abbildung
+  \begin{equation*}
+    \alpha\maps \dualspace{V}\fieldtensorproduct{K}\dualspace{W}\to \dualspace+*{V\fieldtensorproduct{K}W}.
+  \end{equation*}
+\end{beispiel}
+\begin{bemerkung*}
+  Nach obiger Definition gilt
+  \begin{equation*}
+    \alpha(\varphi \tensorproduct \psi)(v\tensorproduct w) =f_{\varphi,\psi}(v\tensorproduct w)=\varphi(v)\psi(w)\quad \forall v\in V,\logicspace w\in W,\logicspace \varphi\in \dualspace{V},\logicspace \psi\in \dualspace{W}.
+  \end{equation*}
+\end{bemerkung*}
+\begin{bemerkung*}
+  Seien \( V,W \) \( K \)-Vektorräume mit Dualraum \( \dualspace{V} \) von \( V \). Für \( \varphi\in \dualspace{V} \) und \( w\in W \) erhalten wir eine lineare Abbildung
+  \begin{align*}
+    V&\to W\\
+    v&\mapsto \braceannotate{\in K}{\varphi(v)}\cdot w.
+  \end{align*}
+  Die Abbildung
+  \begin{align*}
+    \dualspace{V}\times W&\to \overbrace{\fieldhomomorphisms{K}{V}{W}}^{\mathclap{\text{Menge von \( K \)-linearen Abbildungen \( V\to W \)}}}\\
+    (\varphi,w)&\mapsto \varphi(\cdot)\cdot w
+  \end{align*}
+  ist bilinear, induziert also eine lineare Abbildung.
+  \begin{align*}
+    \beta\maps \dualspace{V}\fieldtensorproduct{K}W&\to \fieldhomomorphisms{K}{V}{W}\\
+    \varphi\tensorproduct w&\mapsto \varphi(\cdot)\cdot w.
+  \end{align*}
+\end{bemerkung*}
+\begin{satz}
+  Seien \( V,W \) endlich-dimensionale \( K \)-Vektorräume. Dann sind die oben definierten Abbildungen
+  \begin{equation*}
+    \alpha\maps \dualspace{V}\fieldtensorproduct{K}\dualspace{W}\to \dualspace+*{V\fieldtensorproduct{K}W}.
+  \end{equation*}
+  und
+  \begin{equation*}
+    \beta\maps \dualspace{V}\fieldtensorproduct{K}W\to \fieldhomomorphisms{K}{V}{W}
+  \end{equation*}
+  Isomorphismen von \( K \)-Vektorräumen.
+\end{satz}
+\begin{proof}
+  Seien \( v_1,\dotsc,v_n \) Basis von \( V \) und \( w_1,\dotsc,w_n \) Basis von \( W \) mit dualen Basen \( \dualvector{v_1},\dotsc, \dualvector{v_m} \) und \( \dualvector{w_1},\dotsc, \dualvector{w_n} \). Dann ist \( \dualvector{v_i}\tensorproduct\dualvector{w_j} \), \( \leq i \leq  m\), \( 1\leq j \leq n \) Basis von \( \dualspace{V}\fieldtensorproduct{K}\dualspace{W} \). Sei \( \dualvector+{v_i\tensorproduct w_j}_{\substack{1\leq i\leq m\\ 1\leq j\leq n}} \) die duale Basis zu  \( v_i\tensorproduct w_j \), \( 1\leq i\leq m\), \( 1\leq j\leq n \). Wir berechnen
+  \begin{align*}
+    \alpha(\dualvector{v_i}\tensorproduct \dualvector{w_j})(v_k\tensorproduct w_l)
+    &=\dualvector{v_i}(v_k)\dualvector{w_j}(w_l)\\
+    &=\kroneckerdelta{ik}\kroneckerdelta{jl}\\
+    &=\dualvector+{v_i\tensorproduct w_j}(v_k\tensorproduct w_l),
+  \end{align*}
+  also \( \alpha(\dualvector{v_i}\tensorproduct\dualvector{w_j})=\dualvector+{v_i\tensorproduct w_j} \) und \( \alpha \) Isomorphismus.
+
+  Zur Abbildung \( \beta\): FÜr \( v_k \in V \) gilt, \( 1\leq k\leq m \)
+  \begin{equation*}
+    \beta(\dualvector{v_i}\tensorproduct w_j)(v_k)=\dualvector{v_i}(v_k)w_j.
+  \end{equation*}
+  Die Abbildungen \( \dualvector{v_i}(\cdot)w_j \), \( 1\leq i\leq m \), \( 1\leq j \leq n \), bilden eine Basis von \( \homomorphisms{V}{W} \), also ist \( \beta \) ein Isomorphismus.  
+\end{proof}
+\section{Tensoralgebra}
+\file{Tensoralgebra}
+Sei \( V \) ein \( K \)-Vektorraum, dann ist \( V\fieldtensorproduct{K}V \) selbst wieder \( K \)-Vektorraum, und wir können \( V\fieldtensorproduct{K}(V\fieldtensorproduct{K}V) \) bilden. Sei \( h\maps V\fieldtensorproduct{K}(V\fieldtensorproduct{K}V)\to U \) eine \( K \)-lineare Abbildung in einen \( K \)-Vektorraum \( U \). Betrachte folgendes kommutatives Diagramm. 
 \begin{equation*}
-  F(V\times W)\definedas \bigoplus_{(v,w)\in V\times W}K\cdot \gamma_{(v,w)},
+  \begin{tikzcd}
+    V\times (V\times V)\arrow[r,"{(\Id,\tensorproduct)}"]\arrow[drr,"h_2",OrangeRed]&V\times (V\fieldtensorproduct{K}V)\arrow[r,"\tensorproduct"]\arrow[dr,"h_1",LimeGreen]&V\fieldtensorproduct{K}(V\fieldtensorproduct{K}V)\arrow["h",d]\\
+    &&U
+  \end{tikzcd}
 \end{equation*}
-den freien Vektorraum erzeugt durch \( (v,w)\in V\times W \). Sei \( N(V,W)\subseteq F(V\times W) \) der Untervektorraum aufgespannt durch die Elemente.  
-\begin{gather*}
-  \gamma_{(\lambda v_1+\mu v_2,w)}-\lambda \gamma_{(v_1,w)}-\mu \gamma_{(v_2,w)}\\
-  \gamma_{(v,\lambda w_1+\mu w_2)}-\lambda \gamma_{(v,w_1)}-\mu \gamma_{v,w_2}
-\end{gather*}
-für \( \lambda,\mu\in K \), \( v_1,_2\in V \), \( w,w_1+w_2\in W \). Sei
+mit \( \textcolor{LimeGreen}{h_1=H\circ \tensorproduct} \), \( \textcolor{OrangeRed}{h_2=h_1\circ (\Id,\tensorproduct)} \). Dann ist \( h_1  \) bilinear, und \( h_2 \) linear in jeder Komponente, \dh für \( v_1,v_2\in V \) sind die Abbildungen \( h_2(v_1,v_2,\cdot), h_2(v_1,\cdot,v_2), h_2(\cdot,v_1,v_2)\maps V\to U \) linear.
+\begin{frage*}
+  Gibt es einen \enquote{universellen} Vektorraum \( W \), sodass jede multilineare Abbildung
+  \begin{equation*}
+    \varphi\maps V_1\times \dotsb \times V_k\to U
+  \end{equation*}
+  eindeutig über \( W \) faktorisiert?
+  \begin{equation*}
+    \begin{tikzcd}
+      V_1\times \dotsb\times V_k\arrow[r,OrangeRed]\arrow[dr,"\varphi"]&\textcolor{OrangeRed}{W}\arrow[d,"f",green]\\
+      &U.
+    \end{tikzcd}
+  \end{equation*}
+\end{frage*}
+\begin{definition*}
+  Seien \( V_1,\dotsc,V_k,W \) \( K \)-Vektorräume und
+  \begin{equation*}
+    \varphi\maps V_1\times \dotsb\times V_k\to W
+  \end{equation*}
+  eine Abbildung. Wir nennen \( \varphi \) multilinear, wenn für jedes \( 1\leq i\leq k \) und für beliebige Elemente \( v_j\in V_j \), \( j\neq i \), die Abbildung
+  \begin{align*}
+    \varphi(v_1,\dotsc,v_{i-1},\cdot,v_{i+1},\dotsc,v_k)\maps V_i&\to W\\
+    v_i&\mapsto \varphi(v_1,\dotsc,v_k)
+  \end{align*}
+  \( K \)-linear ist.
+\end{definition*}
+\begin{beispiel*}
+  Sei \( V_i=K^n \), \( 1\leq i\leq n \). Dann ist die Abbildung
+  \begin{align*}
+    \varphi\maps \overbrace{V_1\times \dotsb\times V_n}^{=\sqmatrices{n}{K}}&\to K\\
+    (\explain{\text{Spaltenvektoren}}{\underline{x_1}},\dotsc,\underline{x_n})&\mapsto \determinant{(\underline{x_1},\dotsc,\underline{x_n})}
+  \end{align*}
+  multilinear.
+\end{beispiel*}
+\begin{bemerkung*}
+  Ist \( \eta\maps V_1\times \dotsb \times V_k\to W \) multilinear und \( f\maps W\to U \) linear für \( K \)-Vektorräume \( V_1,\dotsc,V_k,W,U \), so ist die Abbildung
+  \begin{equation*}
+    f\circ \eta\maps V_1\times \dotsb\times V_k\to U
+  \end{equation*}
+  wieder multilinear.
+\end{bemerkung*}
+\begin{definition*}
+  Seien \( V_1,\dotsc,V_k \) \( K \)-Vektorräume. Wir sagen, dass eine multilineare Abbildung
+  \begin{equation*}
+    \eta\maps V_1\times \dotsb V_k\to W
+  \end{equation*}
+  in einen \( K \)-Vektorraum \( W \) die universelle Eigenschaft \tensorproperty hat, falls es für jede multilineare Abbildung
+  \begin{equation*}
+    \varphi\maps V_1\times \dotsb\times V_k\to U
+  \end{equation*}
+  genau eine lineare Abbildung \( f\maps W\to U \) gibt mit \( \varphi=f\circ \eta \).
+  \begin{equation*}
+    \begin{tikzcd}
+      V_1\times \dotsb\times V_k\arrow[LimeGreen,r,"\eta"]\arrow[dr,"\varphi"]&\textcolor{LimeGreen}{W}\arrow[d,OrangeRed,"\existsone f"]\\
+      &U.
+    \end{tikzcd}
+  \end{equation*}
+\end{definition*}
+\begin{satz}\label{mehrdimensionales_tensorprodukt}
+  Seien \( V_1,\dotsc,V_k \) \( K\)-Vektorräume. Dann gibt es einen bis auf Isomorphie eindeutig bestimmten \( K \)-Vektorraum \( V\tensorproduct \dotsb \tensorproduct V_k \) mit einer multilinearen Abbildung
+  \begin{equation*}
+    \tensorproduct \maps V_1\times \dotsb \times V_k\to V_1\fieldtensorproduct{K} \dotsb \fieldtensorproduct{K}V_k,
+  \end{equation*}
+  welche die universelle Eigenschaft \tensorproperty hat.
+
+  Ist \( \dim{V_i}<\infty \), \( 1\leq i\leq k \), und sind \( v_1^{(i)},\dotsc,v_{n_i}^{(i)} \) Basen von \( V_i \) für \( 1\leq i\leq k \), so bilden die Elemente \( \tensorproduct\p*{v_{j_1}^{(1)},\dotsc,v_{j_k}^{(k)}} \) mit \( 1\leq j_i\leq n_i \) eine Basis von \( V_1\fieldtensorproduct{K}\dotsb\fieldtensorproduct{K}V_k \). Insbesondere gilt
+  \begin{equation*}
+    \dim{V_1\fieldtensorproduct{K}\dotsb\fieldtensorproduct{K}V_k}=\prod_{i=1}^{k}\dim{V_i}.
+  \end{equation*}
+\end{satz}
+\begin{bemerkungen*}
+  \begin{enumerate}
+    \item Wir nennen den bis auf Isomorphie eindeutig bestimmten \( K \)-Vektorraum \( V_1\fieldtensorproduct{K}\dotsb \fieldtensorproduct{K}V_k \) aus \thref{mehrdimensionales_tensorprodukt} das Tensorprodukt aus \( V_1,\dotsc,V_k \) und schreiben
+    \begin{equation*}
+      v_1\tensorproduct \dotsb\tensorproduct v_k=\tensorproduct(v_1,\dotsc,v_k)
+    \end{equation*}
+    für \( v_i\in V_i \), \( 1\leq i\leq k \)l.
+    \item Beweis geht analog zum Fall \( k=2 \). Verwende im Fall \( \dim{V_i}<\infty \), \( 1\leq i\leq k \), dass jede multilineare ABbildung
+    \begin{equation*}
+      \varphi\maps V_1\times\dotsb\times V_k\to U
+    \end{equation*}
+    eindeutig bestimmt ist durch die Bilder
+    \begin{equation*}
+      \varphi\p*{v_{j_1}^{(1)},\dotsc,v_{j_k}^{(k)}}\quad 1\leq j_i\leq n_i.
+    \end{equation*}
+  \end{enumerate}
+\end{bemerkungen*}
+\begin{beispiel*}
+  Sei \( K \) ein Körper und \( V_i=\polynomials{K}{t} \), \( 1\leq i\leq  k\). Dann ist 
+  \begin{equation*}
+    \polynomials{K}{t}\fieldtensorproduct{K}\dotsb\fieldtensorproduct{K}\polynomials{K}{t}\simeqq \polynomials{K}{t},
+  \end{equation*}
+  wobei
+  \begin{equation*}
+    t^{i_1}\tensorproduct \dotsb\tensorproduct t^{i_k}\mapsto t_1^{i_1}\cdot t_2^{i_2}\dotsm t_k^{i_k}.
+  \end{equation*}
+\end{beispiel*}
+\begin{lemma}\label{multidimensionales_tensorprodukt_isomorphismen}
+  Seien \( U,V,W \) \( K \)-Vektorräume. Dann gibt es einen Isomorphismus
+  \begin{equation}
+    \begin{split}
+      f\maps U\fieldtensorproduct{K} V\fieldtensorproduct{K}W\to^{\sim}(U\fieldtensorproduct{K}V)\fieldtensorproduct{K}W
+    \end{split}
+  \end{equation}
+  mit der Eigenschaft
+  \begin{equation*}
+    f(u\tensorproduct v\tensorproduct w)=(u\tensorproduct v)\tensorproduct w\quad \forall u\in U,\logicspace v\in V,\logicspace w\in W.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Die Abbildungen
+  \begin{align*}
+    U\times V\times W&\to (U\fieldtensorproduct{K}V)\fieldtensorproduct{K}W\\
+    (u,v,w)&\mapsto (u\tensorproduct v)\tensorproduct w\quad \forall u\in U,\logicspace v\in V,\logicspace w\in W
+  \end{align*}
+  ist multilinear, also gibt es genau eine lineare Abbildung
+  \begin{equation*}
+    f\maps U\fieldtensorproduct{K} V\fieldtensorproduct{K} W\to (U\fieldtensorproduct{K}V)\fieldtensorproduct{K}W
+  \end{equation*}
+  mit 
+  \begin{equation*}
+    f(u\tensorproduct v\tensorproduct w)=(u\tensorproduct v)\tensorproduct w\quad \forall u\in U,\logicspace v\in V,\logicspace w\in W.
+  \end{equation*}
+  Füt \( w\in W \) ist die Abbildung
+  \begin{align*}
+    \alpha_w\maps U\times V&\to U\fieldtensorproduct{K}V\fieldtensorproduct{K}W\\
+    (u,v)&\mapsto U\tensorproduct v\tensorproduct w
+  \end{align*}
+  bilinear, also gibt es eine lineare Abbildung
+  \begin{equation*}
+    g_w\maps U\fieldtensorproduct{K}V\to U\fieldtensorproduct{K}V\fieldtensorproduct{K}W
+  \end{equation*}
+  mit
+  \begin{equation*}
+    g_w(u\tensorproduct v)=u\tensorproduct v \tensorproduct v \tensorproduct w\quad \forall \in U.
+  \end{equation*}
+  Die Abbildung
+  \begin{align*}
+    \varphi\maps (U\fieldtensorproduct{K}V)\times &\to U\fieldtensorproduct{K}V\fieldtensorproduct{K}W\\
+    (u\tensorproduct v,w)\mapsto g_w(u\tensorproduct v)
+  \end{align*}
+  ist bilinear, induziert also eine lineare Abbildung
+  \begin{equation*}
+    g\maps (U\fieldtensorproduct{K} V)\fieldtensorproduct{K} W\to U\fieldtensorproduct{K} V \fieldtensorproduct{K} W
+  \end{equation*}
+  mit der Eigenschaft
+  \begin{equation*}
+    g\p*{(u\tensorproduct v)\tensorproduct w}=g_w(u\tensorproduct v)=u\tensorproduct v\tensorproduct w\quad \forall u\in U,\logicspace v\in V,\logicspace w\in W.
+  \end{equation*}
+  Also ist
+  \begin{align*}
+    f\circ g&=\Id_{(U\fieldtensorproduct{K})\fieldtensorproduct{W}}\\
+    g\circ f&=\Id_{U\fieldtensorproduct{K}V\fieldtensorproduct{K}W}
+  \end{align*}
+  und \( f,g \) sind inverse Isomorphismen.
+  
+\end{proof}
+\begin{bemerkungen*}
+  \begin{enumerate}
+    \item Die Abbildung \( f \) aus \thref{multidimensionales_tensorprodukt_isomorphismen} ist eindeutig bestimmt.
+    \item Etwas Allgemeiner gilt: Sind \( V_1,\dotsc, V_{k+l} \) \( K \)-Vektorräume, dann gibt es einen eindeutig bestimmten Isomorphismus
+    \begin{equation*}
+      f\maps V_1\fieldtensorproduct{K}\dotsb\fieldtensorproduct{K}V_{k+l}\to (V_1\fieldtensorproduct{K} \dotsb \fieldtensorproduct{K} V_k)\fieldtensorproduct{K}(V_{k+1}\fieldtensorproduct{K}\dotsb\fieldtensorproduct{K}V_{k+1})
+    \end{equation*}
+    mit
+    \begin{equation*}
+      f(v_1\tensorproduct \dotsb \tensorproduct v_{k+l})=(v_1\tensorproduct \dotsb \tensorproduct v_k)\tensorproduct (v_{k+1}\tensorproduct \dotsb \tensorproduct v_{k+1})\quad \forall v_i\in V_i,\logicspace 1\leq i\leq k+l.
+    \end{equation*}
+  \end{enumerate}
+\end{bemerkungen*}
+\begin{notation*}
+  Für \( k\geq 2 \) und \( V \) ein \( K \)-Vektorraum schreiben wir \( \p*{\tensorproduct^k V,\tensorproduct} \) für das Tensorprodukt
+  \begin{equation*}
+    \braceannotate{\text{\( k \) Faktoren}}{V\times \dotsb \times V}\to^{\tensorproduct}\braceannotate{\tensorproduct^k V}{V\fieldtensorproduct{K}\dotsb \fieldtensorproduct{K}V}.
+  \end{equation*}
+  Wir setzen \( \tensorproduct^1\definedas V \), \( \tensorproduct^0 V\definedas K \). Für \( k,l\geq 0 \) gibt es eine eindeutig bestimmte bilineare Abbildung
+  \begin{align*}
+    \tensorproduct^k V\times \tensorproduct^l V&\to \tensorproduct^{k+l}V\\
+    (v_1\tensorproduct \dotsb \tensorproduct v_k,v_{k+1}\tensorproduct\dotsb \tensorproduct v_{k+l})&\mapsto v_1\tensorproduct \dotsb \tensorproduct v_{k+l}\quad \forall v_i\in V  \logicspace 1\leq i\leq k+l.
+  \end{align*}
+\end{notation*}
+\begin{idee*}
+  Konstruiere einen \( K \)-Vektorraum erzeugt durch Tensoren \( v_1 \tensorproduct \dotsb \tensorproduct v_k\), für \( k\geq 1 \), in dem man Tensoren \( v_1\tensorproduct \dotsb \tensorproduct v_k \) und \( v_{k+1}\tensorproduct \dotsb \tensorproduct v_{k+1} \) \enquote{multiplizieren} kann. 
+\end{idee*}
+\begin{definition*}
+  Für einen \( K \)-Vektorraum \( V \) definieren wir
+  \begin{equation*}
+    T(V)\definedas \bigoplus_{k=0}^\infty \tensorproduct^k V
+  \end{equation*}
+  als direkte Summe der \( K \)-Vektorraum \( \tensorproduct^k V \) und nennen \( T(V) \) die \emph{Tensoralgebra} von \( V \).
+\end{definition*}
+\begin{bemerkung*}
+  Elemente in \( T(V) \) haben die Form
+  \begin{equation*}
+    (x_0,x_1,x_2,\dotsc)\in \bigoplus_{k=0}^{\infty} \tensorproduct^k V
+  \end{equation*}
+  mit \( x_k\in \tensorproduct^k  \), \( k\geq 0 \) und \( x_n=0 \) für \( n\geq N \) mit einem \( N\in \naturals \). Die Abbildung 
+  \begin{align*}
+    \iota\maps \tensorproduct^k V&\to T(V)\\
+    x&\mapsto (0,\dotsc,0,\explain{\text{\( k+1 \)-te Stelle}}{x},0,\dotsc)
+  \end{align*}
+  nennen wir kanonische Einbettung des \( \tensorproduct^k V \) in die Tensoralgebra \( T(V) \). Es gilt dann
+  \begin{equation*}
+    T(V)=\sum_{k=0}^{\infty}\braceannotate{\subseteq T(V)}{\iota\p*{\tensorproduct^k V}}.
+  \end{equation*}
+  Wir schreiben auch
+  \begin{equation*}
+    T(V)=\sum_{k=0}^{\infty}\tensorproduct^k V.
+  \end{equation*}
+\end{bemerkung*}
+\begin{definition*}
+  Wir definieren eine bilineare Abbildung
+  \begin{align*}
+    \beta\maps T(V)\times T(V)&\to T(V)\\
+    \p*{\p*{x_k}_{k\geq 0},\p=*{y_k}_{k\geq 0}}&\mapsto \sum_{k,l\geq 0}x_k \tensorproduct y_k.
+  \end{align*}
+\end{definition*}
+\begin{beispiele*}
+  \begin{enumerate}
+    \item Sei \( \dim{V}=n \) und \( v_1,\dotsc,v_n \) Basis on \( V \). Dann ist
+    \begin{equation*}
+      v_{i_1}\tensorproduct \dotsb \tensorproduct v_{i_k}\logicspace 1\leq i_1,\dotsc,i_k\leq n
+    \end{equation*}
+    Basis von \( \tensorproduct^k V \) und \( \dim{\tensorproduct^k V}=n^k \). Sein \( \noncommutativepolynomials{K}{t_1,\dotsc, t_n} \) der Polynomring in den nicht-kommutativen Variablen \( t_1,\dotsc,t_n \).  Dann ist
+    \begin{align*}
+      T(V)&\to \noncommutativepolynomials{K}{t_1,\dotsc,t_n}\\
+      v_{i_1}\tensorproduct\dotsb \tensorproduct v_{i_k}&\mapsto t_{i_1}t_{i_2}\dotsm t_{i_n}
+    \end{align*}
+    ein Isomorphismus von \( K \)-Vektorräumen.
+    \item Sei \( V=K \). Dann ist
+    \begin{equation*}
+      \dim{\tensorproduct^k V}=\p*{\fielddim{K}{K}}^k=1
+    \end{equation*}
+    und die Abbildung
+    \begin{align*}
+      T(K)&\to \polynomials{K}{t}\\
+      \braceannotate{\text{\( k \)-fach}}{1\tensorproduct\dotsb \tensorproduct 1}&\mapsto t^k
+    \end{align*}
+    ein Isomorphismus von \( K \)-Vektorräume.
+  \end{enumerate}
+\end{beispiele*}
+\begin{definition*}
+  Sei \( A \) ein \( K \)-Vektorraum über einem Körper mit einer bilinearen Abbildung \( A\times A\to A \). Dann nennen wir \( A \) eine \( K \)-Algebra.
+\end{definition*}
+\begin{beispiel*}
+  \begin{itemize}
+    \item Die Tensoralgebra \( T(V) \) ist eine \( K \)-Algebra mit der bilinearen Abbildung
+    \begin{equation*}
+      \beta\maps T(V)\times T(V)\to T(V).
+    \end{equation*}
+    \item \( \polynomials{K}{t} \) mit bilinearer Abbildung
+    \begin{align*}
+      \polynomials{K}{t}\times \polynomials{K}{t}&\to \polynomials{K}{t}\\
+      (P(t),Q(t))&\mapsto P(t)Q(t)
+    \end{align*}
+    \item \( \sqmatrices{n}{K} \) mit Matrixmultiplikation als bilinearer Abbildung.
+  \end{itemize}
+\end{beispiel*}

@@ -127,8 +127,8 @@
   \end{equation*}
   und sei \( f\maps T\to U \) die eindeutig bestimmte lineare Abbildung mit \( f(\tau_{ij})=u_{ij} \quad \forall (i,j)\in I\times J\). Seien \( v\in  \), \( w\in W \) und schreibe 
   \begin{align*}
-    v&=\sum_{i\in I}'\lambda_i v_i\\
-    w&=\sum_{j\in J}'\mu_j w_j
+    v&={\sum_{i\in I}}'\lambda_i v_i\\
+    w&={\sum_{j\in J}}'\mu_j w_j
   \end{align*}
   mit \( \lambda_i,\mu_j\in K \), \( i\in I \), \( j\in J \). Dann gil
   \begin{align*}
@@ -201,7 +201,7 @@
   \begin{equation*}
     v_1\tensorproduct v_2+v_2\tensorproduct v_1=v\tensorproduct w
   \end{equation*}
-  mit \( v,w\in V \). Schreibe \( v=\sum_{i=1}^{n}\lambda_i _i \), \( w=\sum_{j=1}^{n}\mu_j v_j \). Dann ist
+  mit \( v,w\in V \). Schreibe \( v=\sum_{i=1}^{n}\lambda_i v_i \), \( w=\sum_{j=1}^{n}\mu_j w_j \). Dann ist
   \begin{align*}
     v_1\tensorproduct _2+v_2\tensorproduct v_1=\tensorproduct \p*{\sum_{i=1}^{n}\lambda_i v_i, \sum_{j=1}^{n}\mu_j v_j}\\
     &=\sum_{i=1}^{n}\sum_{j=1}^{n}\lambda_i \mu_j v_i\tensorproduct v_j.
@@ -228,7 +228,7 @@ Die Elemente \( v_i\tensorproduct v_j \), \( 1\leq i,j\leq n \), bilden eine Bas
   \begin{equation*}
     \tensorproduct\maps V\times W\to V\fieldtensorproduct{K} W,
   \end{equation*}
-  \( v_1,\dotsc,v_n\in V \), \( w_1,\dotsc,w_n\in W \) und \( v_1,\otsc,v_n \) linear unabhängig mit
+  \( v_1,\dotsc,v_n\in V \), \( w_1,\dotsc,w_n\in W \) und \( v_1,\dotsc,v_n \) linear unabhängig mit
   \begin{equation*}
     \sum_{i=1}^{n}v_i\tensorproduct w_i=0
   \end{equation*}
@@ -267,3 +267,78 @@ Die Elemente \( v_i\tensorproduct v_j \), \( 1\leq i,j\leq n \), bilden eine Bas
   \end{equation*}
   und \( v\in V\setminus \zeroset \), \( w\in W\setminus \zeroset  \). Dann ist \( v\tensorproduct w\neq 0 \) in \( V\tensorproduct W \).
 \end{korollar}
+\subsection*{Eine alternative Konstruktion des Tensorprodukts}
+Seien \( V,W \) \( K \)-Vektorräume. Definiere
+\begin{equation*}
+  \freevectorspace{V\times W}\definedas \bigoplus_{(v,w)\in V\times W}K\cdot \gamma_{(v,w)},
+\end{equation*}
+den freien Vektorraum erzeugt durch \( (v,w)\in V\times W \). Sei \( N(V,W)\subseteq F(V\times W) \) der Untervektorraum aufgespannt durch die Elemente
+\begin{gather*}
+  \gamma_{(\lambda v_1+\mu v_2,w)}-\lambda \gamma_{(v_1,w)}-\mu \gamma_{(v_2,w)}\\
+  \gamma_{(v,\lambda w_1+\mu w_2)}-\lambda \gamma_{(v,w_1)}-\mu \gamma_{v,w_2}
+\end{gather*}
+für \( \lambda,\mu\in K \), \( v_1,_2\in V \), \( w,w_1+w_2\in W \). Sei
+\begin{equation*}
+  T\definedas\quotient{\freevectorspace{V\times W}}{N(V,W)}
+\end{equation*}
+und
+\begin{equation*}
+  \pi \definedas \freevectorspace{V\times W}\to T
+\end{equation*}
+die Projektionsabbildung.
+
+Definiere
+\begin{align*}s
+  \eta\maps V\times W&\to T\\
+  (v,w)&\mapsto \pi(\gamma_{(v,w)}).
+\end{align*}
+\begin{behauptung}
+  \( \eta \) ist bilinear.
+\end{behauptung}
+Sei \( w\in W \) fest, \( v_1,v_2\in V \), \( \lambda,\mu\in K \). Dann gilt
+\begin{align*}
+  \eta(\lambda v_1+\mu v_2,w)&=\pi\p*{\gamma_{(\lambda v_1+\mu v_2 ,w)}}\\
+  &=\pi\p[Big]{\braceannotate{\in N(V,W)}{\gamma_{(\lambda v_1+\mu v_2,w)}-\lambda \gamma_{(v_1,w)}-\mu\gamma_{(v_2,w)}}+\lambda \gamma_{(v_1,w)}+\mu\gamma_{(v_2,w)}}\\
+  &=\pi\p*{\lambda \gamma_{(v_1,w)}+\mu\gamma_{(v_2,w)}}
+  &=\lambda\pi\p*{\gamma_{(v_1,w)}}+\mu \pi\p*{\gamma_{(v_2,w)}}\\
+  &=\lambda \eta(v_1,w)+\mu \eta(v_2,w).
+\end{align*}
+Ebenso ist \( \eta \) im zweiten Argument linear.
+\begin{behauptung*}
+  Die Abbildung
+  \begin{equation*}
+    \eta\maps V\times W\to T
+  \end{equation*}
+  hat die universelle Eigenschaft \tensorproperty. Sei \( \varphi\maps V\times W\to U \) eine bilineare Abbildung in einen \( K \)-Vektorraum \( U \). Sei
+  \begin{equation*}
+    g\maps \freevectorspace{V\times W}\to U
+  \end{equation*}
+  die eindeutig bestimmte lineare Abbildung mit
+  \begin{equation*}
+    g\p*{\gamma_{(v,w)}}=\phi(v,w)\quad \forall (v,w)\in V\times W.
+  \end{equation*}
+  Da \( \varphi \) bilinear ist, folgt
+  \begin{equation*}
+    N(V,W)\subseteq \Kern{g}.
+  \end{equation*}
+  Also induziert \( g  \) eine Abbildung
+  \begin{equation*}
+    \bar{g}\maps \quotient{\freevectorspace{V\times W}}{N(V,W)}\to U
+  \end{equation*}
+  und das Diagramm
+  \begin{equation*}
+    \begin{tikzcd}
+      V\times W\arrow["\eta",r]\arrow[dr,"\varphi"]& \overbrace{\quotient{\freevectorspace{V\times W}}{N(V,W)}}^T\arrow["\bar{g}",d]\\
+      &U
+    \end{tikzcd}
+  \end{equation*}
+  kommutiert, denn für \( (v,w)\in V\times W \) ist
+  \begin{equation*}
+    \bar{g}(\eta(v,w))=\bar{g}\p*{\pi\p*{\gamma_{(v,w)}}}=\gamma\p*{\gamma_{(v,w)}}=\varphi(v,w).
+  \end{equation*}
+  Sei \( f\maps T\to U \) eine weiter \( K \)-lineare Abbildung mit \( f\circ \eta=\varphi \). Dann ist
+  \begin{equation*}
+    \phi(v,w)=f\p*{\pi\p*{\gamma_{(v,w)}}}\quad \forall (v,w)\in V\times W.
+  \end{equation*}
+  Die Elemente \( \pi\p*{\gamma_{(v,w)}} \) erzeugen \( T \) für \( (v,w)\in V\times W \), also ist \( f \) eindeutig bestimmt.
+\end{behauptung*}

@@ -1,4 +1,4 @@
-% \includeonly{lec_24}
+% \includeonly{lec_25}
 
 \documentclass[numberindividually, numberwithin=section, empheqoverload,filemanagement]{hrflecture}
 \renewcommand*{\sectionformat}{\textsection\thesection\autodot\enskip}
@@ -10,7 +10,7 @@
 \DeclarePairedDelimiterXPP{\aglacoursematrices}[3]{\Mat_{#1\times #2}}{\lparen}{\rparen}{}{#3}
 \let\matrices\aglacoursematrices
 
-\DeclareMathOperatorWithDelimiter-{\aglacoursetranspose}[1,1]{\vphantom{#1}^t}{\lparen}{\rparen}{#1}
+\DeclareFunction-{\aglacoursetranspose}[1,1]{\vphantom{#1}^t} {#1}
 \let\transpose\aglacoursetranspose
 
 \newtheorem{beweisbehauptung}{Behauptung}[satz]
@@ -76,6 +76,7 @@ Nicht von Professor Schindler durchgesehene Mitschrift, keine Garantie auf Richt
 \include{lec_22}
 \include{lec_23}
 \include{lec_24}
+\include{lec_25}
 % End of lectures
 
 \end{document}

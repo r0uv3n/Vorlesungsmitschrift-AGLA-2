@@ -1,2 +1,262 @@
 % !TEX root = ./Vorlesungsmitschrift AGLA 2.tex  
 \lecture{Di 16.07. 10:15}{}
+\section{Das äußere Produkt}
+\file{Ausseres Produkt}
+\begin{beispiel*}
+  Die Abbildung
+  \begin{align*}
+    \braceannotate{\text{\( n \)-fach}}{K^n\times\dotsb\times K^n}&\to K\\
+    (\explain{\text{Spaltenvektoren}}{x_1},\dotsc,\underline{x_n})&\mapsto \determinant{(\underline{x_1},\dotsc,\underline{x_n})}
+  \end{align*}
+  ist multilinear und hat zusätzlich die Eigenschaft
+  \begin{equation*}
+    \determinant{(\underline{x}_{\sigma(1)},\dotsc,\underline{x}_{\sigma(n)})}=\signature{\sigma}\determinant{(\underline{x}_1,\dotsc,\underline{x}_n)}
+  \end{equation*}
+  für jede Permutation
+  \begin{equation*}
+    \sigma\in \permutations{n}=\set{\text{Permutationen auf \( \set{1,\dotsc,n} \)}}.
+  \end{equation*}
+  Insbesondere ist
+  \begin{equation*}
+    \determinant{(\underline{x_1},\dotsc,\underline{x_n})}=0,
+  \end{equation*}
+  falls \( \underline{x_i}=\underline{x_j} \) für ein Tupel \( i\neq j \).
+\end{beispiel*}
+\begin{definition*}
+  Seien \( V,W \) \( K \)-Vektorräume und \( \varphi\maps V^k\to W\) eine multilineare Abbildung. Wir nennen \( \varphi \) \emph{alternierend}, falls
+  \begin{equation*}
+    \varphi(v_1,\dotsc,v_k)=0
+  \end{equation*}
+  für alle \( (v_1,\dotsc,v_k)\in V^k \) mit \( v_i=v_j \) für ein Tupel \( i\neq j \).
+\end{definition*}
+\begin{lemma}
+  Sei \( \varphi\maps V^k\to W \) eine multilineare Abbildung und \( \characteristic{K}\neq 2 \).
+
+  Dann ist \( \varphi \) alternierend genau dann, wenn
+  \begin{equation*}
+    \varphi(v_{\sigma(1)},\dotsc,v_{\sigma(k)})=\signature{\sigma}\varphi(v_1,\dotsc,v_k)\tag{*}\label{eq:alternierend_alt_definition}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  Sei \( \varphi \) alternierend und \( \sigma\in S_n \).
+
+  \( S_n \) ist durch Transpositionen erzeugt, es genügt also \( \eqref{eq:alternierend_alt_definition} \) für \( \sigma=\tau_{ij} \) eine Transposition nachzuweisen.
+
+  Hier ist
+  \begin{equation*}
+    \tau_{ij}(k)=\begin{cases}
+      k&k\not \in \set{i,j}\\
+      j&k=i\\
+      i&k=j
+    \end{cases}
+  \end{equation*}
+  für \( i\neq  j \).
+
+  Da \( \varphi \) alternierend ist gilt
+  \begin{align*}
+    &\rphantom{=}\braceannotate{=0}{\varphi(v_1,v_2,\dotsc,v_i,\dotsc,v_i,\dotsc,v_n)}+\varphi(v_1,v_2,\dotsc,v_i,\dotsc,v_j,\dotsc,v_n)+\varphi(v_1,v_2,\dotsc,v_j,\dotsc,v_i,\dotsc,v_n)+\braceannotate{=0}{\varphi(v_1,v_2,\dotsc,v_j,\dotsc,v_j,\dotsc,v_n)}\\
+    &\varphi(v_1,v_2,\dotsc,v_i+v_j,\dotsc,v_i+v_j,\dotsc,v_n)=0
+  \end{align*}
+  und \eqref{eq:alternierend_alt_definition} gilt für \( \sigma=\tau_{ij} \).
+  
+  Sei \( \varphi \) nun eine multilineare Abbildung, sodass \eqref{eq:alternierend_alt_definition} gilt, \( (v_1,\dotsc,v_k)\in V^k \) mit \( v_i=v_j \) für ein Tupel \( i\neq j \). Dann ist
+  \begin{equation*}
+    \varphi(v_1,\dotsc,v_i,\dotsc,v_i,\dotsc,v_n)=\frac{1}{2}\p*{\varphi(v_1,\dotsc,v_i,\dotsc,v_j,\dotsc,v_n)+\varphi(v_1,\dotsc,v_j,\dotsc,v_i,\dotsc,v_n)}=\frac{1}{2}=\frac{1}{2}\braceannotate{\text{\( =0 \) nach \eqref{eq:alternierend_alt_definition}}}{\p*{\varphi(v_1,\dotsc,v_n)+\varphi(v_{\tau_{ij}(1)},\dotsc,v_{\tau_{ij}(n)})}}=0.
+  \end{equation*}
+\end{proof}
+\begin{frage*}
+  Sei \( V \) ein \( K \)-Vektorraum und \( k\geq 2 \). Gibt es eine alternierende multilineare Abbildung \( \eta\maps V^k\to W \), sodass jede alternierende multilineare Abbildung \( \varphi\maps V^k\to U \) auf eindeutige Weise über \( W \) faktorisiert?
+  \begin{equation*}
+    \begin{tikzcd}
+      V^k\arrow[OrangeRed,"\eta",r]\arrow[dr,"\varphi"]&\textcolor{OrangeRed}{W}\arrow[d,LimeGreen,"\existsone f \text{ linear}"]\\
+      &U.
+    \end{tikzcd}
+  \end{equation*}
+\end{frage*}
+\begin{idee*}
+  Ist \( \varphi \) multilinear, dann faktorisiert \( \varphi \) über das Tensorprodukt \( \tensorproduct^k V \).
+  \begin{equation*}
+    \begin{tikzcd}
+      V^k\arrow[r,"\tensorproduct"],\arrow[dr,"\varphi"]&\tensorproduct^k V\arrow[d,"f \text{ linear}"]\\
+      &U.
+    \end{tikzcd}
+  \end{equation*}
+  Ist \( \varphi \) alternierend, so liegen alle Tensoren \( v_1\tensorproduct \dotsb\tensorproduct v_k \) mit \( v_i\in V \), \( 1\leq i\leq k \), und \( v_i=v_j \) für ein Tupel \( i\neq j \) im Kern von \( f \).
+\end{idee*}
+\begin{definition*}
+  Sei \( A^k(V)\subseteq \tensorproduct^k V \) der \( K \)-Untervektorraum erzeugt durch die Tensoren \( v_1\tensorproduct \dotsb \tensorproduct v_k \) mit \( (v_1,\dotsc, v_k)\in V^k \) und \( v_i=v_j \) für ein Tupel \( i\neq j \).
+\end{definition*}
+\begin{bemerkung*}
+  Ist \( \varphi\maps V^k\to U \) eine alternierende multilineare Abbildung, dann \texists lineare Abbildung
+  \begin{equation*}
+    \bar{f}\maps \quotient{\tensorproduct^k V}{A^k(V)}\to U,
+  \end{equation*}
+  sodass das Diagramm 
+  \begin{equation*}
+    \begin{tikzcd}
+      V^k \arrow[drr,"\varphi"],\arrow[r,"\tensorproduct"]&\tensorproduct^k V\arrow[r,"\pi"]\arrow[dr,LimeGreen,"f \text{ linear}"]&\quotient{\tensorproduct^k V}{A^k(V)}\arrow[d,OrangeRed,"\bar{f}"]\\
+      &&U
+    \end{tikzcd}
+  \end{equation*}
+  kommutiert.
+\end{bemerkung*}
+\begin{definition*}
+  Sei \( V \) ein \( K \)-Vektorraum und \( k\geq 1 \). Wir setzen
+  \begin{equation*}
+    \bigwedge^k V\definedas\quotient{\tensorproduct^k V}{A^k(V)}
+  \end{equation*}
+  und nennen \( \bigwedge^k V \) das \( k \)-fache äußere Produkt von \( V \).
+
+  Setze \( \bigwedge^0 V\definedas K \). Wir schreiben
+  \begin{equation*}
+    \wedge \maps V^k\to \bigwedge^k 
+  \end{equation*}
+  für die Verkettung \( \wedge =\pi\circ \tensorproduct \) mit
+  \begin{equation*}
+    \pi\maps \tensorproduct^k \to \quotient{\tensorproduct^k V}{A^k(V)}
+  \end{equation*}
+  der Projektionsabbildung.
+
+  Für \( v_1,\dotsc,v_k\in V \) schreiben wir auch
+  \begin{equation*}
+    v_1\wedge \dotsb \wedge v_k=\wedge(v_1,\dotsc,v_k).
+  \end{equation*}
+\end{definition*}
+\begin{bemerkung*}
+  Die Abbildung \( \wedge \maps V^k\to \bigwedge^k  \) ist multilinear und alternierend.
+\end{bemerkung*}
+\begin{satz}
+  Sei \( V \) ein \( K \)-Vektorraum und \( k\geq 1 \). Sei \( \varphi\maps V^k\to W \) eine alternierende multilineare Abbildung.
+
+  Dann gibt es genau eine lineare Abbildung \( f\maps \bigwedge^k V\to W \) mit \( \varphi=f\circ \wedge \), \dh sodass das Diagramm
+  \begin{equation*}
+    \begin{tikzcd}
+      V_k\arrow[r,"\wedge"]\arrow[dr,"\varphi"]&\bigwedge^k V\arrow[LimeGreen,d,"\existsone f"]\\
+      &W
+    \end{tikzcd}
+  \end{equation*}
+  kommutiert.
+\end{satz}
+\begin{proof}
+  Sei \( \tilde{f}\maps \tensorproduct^k V\to W \) die lineare Abbildung mit \( \varphi=\tilde{f}\circ \tensorproduct \). Es ist
+  \begin{equation*}
+    \tilde{f}(v_1\tensorproduct \dotsb\tensorproduct v_k)=\varphi(v_1,\dotsc,v_k)=0
+  \end{equation*}
+  für alle \( (v_1,\dotsc,v_k)\in V^k \) mit \( v_i=v_j \) für ein Tupel \( i\neq j \).
+
+  Also induziert \( \tilde{f} \) eine Abbildung
+  \begin{equation*}
+    f\maps \quotient{\tensorproduct^k V}{A^k(V)}\to W
+  \end{equation*}
+  mit \( \varphi=f\circ \wedge \).
+
+  Sei \( g\maps \bigwedge^k \to W \) eine weitere lineare Abbildung mit
+  \begin{equation*}
+    \varphi=g\circ\wedge.
+  \end{equation*}
+  Dann ist
+  \begin{equation*}
+    f(\pi(v_1\tensorproduct \dotsb\tensorproduct v_k))\explain{\varphi=f\circ \wedge}{=}\varphi(v_1,\dotsc , v_k)\explain{\varphi=g\circ \wedge}{=}f(\pi(v_1\tensorproduct \dotsb \tensorproduct v_k))\quad  \forall v_1,\dotsc,v_k\in V
+  \end{equation*}
+  und \( f=g \), da die Bilder
+  \begin{equation*}
+    \pi(v_1\tensorproduct \dotsb \tensorproduct v_k),\quad v_1,\dotsc,v_k\in V,
+  \end{equation*}
+  den \( K \)-Vektorraum \( \bigwedge^k V \) erzeugen.
+\end{proof}
+\begin{beispiel*}
+  Sei \( V=K^2 \) und \( k=2 \). Sei \( e_1=(1,0) \) und \( e_2=(0,1) \). Dann sind \( e_1\tensorproduct e_1 \), \( e_1\tensorproduct e_2 \), \( e_2\tensorproduct e_1 \), \( e_2\tensorproduct e_2 \) Basis von \( K^2\fieldtensorproduct{K}K^2 \) und erzeugen damit auch \( \bigwedge^2 L^2 \). In \( \bigwedge^2 K^2 \) ist \( e_1\wedge e_1=0=e_2\wedge e_2 \) und
+  \begin{equation*}
+    e_1\wedge e_2=\wedge(e_1,e_2)=-\wedge(e_2,e_1)=-e_2\wedge e_1,
+  \end{equation*}
+  Also ist \( \bigwedge^2 K^2=\fieldspan-{K}{e_1\wedge e_2} \). Es ist \( \bigwedge^2K^2\neq 0 \), da \zb 
+  \begin{align*}
+    \determinant\maps K^2\times K^2&\to K\\
+    (\underline{x},\underline{y})&\mapsto \determinant{(\underline{x},\underline{y})}
+  \end{align*}
+  nicht identisch null ist.
+
+  Also ist \( e_1\wedge e_2 \) Basis von \( \bigwedge^2 K^2 \). \( \bigwedge^3 K^2 \) ist erzeugt durch
+  \begin{equation*}
+    \pi(e_i\tensorproduct e_j \tensorproduct e_k),\quad i,j,k\in \set{1,2}
+  \end{equation*}
+  also \( \bigwedge^3K^2=0 \).
+\end{beispiel*}
+\begin{satz}
+  Sei \( V \) ein \( K \)-Vektorraum mit \( \dim{V}=n<\infty \), und \( v_1,\dotsc,v_n\in V \) Basis von \( V \). Sei \( 1\leq k \leq n\). Dann ist
+  \begin{equation*}
+    v_{i_1}\wedge \dotsb \wedge v_{i_k},\quad 1\leq i_1<i_2<\dotsb<i_k\leq n
+  \end{equation*}
+  Basis von \( \bigwedge^k V \) und 
+  \begin{equation*}
+    \dim{\bigwedge^k V}=\binom{n}{k}.
+  \end{equation*}
+  Für \( k>n \) ist \( \bigwedge^k V=0 \).
+\end{satz}
+\begin{proof}
+  Für \( k=1 \) ist
+  \begin{equation*}
+    \bigwedge^1 V=\tensorproduct^1 V=V\logicspace \checkmark.
+  \end{equation*}
+  Sei \( k\geq 2 \). DieElemente \( v_{i_1}\wedge\dotsb\wedge v_{i_k} \) mit \( 1\leq i_1,\dotsb,i_k\leq n \) erzeugen \( \bigwedge^k V \). Für \( k>n \) muss in jedem der Produkte \( v_{i_1}\wedge \dotsb \wedge v_{i_k} \) mindestens ein Index \( j\in \set{1,\dotsc, n} \) mindestens zweimal auftauchen, also
+  \begin{equation*}
+    v_{i_1}\wedge\dotsb\wedge v_{i_k}=0\quad \forall 1\leq i_1,\dotsc,i_k\leq n.
+  \end{equation*}
+  Sei \( 2\leq k \leq n\). Die Elemente
+  \begin{equation*}
+    v_{i_1}\wedge \dotsb \wedge v_{i_k},\quad 1\leq i_1<\dotsb<i_k\leq n
+  \end{equation*}
+  spannen \( \bigwedge^k V \) auf. 
+  
+  Wir zeigen, dass diese in \( \bigwedge^k V \) linear unabhängig sind. Wir definieren eine Abbildung
+  \begin{align*}
+    \tilde{\alpha}\maps V^k&\to \tensorproduct^k V\\
+    (w_1,\dotsc,w_k)&\mapsto \sum_{\sigma\in \permutations{k}}\signature{\sigma}w_{\sigma(1)}\tensorproduct \dotsb \tensorproduct w_{\sigma(k)}.
+  \end{align*}
+  \( \tilde{\alpha} \) ist multilinear und alternierend, also gibt es eine lineare Abbildung \( \alpha\maps \bigwedge^k V\to \tensorproduct^k V \) mit 
+  \begin{equation*}
+    \alpha(w_1\wedge \dotsb \wedge w_k)=\sum_{\sigma\in \permutations{k}}=\signature{\sigma}w_{\sigma(1)}\tensorproduct \dotsb \tensorproduct w_{\sigma(k)}\quad \forall w_1,\dotsb,w_k\in V.
+  \end{equation*}
+  Sei
+  \begin{equation*}
+    w=\sum_{\mathclap{1\leq i_1<\dotsb<i_k\leq n}}a_{i_1,\dotsc,i_k}v_{i_1}\wedge \dotsb \wedge v_{i_k}\in \bigwedge^k(V)
+  \end{equation*}
+  mit \( a_{i_1,\dotsc,i_k}\in K \), \( 1\leq i_1<\dotsb<i_k\leq n \) und \( \alpha(w)=0 \). Dann ist
+  \begin{equation*}
+    0=\sum_{\sigma\in \permutations{k}}\signature{\sigma}\sum_{\mathclap{1\leq i_1<\dotsb <i_k\leq n}}a_{i_1,\dotsc i_k}v_{\sigma(i_1)\tensorproduct \dotsb \tensorproduct v_{\sigma(i_k)}}
+  \end{equation*}
+  mit \( \sigma\maps \set{i_1,\dotsc,i_k}\to \set{i_1,\dotsc,i_k} \). Die Elemente
+  \begin{equation*}
+    v_{j_1}\tensorproduct \dotsb v_{j_k},\quad 1\leq j,\dotsc,j_k\leq n
+  \end{equation*}
+  sind eine Basis von \( \tensorproduct^k  \), also folgt
+  \begin{equation*}
+    a_{i_1,\dotsc,i_k}=0\quad \forall 1\leq i_1<i_2<\dotsb<i_k\leq n.
+  \end{equation*}
+  Damit ist die Familie
+  \begin{equation*}
+    v_{i_1}\wedge \dotsb\wedge v_{i_k}\quad 1\leq i_1<i_2<\dotsb <i_k\leq n
+  \end{equation*}
+  linear unabhängig und eine Basis von \( \bigwedge^k V \).
+  
+\end{proof}
+\begin{bemerkung*}
+  Ist \( \dim{V}=n \), dann ist \( \bigwedge^k V\simeq K \) als \( K \)-Vektorraum. Jede alternierende multilineare Abbildung
+  \begin{equation*}
+    \varphi\maps V^n \to K
+  \end{equation*}
+  faktorisiert über \( \bigwedge^n V \), \dh 
+  \begin{equation*}
+    \begin{tikzcd}
+      V^n\arrow[r,"\wedge"]\arrow[dr,"\varphi"]&\bigwedge^n V\arrow[d,"f"]\\
+      &K.
+    \end{tikzcd}
+  \end{equation*}
+  Die lineare Abbildung \( f\maps \bigwedge^n V\to K \) ist eindeutig bestimmt durch \( f(v_1\wedge \dotsb \wedge v_n)\in K \), falls \( v_1,\dotsc, v_n \) Basis von \(  \) ist. Zwei multilineare alternierende Abbildung \( \varphi,\psi\maps V^n \to K \) unterscheiden sich also nur durch eine Konstante.
+\end{bemerkung*}
+\begin{korollar*}
+  Sei \( \varphi\maps \braceannotate{\text{\( k \)-fach}}{K^n\times\dotsb \times K^n}\to K \) eine alternierende multilineare Abbildung. Dann gibt es \( \lambda\in K \) mit
+  \begin{equation*}
+    \varphi(\underline{x_1},\dotsc ,\underline{x_N})=\lambda+ \determinant{(\underline{x_1},\dotsc,\underline{x_n})}\quad \forall \underline{x_1},\dotsc,\underline{x_n}\in K^n.
+  \end{equation*}
+\end{korollar*}
